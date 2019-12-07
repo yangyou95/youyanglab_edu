@@ -17,7 +17,7 @@ h4.display-4 {
 }
 
 button {
-	border-radius:20px;
+	border-radius:25px;
 	padding:0.6em 5em;
 	border:none;
 	background-color:#8080FF;
@@ -86,10 +86,13 @@ body {
 
 .bk1 {
     border-radius:15px;
-    box-shadow:0 6px 12px 6px rgba(0,0,0,0.24);
     margin:5% 7% 5% 3%;
     padding:10% 10% 10% 10%;
     background-color:white;
+}
+
+.bk1:hover {
+    box-shadow:0 6px 12px 6px rgba(0,0,0,0.24);
 }
 
 .bk1 button {
@@ -102,6 +105,7 @@ body {
     border:2px solid #8080FF;
     background-color:#8080FF;
     color:white;
+    box-shadow:none;
 }
 
 .part5 {
