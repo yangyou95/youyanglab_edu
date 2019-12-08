@@ -1,3 +1,4 @@
+
 .navbar-brand {
 	font-size:2.5em;
 }
@@ -69,7 +70,7 @@ button:hover {
 }
 
 body {
-    background-image:url('montain.jpeg');
+    background-image:url('./images/montain.jpeg');
     background-repeat:no-repeat;
     background-position:100% 0;
 }
@@ -140,7 +141,7 @@ body {
 }
 
 .part6 {
-    background-image:url('montain.jpeg');
+    background-image:url('./images/montain.jpeg');
     background-repeat:no-repeat;
     background-position:center bottom;
 }

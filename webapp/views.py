@@ -36,9 +36,24 @@ from .models import Question, Choice
 #     question = get_object_or_404(Question, pk=question_id)
 #     return render(request, 'webapp/results.html', {'question': question})
 
+
+def index(request):
+    # latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    # context = {'latest_question_list': latest_question_list}
+    # context['variable'] = "传递参数测试"
+    # return render(request, 'webapp/index.html', context)
+
+    return render(request, 'webapp/index.html')
+
+
+
 #改良后
-class IndexView(generic.ListView):
-    template_name = 'webapp/index.html'
+# class IndexView(generic.ListView):
+#     template_name = 'webapp/index.html'
+#     # context_object_name = 'latest_question_list'
+
+class QuestionsView(generic.ListView):
+    template_name = 'webapp/questions.html'
     context_object_name = 'latest_question_list'
 
     def get_queryset(self):
