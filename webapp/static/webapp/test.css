@@ -70,7 +70,7 @@ button:hover {
 }
 
 body {
-    background-image:url('./images/montain_1.jpeg');
+    background-image:url('./images/Bg_Shape_1.png');
     background-repeat:no-repeat;
     background-position:100% 0;
 }
@@ -141,7 +141,7 @@ body {
 }
 
 .part6 {
-    background-image:url('./images/montain.jpg');
+    background-image:url('./images/cloud.png');
 		/* width: 100%; */
     background-repeat:no-repeat;
     background-position:center bottom;
