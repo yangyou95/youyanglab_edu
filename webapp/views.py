@@ -45,6 +45,8 @@ def index(request):
 
     return render(request, 'webapp/index.html')
 
+def course(request):
+    return render(request, 'webapp/course.html')
 
 
 #改良后

@@ -1,0 +1,78 @@
+.navbar-brand {
+	font-size:2.5em;
+}
+
+.nav-link {
+	font-size:1.5em;
+}
+
+.navbar.navbar-expand-md.navbar-light {
+	box-shadow:0 0 12px 0 rgba(0,0,0,0.24);
+}
+
+.p1 {
+    text-align:center;
+    background-color:rgba(230,230,250,0.8);
+    padding:5% 5% 2% 5%;
+}
+
+.part1 {
+    background-color:#CFCFEF;
+    padding-top:5%;
+    padding-bottom:5%;
+}
+
+.lt {
+    text-align:left;
+    width:50%;
+    display:inline-block;
+}
+
+.rt {
+    text-align:right;
+    display:inline-block;
+}
+
+.lt, .rt {
+    padding-top:5%;
+    padding-bottom:5%;
+}
+
+.lt span, .rt span {
+    font-size:0.5em;
+    font-weight:bold;
+    color:gray;
+}
+
+.b1 {
+    width:100%;
+    font-size:1.2em;
+    font-weight:bolder;
+    border-radius:10px;
+    border:3px solid #8080FF;
+    background-color:#8080FF;
+    color:white;
+    padding-top:2%;
+    padding-bottom:2%;
+}
+
+button:hover {
+    box-shadow:0 6px 12px 6px rgba(0,0,0,0.24);
+    -webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+}
+
+.p2 {
+    line-height:2em;
+    padding-left:5%;
+    padding-top:1%;
+}
+
+.p2 p, a {
+    color:#708090;
+}
+
+.p2 a:hover {
+    color:white;
+}
+
