@@ -136,5 +136,5 @@ STATIC_URL = '/static/'
 # PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR,'/webapp/static/'),
+    os.path.join(BASE_DIR,'webapp/static/'),
 )
