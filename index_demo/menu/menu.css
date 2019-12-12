@@ -76,3 +76,47 @@ button:hover {
     color:white;
 }
 
+.part2 {
+    margin-top:3%;
+}
+
+.nb {
+    display:inline-block;
+    background-color:#CFCFEF;
+    font-size:1.5em;
+    font-weight:bolder;
+    padding:0.25% 1.25% 0.25% 1.25%;
+    border-radius:10px;
+    vertical-align:middle;
+}
+
+.intro {
+    display:inline-block;
+    padding-left:2%;
+    vertical-align:middle;
+}
+
+.con {
+    box-shadow:0 6px 6px 6px rgba(0,0,0,0.1);
+    text-align:center;
+    margin-left:2%;
+    margin-right:2%;
+    padding:8% 3% 5% 3%;
+}
+
+.con:hover {
+    box-shadow:0 2px 2px 2px rgba(0,0,0,0.1);
+}
+
+.con p {
+    margin-top:5%;
+}
+
+.bk {
+    margin-top:2%;
+}
+
+.part2 a:hover {
+    text-decoration:none;
+    color:black;
+}
