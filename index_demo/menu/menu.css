@@ -85,9 +85,11 @@ button:hover {
     background-color:#CFCFEF;
     font-size:1.5em;
     font-weight:bolder;
-    padding:0.25% 1.25% 0.25% 1.25%;
+    width:40px;
+    height:38px;
     border-radius:10px;
     vertical-align:middle;
+    text-align:center;
 }
 
 .intro {
@@ -101,7 +103,9 @@ button:hover {
     text-align:center;
     margin-left:2%;
     margin-right:2%;
+    margin-bottom:5%;
     padding:8% 3% 5% 3%;
+    height:320px;
 }
 
 .con:hover {
@@ -119,4 +123,33 @@ button:hover {
 .part2 a:hover {
     text-decoration:none;
     color:black;
+}
+
+.c {
+    margin-top:5%;
+}
+
+.t3 {
+    font-size:2.5em;
+}
+
+.part6 {
+    background-image:url('montain.jpeg');
+    background-repeat:no-repeat;
+    background-position:center bottom;
+    margin-top:8%;
+}
+
+.textf {
+    padding:200px 0 0 0;
+    color:white;
+}
+
+.textf a {
+    decoration:none;
+    color:white;
+}
+
+.row.textf {
+    margin-bottom:0;
 }
