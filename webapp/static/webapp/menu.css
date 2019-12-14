@@ -134,7 +134,7 @@ button:hover {
 }
 
 .part6 {
-    background-image:url('montain.jpeg');
+    background-image:url('./images/cloud.png');
     background-repeat:no-repeat;
     background-position:center bottom;
     margin-top:8%;
