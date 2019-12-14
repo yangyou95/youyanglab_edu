@@ -16,71 +16,256 @@
 
 <body>
 
-<!-- 导航栏 -->
-<nav class="navbar navbar-expand-md navbar-light">
-  <a class="navbar-brand" href="#">优扬实验室.</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">首页</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">课程</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">注册</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">登录</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+  <! --导航栏-->
+  <nav class="navbar navbar-expand-md navbar-light">
+    <a class="navbar-brand" href="#">优扬实验室.</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">首页</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">课程</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">注册</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">登录</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-<div class="part1">
+  <div class="part1">
 
-  <div class="container">
+    <div class="container">
 
-    <div class="row">
+      <div class="row">
 
-      <!-- 图片窗口 -->
-      <div class="col-md-4 col-12 p1">
-        <img class="img-fluid" src="{% static "webapp/images/img1.png" %}" alt="img1">
-        <div class="lt">
-          <h3>12&nbsp<span>个模块</span></h3>
+        <! --图片窗口-->
+        <div class="col-md-4 col-12 p1">
+          <img class="img-fluid" src="img1.png" alt="img1">
+          <div class="lt">
+            <h3>12&nbsp<span>个模块</span></h3>
+          </div>
+          <div class="rt">
+            <h3>12&nbsp<span>节课</span></h3>
+          </div>
+          <div>
+            <a href="#"><button class="b1">开始学习 !</button></a>
+          </div>
         </div>
-        <div class="rt">
-          <h3>12&nbsp<span>节课</span></h3>
-        </div>
-        <div>
-          <a href="#"><button class="b1">开始学习 !</button></a>
-        </div>
-      </div>
 
-       <! --简介-->
-      <div class="col-md-8 col-12 p2">
-        <a href="#">返回上一页</a>
-        <h1>PYTHON</h1>
-        <p>这里是一段简要课程介绍!</p>
-        <p>这里是详细的课程介绍. It covers liar and truth-teller riddles, logical fallacies, machine logic, and even some strategic game theory!<br>
-  By the end of this course, you’ll be able to solve problems involving AND, NOT, and XOR logic gates, and use the symbolic languages of logic to understand fun riddles.</p>
+         <! --简介-->
+        <div class="col-md-8 col-12 p2">
+          <a href="#">返回上一页</a>
+          <h1>PYTHON</h1>
+          <p>Stretch your analytic muscles with knights, knaves, logic gates, and more!</p>
+          <p>Our logic course starts with a love of puzzles and builds up to some truly mind-bending challenges. It covers liar and truth-teller riddles, logical fallacies, machine logic, and even some strategic game theory!<br>
+    By the end of this course, you’ll be able to solve problems involving AND, NOT, and XOR logic gates, and use the symbolic languages of logic to understand fun riddles.</p>
+        </div>
+
       </div>
 
     </div>
 
   </div>
 
-</div>
+  <div class="part2">
 
-<div class="part2">
+    <div class="container">
 
+      <! --第一行-->
 
+      <div class="row c">
 
-</div>
+        <div class="col-md-12 col-12">
 
-</body>
+          <div class="nb">1</div>
 
-</html>
+          <div class="intro">
+            <h3>Introduction</h3>
+            <p>Put your logic to the test with these warmups!</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="row bk">
+
+        <div class="col-md-4 col-12">
+          <a href="#">
+            <div class="con">
+              <img class="img-fluid" src="img2.png" alt="img2">
+              <p>我想着要不把章节标题做进上面的图片里，就不在文字部分加标题了 aaaaaaaaaaaaaaaaaaaaa</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-4 col-12">
+          <a href="#">
+            <div class="con">
+              <img class="img-fluid" src="img2.png" alt="img2">
+              <p>什么是变量 ? 我也不知道...</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-4 col-12">
+          <a href="#">
+            <div class="con">
+              <img class="img-fluid" src="img2.png" alt="img2">
+              <p>什么是变量 ? 我也不知道...</p>
+            </div>
+          </a>
+        </div>
+
+      </div>
+
+      <! --第二行-->
+
+      <div class="row c">
+
+        <div class="col-md-12 col-12">
+
+          <div class="nb">2</div>
+
+          <div class="intro">
+            <h3>Introduction</h3>
+            <p>Put your logic to the test with these warmups!</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="row bk">
+
+        <div class="col-md-4 col-12">
+          <a href="#">
+            <div class="con">
+              <img class="img-fluid" src="img2.png" alt="img2">
+              <p>什么是变量 ? 我也不知道...</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-4 col-12">
+          <a href="#">
+            <div class="con">
+              <img class="img-fluid" src="img2.png" alt="img2">
+              <p>什么是变量 ? 我也不知道...</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-4 col-12">
+          <a href="#">
+            <div class="con">
+              <img class="img-fluid" src="img2.png" alt="img2">
+              <p>什么是变量 ? 我也不知道...</p>
+            </div>
+          </a>
+        </div>
+
+      </div>
+
+      <! --第三行-->
+
+      <div class="row c">
+
+        <div class="col-md-12 col-12">
+
+          <div class="nb">3</div>
+
+          <div class="intro">
+            <h3>Introduction</h3>
+            <p>Put your logic to the test with these warmups!</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="row bk">
+
+        <div class="col-md-4 col-12">
+          <a href="#">
+            <div class="con">
+              <img class="img-fluid" src="img2.png" alt="img2">
+              <p>什么是变量 ? 我也不知道...</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-4 col-12">
+          <a href="#">
+            <div class="con">
+              <img class="img-fluid" src="img2.png" alt="img2">
+              <p>什么是变量 ? 我也不知道...</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-4 col-12">
+          <a href="#">
+            <div class="con">
+              <img class="img-fluid" src="img2.png" alt="img2">
+              <p>什么是变量 ? 我也不知道...</p>
+            </div>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="part6">
+
+        <div class="container">
+
+          <div class="row textf">
+
+            <div class="col-md-4 col-12">
+
+              <p class="t3">优扬实验室.</p>
+              <h2>自古英雄出少年</h2>
+              <br><br>
+
+            </div>
+
+            <div class="col-md-4 col-12">
+
+              <a href="#"><p>关于我们</p></a>
+              <a href="#"><p>主页</p></a>
+              <a href="#"><p>账户</p></a>
+              <a href="#"><p>管理</p></a>
+              <br><br>
+
+            </div>
+
+            <div class="col-md-4 col-12">
+
+              <h3>联系我们</h3>
+              <br><a href="#"><p>000-000-0000</p></a>
+              <a href="#"><p>info@email.com</p></a>
+              <br><a href="#"><p>帅气的扬扬</p></a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  </body>
+
+  </html>
