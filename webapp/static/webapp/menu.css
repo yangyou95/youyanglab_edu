@@ -76,3 +76,80 @@ button:hover {
     color:white;
 }
 
+.part2 {
+    margin-top:3%;
+}
+
+.nb {
+    display:inline-block;
+    background-color:#CFCFEF;
+    font-size:1.5em;
+    font-weight:bolder;
+    width:40px;
+    height:38px;
+    border-radius:10px;
+    vertical-align:middle;
+    text-align:center;
+}
+
+.intro {
+    display:inline-block;
+    padding-left:2%;
+    vertical-align:middle;
+}
+
+.con {
+    box-shadow:0 6px 6px 6px rgba(0,0,0,0.1);
+    text-align:center;
+    margin-left:2%;
+    margin-right:2%;
+    margin-bottom:5%;
+    padding:8% 3% 5% 3%;
+    height:320px;
+}
+
+.con:hover {
+    box-shadow:0 2px 2px 2px rgba(0,0,0,0.1);
+}
+
+.con p {
+    margin-top:5%;
+}
+
+.bk {
+    margin-top:2%;
+}
+
+.part2 a:hover {
+    text-decoration:none;
+    color:black;
+}
+
+.c {
+    margin-top:5%;
+}
+
+.t3 {
+    font-size:2.5em;
+}
+
+.part6 {
+    background-image:url('montain.jpeg');
+    background-repeat:no-repeat;
+    background-position:center bottom;
+    margin-top:8%;
+}
+
+.textf {
+    padding:200px 0 0 0;
+    color:white;
+}
+
+.textf a {
+    decoration:none;
+    color:white;
+}
+
+.row.textf {
+    margin-bottom:0;
+}
