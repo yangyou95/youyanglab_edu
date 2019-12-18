@@ -134,11 +134,21 @@ button:hover {
 }
 
 .part6 {
-    background-image:url('montain.jpeg');
+    background-image:url('cloud.png');
     background-repeat:no-repeat;
     background-position:center bottom;
     margin-top:8%;
 }
+
+ @media screen and (max-width: 450px) {
+        .part6 {
+            background-image:url('cloud.png');
+            background-repeat:no-repeat;
+            background-position:center bottom;
+            margin-top:8%;
+            background-size:5000px 8000px;
+        }
+        }
 
 .textf {
     padding:200px 0 0 0;
