@@ -1,0 +1,33 @@
+.leftside, .rightside {
+  height: 100vh;
+  /* 100vh指的是全部的竖直高度 */
+  width:100%;
+}
+
+@media screen and (max-width: 768px) {
+			 .leftside, .rightside {
+				height: 50vh;
+			 }
+ }
+
+
+.leftside{
+  background: #f7f7f8;;
+}
+
+.rightside{
+  background:#ecedef;;
+}
+
+
+.navbar-brand {
+	font-size:2em;
+}
+
+.nav-link {
+	font-size:1.5em;
+}
+
+.navbar.navbar-expand-md.navbar-light {
+	box-shadow:0 0 12px 0 rgba(0,0,0,0.24);
+}
