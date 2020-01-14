@@ -48,6 +48,9 @@ def index(request):
 def course(request):
     return render(request, 'webapp/course.html')
 
+def detailpage(request):
+    return render(request, 'webapp/detailpage.html')
+
 
 #改良后
 # class IndexView(generic.ListView):

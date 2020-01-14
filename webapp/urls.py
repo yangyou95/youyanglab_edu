@@ -17,6 +17,7 @@ urlpatterns = [
     #改良后
     path('', views.index, name='index'),
     path('course/', views.course, name='course'),
+    path('detailpage/',views.detailpage, name = 'detailpage'),
     path('questions/', views.QuestionsView.as_view(), name='questions'),
     path('questions/<int:pk>/', views.DetailView.as_view(), name='detail'),
     path('questions/<int:pk>/results/', views.ResultsView.as_view(), name='results'),

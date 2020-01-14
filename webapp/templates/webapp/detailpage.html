@@ -1,13 +1,10 @@
-{% load staticfiles %}
-
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>具体内容页</title>
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "webapp/detailpage.css" %}" type="text/css">
   </head>
   <body>
 
@@ -54,7 +51,7 @@
           </div>
 
           <div class="con">
-            <img class="img-fluid" src="./images/img1.png" alt="img2">
+            <img class="img-fluid" src="{% static "webapp/images/img10.png" %}" alt="img2">
             <p>章节：  章节内容</p>
           </div>
 
