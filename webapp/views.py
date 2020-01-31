@@ -1,9 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 # from django.template import loader
 from django.urls import reverse
 from django.views import generic
-
+from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 from .models import Question, Choice
 
@@ -50,6 +50,16 @@ def course(request):
 
 def detailpage(request):
     return render(request, 'webapp/detailpage.html')
+
+def registerView(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login_url')
+    else:
+        form = UserCreationForm()
+    return render(request, 'webapp/register.html',{'form':form})
 
 
 #改良后

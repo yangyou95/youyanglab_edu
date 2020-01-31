@@ -1,5 +1,6 @@
 from django.urls import path
 from .import views
+from django.contrib.auth.views import LoginView
 
 # 在每个应用里，规定命名空间app_name，防止其他应用里也有同名的视图
 app_name = 'webapp'
@@ -22,4 +23,8 @@ urlpatterns = [
     path('questions/<int:pk>/', views.DetailView.as_view(), name='detail'),
     path('questions/<int:pk>/results/', views.ResultsView.as_view(), name='results'),
     path('questions/<int:question_id>/vote/', views.vote, name='vote'),
+
+#     注册登录
+    path('register/',views.registerView, name = "register_url"),
+    path('login/',LoginView.as_view(), name = "login_url" ),
 ]
