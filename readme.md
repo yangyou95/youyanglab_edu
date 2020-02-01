@@ -48,7 +48,7 @@
 
 ## 4. Django使用手册
 ### 前端Render文件的位置及索引
-1. 前端html文件放在“根目录/webapp/templates/webapp"里
+1. 前端html文件放在“根目录/webapp/templates/webapp"里, 在html文件中引入静态库tag **{% load static %}**
 2. 前端文件的css，放在“根目录/webapp/static/webapp"里, 在html文件中以 **href="{% static "webapp/css文件名.css" %}"** 方式索引
 3. 前端的图片文件，放在“根目录/webapp/static/webapp/images"里，同理索引图片
 ### Render的后端逻辑程序
