@@ -52,4 +52,5 @@
 2. 前端文件的css，放在“根目录/webapp/static/webapp"里, 在html文件中以 **href="{% static "webapp/css文件名.css" %}"** 方式索引
 3. 前端的图片文件，放在“根目录/webapp/static/webapp/images"里，同理索引图片
 ### Render的后端逻辑程序
-1. 定义url，
+1. 定义url，在“根目录/webapp/urls.py"里, 定义方式如 **path('userpage/',views.userpage, name = "user_url")**
+2. 定义模型文件，在“根目录/webapp/views.py"里，简单方式用函数即可，return一个针对前端html页面的render。

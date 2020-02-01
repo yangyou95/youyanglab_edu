@@ -19,7 +19,7 @@
 
  @media screen and (max-width: 450px) {
         .part6 {
-            background-image:url('cloud.png');
+            background-image:url('./images/cloud.png');
             background-repeat:no-repeat;
             background-position:center bottom;
             background-size:5000px 8000px;
