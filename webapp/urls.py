@@ -27,4 +27,5 @@ urlpatterns = [
 #     注册登录
     path('register/',views.registerView, name = "register_url"),
     path('login/',LoginView.as_view(), name = "login_url" ),
+    path('userpage/',views.userpage, name = "user_url")
 ]

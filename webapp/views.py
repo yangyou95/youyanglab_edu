@@ -61,6 +61,9 @@ def registerView(request):
         form = UserCreationForm()
     return render(request, 'webapp/register.html',{'form':form})
 
+def userpage(request):
+    return render(request, 'webapp/usr.html')
+
 
 #改良后
 # class IndexView(generic.ListView):

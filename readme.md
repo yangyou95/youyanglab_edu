@@ -39,9 +39,17 @@
 
 ## 3. 项目进度
 ### 尤扬
- 
+
 * 完成了简单用户注册的逻辑程序
 
 ### 许人文
 
 * 完成了个人中心页面设计
+
+## 4. Django使用手册
+### 前端Render文件的位置及索引
+1. 前端html文件放在“根目录/webapp/templates/webapp"里
+2. 前端文件的css，放在“根目录/webapp/static/webapp"里, 在html文件中以 **href="{% static "webapp/css文件名.css" %}"** 方式索引
+3. 前端的图片文件，放在“根目录/webapp/static/webapp/images"里，同理索引图片
+### Render的后端逻辑程序
+1. 定义url，
