@@ -54,3 +54,9 @@
 ### Render的后端逻辑程序
 1. 定义url，在“根目录/webapp/urls.py"里, 定义方式如 **path('userpage/',views.userpage, name = "user_url")**
 2. 定义模型文件，在“根目录/webapp/views.py"里，简单方式用函数即可，return一个针对前端html页面的render。
+
+
+### 本地端编译
+1. Python3 环境
+2. Python3 环境下 安装django，django_heroku
+3. 在项目根目录下打开终端，输入python3 manange.py runserver，即可在本地端调试网站程序
