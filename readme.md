@@ -60,3 +60,9 @@
 1. Python3 环境
 2. Python3 环境下 安装django，django_heroku
 3. 在项目根目录下打开终端，输入python3 manange.py runserver，即可在本地端调试网站程序
+4. 注意需要在本地PATH中添加SECRET_KEY的变量
+
+### 相关BUG解决
+1. 针对django_heroku库的无法安装
+    - 解决办法，终端输入 sudo apt install libpq-dev
+
