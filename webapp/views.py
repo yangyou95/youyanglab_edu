@@ -64,6 +64,14 @@ def registerView(request):
 def userpage(request):
     return render(request, 'webapp/usr.html')
 
+def login(request):
+    return render(request, 'webapp/login.html')
+
+def signup(request):
+    return render(request, 'webapp/signup.html')
+
+def signin(request):
+    return render(request, 'webapp/signin.html')
 
 #改良后
 # class IndexView(generic.ListView):
