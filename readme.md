@@ -66,3 +66,7 @@
 1. 针对django_heroku库的无法安装
     - 解决办法，终端输入 sudo apt install libpq-dev
 
+### 可参考的资料
+1. 用户注册认证逻辑
+  - https://www.jianshu.com/p/502c66aca85d
+
