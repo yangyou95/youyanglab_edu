@@ -73,6 +73,9 @@ def signup(request):
 def signin(request):
     return render(request, 'webapp/signin.html')
 
+def forget(request):
+    return render(request, 'webapp/forget.html')
+
 #改良后
 # class IndexView(generic.ListView):
 #     template_name = 'webapp/index.html'
