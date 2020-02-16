@@ -66,8 +66,13 @@
 1. 针对django_heroku库的无法安装
     - 解决办法，终端输入 sudo apt install libpq-dev
 
-### 可参考的资料
+### 可参考的资料，想法
 1. 用户注册认证逻辑
   - https://www.jianshu.com/p/502c66aca85d
-  
- 
+2. 类似优秀网站
+  - brilliant
+  - https://zzax.io/course/
+3. 管理端需要一个编写文章（课程小节）的网页，其功能包括
+  - 提供按顺序添加标题，文章内容，选择题，图片等选项
+  - 完成后选择加入的课程->章节->小节里
+  - 参考一些教学网站的markown风格样式，pagedown。
