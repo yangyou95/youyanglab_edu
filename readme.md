@@ -78,3 +78,4 @@
   - 提供按顺序添加标题，文章内容，选择题，图片等选项
   - 完成后选择加入的课程->章节->小节里
   - 参考一些教学网站的markown风格样式，pagedown。
+  - 参考https://pandao.github.io/editor.md/
