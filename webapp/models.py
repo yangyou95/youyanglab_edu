@@ -1,6 +1,14 @@
 from django.db import models
 # from DjangoUeditor.models import UeditorField
 from django.utils import timezone
+from django.contrib.auth.models import (
+    BaseUserManager, AbstractBaseUser
+)
+
+
+
+# # My own users
+# class
 
 # Create your models here.
 class Introduction(models.Model):
