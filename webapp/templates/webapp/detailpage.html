@@ -14,17 +14,17 @@
 
 <!-- 导航 -->
     <nav class="navbar navbar-expand-md navbar-light">
-      <a class="navbar-brand" href="{% url 'webapp:index'%}">优扬实验室</a>
+      <a class="navbar-brand" href="#">优扬实验室</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'webapp:index'%}">首页</a>
+            <a class="nav-link" href="#">首页</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'webapp:course'%}">课程</a>
+            <a class="nav-link" href="#">课程</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">注册</a>
@@ -43,8 +43,10 @@
         <div class="leftside">
 
           <div class = "return">
-            <a href="{% url 'webapp:course'%}"><button type="button"> < 返回 </button></a>
-
+            <a href="{% url 'webapp:course'%}">
+              <button type="button">
+              < 返回</button>
+            </a>
           </div>
 
           <div class = "category">
@@ -56,7 +58,7 @@
           </div>
 
           <div class="con">
-            <img class="img-fluid" src="{% static "webapp/images/img10.png" %}" alt="img2">
+
             <p>章节：  章节内容</p>
           </div>
 
@@ -71,10 +73,42 @@
       </div>
 
       <div class="col-md-8 no-gutters">
-        <div class="rightside d-flex justify-content-center align-items-center">
-          <h1>具体课程内容信息</h1>
+
+        <div class="ablock">
+
+            <div class="intro"> <!--每个章节唯一的-->
+
+              <h1>大标题</h1>
+              <p>介绍该章节</p>
+
+            </div>
 
         </div>
+
+        <div class="ablock">
+
+          <div class="content"><!--可添加的-->
+
+            <h1>小标题</h1>
+            <p>内容</p>
+            <img src="#">
+
+          </div>
+
+        </div>
+
+        <div class="ablock">
+
+          <div class="content">
+
+            <h1>小标题</h1>
+            <p>内容</p>
+            <img class="img-fluid" src="{% static "webapp/images/img10.png" %}">
+
+          </div>
+
+        </div>
+
       </div>
 
     </div>
