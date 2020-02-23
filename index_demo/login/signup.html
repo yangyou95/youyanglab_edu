@@ -1,0 +1,66 @@
+{#{% load static from staticfiles %}#}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap demo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0;">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="login.css" type="text/css">
+  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+
+            <! --左图-->
+            <div class="col-md-6 col-0 pic">
+
+
+
+            </div>
+
+            <! --右文-->
+            <div class="col-md-6 col-12">
+
+                <div class="t">
+
+                    <h2><a href="">Log in</a></h2> |
+                    <h2>Sign up</h2>
+
+                </div>
+
+                <div class="form" method="post" action="#">
+
+                    <form class="s">
+
+                        <input class="s" type="email" placeholder="Email"><br>
+                        <input class="top" type="password" placeholder="Password"><br>
+                        <input class="bottom" type="password" placeholder="Confirm your password"><br>
+                        <input class="s" type="text" placeholder="User name">
+                        <input class="s" type="date" placeholder="birthday">
+                        <input type="submit" value="sign up">
+
+                    </form>
+
+                </div>
+
+                <div class="forget">
+
+                    <p><a href="{% url 'webapp:index'%}">取消</a></p>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
