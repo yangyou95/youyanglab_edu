@@ -5,10 +5,71 @@ from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
 
+class UserManager(BaseUserManager):
+    def create_user(self, email, password=None, is_active = True, is_staff = False, is_admin = False):
+        if not email:
+            raise ValueError("用户注册必须输入邮箱")
+        if not password:
+            raise ValueError("用户注册必须输入密码")
+        user_obj = self.model(
+            email = self.normalize_email(email)
+        )
+        user_obj.set_password(password)
+        user_obj.staff = is_staff
+        user_obj.admin = is_admin
+        user_obj.active = is_active
+        user_obj.save(using=self._db)
+        return user_obj
+
+    def create_staffuser(self, email, password=None):
+        user = self.create_user(
+            email,
+            password = password,
+            is_staff=True,
+        )
+
+    def create_superuser(self, email, password=None):
+        user = self.create_user(
+            email,
+            password = password,
+            is_staff = True,
+            is_admin = True,
+        )
 
 
 # # My own users
-# class
+class User(AbstractBaseUser):
+    email = models.EmailField(max_length=255, unique=True)
+    active = models.BooleanField(default = True)
+    staff = models.BooleanField(default = False)
+    admin = models.BooleanField(default = False)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    USERNAME_FIELD ='email'
+    REQUIRED_FIELD = []
+
+    objects = UserManager()
+
+    def __str__(self):
+        return self.email
+
+    @property
+    def is_staff(self):
+        return self.staff
+
+    @property
+    def is_active(self):
+        return self.active
+
+    @property
+    def is_admin(self):
+        return self.admin
+
+# 建立一个个人资料模型，和用户User一一对应
+# class Profile(models.Model):
+#     user = models.OneToOneField(User)
+#
+#
 
 # Create your models here.
 class Introduction(models.Model):
