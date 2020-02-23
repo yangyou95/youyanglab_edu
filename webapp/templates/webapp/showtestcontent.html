@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1> 最近五个发表的文字片段 </h1>
+
+    {% if contents_list %}
+        {% for testcontent in contents_list %}
+            <div class = "card mb-3">
+                <div class = "card-body">
+                    <h2 class = "lead"> {{ testcontent.content}} </h2>
+
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>目前没有文字段落</p>
+    {% endif %}
+{% endblock %}

@@ -98,3 +98,12 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
+
+
+# 存储一段文字的模型
+class Testcontent(models.Model):
+    content = models.CharField(max_length = 200)
+    created_date = models.DateTimeField('Created date')
+
+    # def __str__(self):
+    #     return self.content

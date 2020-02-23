@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.views import generic
 from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
-from .models import Question, Choice
+from .models import Question, Choice, Testcontent
 
 # 提取问题并显示在前端
 
@@ -116,3 +116,12 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse('webapp:results', args=(question.id,)))
+
+# Testcontent模型的显示
+def showtestcontent(request):
+    contents_list = Testcontent.objects.order_by('-created_date')[:5]
+    # context = {'latest_question_list': latest_question_list}
+    # context['variable'] = "传递参数测试"
+    # return render(request, 'webapp/index.html', context)
+
+    return render(request, 'webapp/showtestcontent.html',{'contents_list':contents_list})
