@@ -18,6 +18,7 @@ class UserManager(BaseUserManager):
         user_obj.staff = is_staff
         user_obj.admin = is_admin
         user_obj.active = is_active
+        # user_obj.timestamp = timezone.get_current_timezone_name()
         user_obj.save(using=self._db)
         return user_obj
 
@@ -27,6 +28,7 @@ class UserManager(BaseUserManager):
             password = password,
             is_staff=True,
         )
+        return user
 
     def create_superuser(self, email, password=None):
         user = self.create_user(
@@ -35,6 +37,7 @@ class UserManager(BaseUserManager):
             is_staff = True,
             is_admin = True,
         )
+        return user
 
 
 # # My own users
@@ -43,7 +46,7 @@ class User(AbstractBaseUser):
     active = models.BooleanField(default = True)
     staff = models.BooleanField(default = False)
     admin = models.BooleanField(default = False)
-    timestamp = models.DateTimeField(auto_now_add=True)
+    # timestamp = models.DateTimeField(auto_now_add=True)
 
     USERNAME_FIELD ='email'
     REQUIRED_FIELD = []
@@ -52,6 +55,13 @@ class User(AbstractBaseUser):
 
     def __str__(self):
         return self.email
+
+    def has_perm(self, perm, obj=None):
+        return True
+
+    def has_module_perms(self, app_label):
+        return True
+
 
     @property
     def is_staff(self):

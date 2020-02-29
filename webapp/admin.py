@@ -1,7 +1,7 @@
 from django.contrib import admin
-
+from django.contrib.auth import get_user_model
 # Register your models here.
-from .models import Question, Choice, Introduction
+from .models import Question, Choice, Introduction, Testcontent
 
 admin.site.site_header = "优扬实验室管理后台"
 admin.site.site_title = "优扬实验室后台"
@@ -21,3 +21,4 @@ class QuestionAdmin(admin.ModelAdmin):
 
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Introduction)
+admin.site.register(Testcontent)
