@@ -57,6 +57,11 @@
 1. 定义url，在“根目录/webapp/urls.py"里, 定义方式如 **path('userpage/',views.userpage, name = "user_url")**
 2. 定义模型文件，在“根目录/webapp/views.py"里，简单方式用函数即可，return一个针对前端html页面的render。
 
+### 后端与数据库操作
+1. 数据模型定义在models.py
+2. 前端从数据库中调取数据包括参数传递逻辑在views.py (需要import对应的模型)
+3. 需要在admins.py中import对应模型并register
+
 
 ### 本地端编译
 1. Python3 环境
