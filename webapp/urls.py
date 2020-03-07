@@ -16,7 +16,7 @@ urlpatterns = [
     # path('<int:question_id>/vote/', views.vote, name='vote'),
 
     #改良后
-    path('', views.index, name='index'),
+    path('', views.index, name='home'),
     path('course/', views.course, name='course'),
     path('detailpage/',views.detailpage, name = 'detailpage'),
     path('questions/', views.QuestionsView.as_view(), name='questions'),
@@ -26,7 +26,7 @@ urlpatterns = [
     path('testcontent/', views.showtestcontent, name = 'showtestcontent'),
 
 #     注册登录
-    path('register/',views.registerView, name = "register_url"),
+    path('register/',views.registration_view, name = "register_url"),
     path('login/',LoginView.as_view(), name = "login_url" ),
     path('userpage/',views.userpage, name = "user_url"),
     path('signin/',views.signin, name = "signin"),

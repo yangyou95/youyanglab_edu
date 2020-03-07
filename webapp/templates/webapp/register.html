@@ -3,8 +3,24 @@
 <h1> 注册新账号</h1>
 <form method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
-<button>注册</button>
+    {% for field in registration_form %}
+        <p>
+            {{field.label_tag}}
+            {{field}}
+
+            {% if field.help_text %}
+                <small style="color: grey;">{{field.help_text}}</small>
+            {% endif %}
+
+            {%for error in field.errors %}
+                <small style="color: red;">{{error}}</small>
+            {% endfor %}
+
+
+        </p>
+    {% endfor %}
+
+<button type="submit">注册</button>
 </form>
 
 {% endblock %}

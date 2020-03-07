@@ -3,7 +3,8 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 # from django.template import loader
 from django.urls import reverse
 from django.views import generic
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login as auth_login, authenticate
+from webapp.forms import RegistrationForm
 # Create your views here.
 from .models import Question, Choice, Testcontent
 
@@ -51,15 +52,35 @@ def course(request):
 def detailpage(request):
     return render(request, 'webapp/detailpage.html')
 
-def registerView(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+# def registerView(request):
+#     if request.method == 'POST':
+#         form = UserCreationForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('login_url')
+#     else:
+#         form = UserCreationForm()
+#     return render(request, 'webapp/register.html',{'form':form})
+def registration_view(request):
+    context = {}
+    if request.POST:
+        form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('login_url')
+            email = form.cleaned_data.get('email')
+            raw_password = form.cleaned_data.get('password1')
+            account = authenticate(email=email, password=raw_password)
+            auth_login(request, account)
+            return redirect('webapp/index/')
+        else:
+            context['registration_form'] = form
     else:
-        form = UserCreationForm()
-    return render(request, 'webapp/register.html',{'form':form})
+        form = RegistrationForm()
+        context['registration_form'] = form
+    return render(request, 'webapp/register.html',context)
+
+
+
 
 def userpage(request):
     return render(request, 'webapp/usr.html')
