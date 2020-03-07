@@ -93,6 +93,38 @@
             <p>内容</p>
             <img src="#">
 
+            <div class="choice">
+
+              <button id="a">A</button><br>
+              <button id="b">B</button><br>
+
+              <script type="text/javascript">
+
+                var btnR = document.getElementById("a");
+                var btnB = document.getElementById("b");
+                var rightChoice = "选择正确时出现。";
+                var badChoice = "选择错误时出现。";
+
+                btnR.onclick = function() {
+
+                  document.getElementById('expl').innerHTML = rightChoice;
+                }
+
+                btnB.onclick = function() {
+                  document.getElementById('expl').innerHTML = badChoice;
+                }
+
+
+              </script>
+
+              <div id="expl">
+
+
+              </div>
+
+
+            </div>
+
           </div>
 
         </div>
@@ -112,7 +144,6 @@
       </div>
 
     </div>
-
 
 
   </body>
