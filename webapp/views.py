@@ -61,6 +61,7 @@ def detailpage(request):
 #     else:
 #         form = UserCreationForm()
 #     return render(request, 'webapp/register.html',{'form':form})
+
 def registration_view(request):
     context = {}
     if request.POST:
@@ -71,16 +72,13 @@ def registration_view(request):
             raw_password = form.cleaned_data.get('password1')
             account = authenticate(email=email, password=raw_password)
             auth_login(request, account)
-            return redirect('webapp/index/')
+            return redirect('/webapp')
         else:
             context['registration_form'] = form
     else:
         form = RegistrationForm()
         context['registration_form'] = form
     return render(request, 'webapp/register.html',context)
-
-
-
 
 def userpage(request):
     return render(request, 'webapp/usr.html')
