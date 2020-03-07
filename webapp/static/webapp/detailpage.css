@@ -83,4 +83,23 @@
     padding-bottom:10px;
 }
 
+.choice button {
+	border-radius:20px;
+	padding:0.6em;
+	border:2px solid #8080ff;
+	background-color:white;
+	color:black;
+	margin-top:10px;
+	width:15em;
+}
 
+.choice button:hover {
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	background-color:#8080ff;
+	color:white;
+}
+
+#expl {
+    padding-top:1em;
+}
