@@ -16,7 +16,7 @@ urlpatterns = [
     # path('<int:question_id>/vote/', views.vote, name='vote'),
 
     #改良后
-    path('', views.index, name='home'),
+    path('', views.index, name='index'),
     path('course/', views.course, name='course'),
     path('detailpage/',views.detailpage, name = 'detailpage'),
     path('questions/', views.QuestionsView.as_view(), name='questions'),
