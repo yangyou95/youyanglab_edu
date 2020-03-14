@@ -87,7 +87,22 @@ def login(request):
     return render(request, 'webapp/login.html')
 
 def signup(request):
-    return render(request, 'webapp/signup.html')
+    context = {}
+    if request.POST:
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            email = form.cleaned_data.get('email')
+            raw_password = form.cleaned_data.get('password1')
+            account = authenticate(email=email, password=raw_password)
+            auth_login(request, account)
+            return redirect('/webapp')
+        else:
+            context['registration_form'] = form
+    else:
+        form = RegistrationForm()
+        context['registration_form'] = form
+    return render(request, 'webapp/signup.html',context)
 
 def signin(request):
     return render(request, 'webapp/signin.html')
@@ -144,3 +159,4 @@ def showtestcontent(request):
     # return render(request, 'webapp/index.html', context)
 
     return render(request, 'webapp/showtestcontent.html',{'contents_list':contents_list})
+

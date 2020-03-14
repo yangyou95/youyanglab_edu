@@ -71,24 +71,21 @@ a:hover {
     color:#cfcfef;
 }
 
-.top {
+#id_password1 {
     margin:0;
     border-radius:6px 6px 0 0;
     border:1px solid #C0C0C0;
 }
 
-.bottom {
+#id_password2 {
     border-radius:0 0 6px 6px;
     border:1px solid #C0C0C0;
 }
 
-input.s {
+.s input {
     border:1px solid #C0C0C0;
 }
 
-form.s {
-    padding-bottom:24px;
-    }
 
 body {
 	background-image:url('./images/bkg_login.png');

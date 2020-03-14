@@ -37,15 +37,27 @@
 
                 </div>
 
-                <div class="form" method="post" action="#">
+                <div class="form">
 
-                    <form class="s">
+                    <form class="s" method="POST">
 
-                        <input class="s" type="email" placeholder="Email"><br>
-                        <input class="top" type="password" placeholder="Password"><br>
-                        <input class="bottom" type="password" placeholder="Confirm your password"><br>
-                        <input class="s" type="text" placeholder="User name">
-                        <input class="s" type="date" placeholder="birthday">
+                        {% csrf_token %}
+                        {% for field in registration_form %}
+
+                            {{field}}
+
+                    <!--            {% if field.help_text %}-->
+                    <!--                <small style="color: grey;">{{field.help_text}}</small>-->
+                    <!--            {% endif %}-->
+
+                                {%for error in field.errors %}
+                                    <br><small style="color: red;">{{error}}</small><br>
+                                {% endfor %}
+
+
+
+                        {% endfor %}
+
                         <input type="submit" value="sign up">
 
                     </form>
