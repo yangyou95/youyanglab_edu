@@ -43,12 +43,20 @@
 
                         {% csrf_token %}
                         {% for field in registration_form %}
+                            {% if field.label == "Email" %}
+                              <br> 注册邮箱: {{field}} <br>
+                            {% endif%}
+                            {% if field.label == "Password"%}
+                              <br> 输入密码: {{field}} <br>
+                            {% endif%}
+                            {% if field.label == "Password confirmation" %}
+                              <br> 确认密码: {{field}} <br>
+                            {% endif%}
 
-                            {{field}}
 
-                    <!--            {% if field.help_text %}-->
-                    <!--                <small style="color: grey;">{{field.help_text}}</small>-->
-                    <!--            {% endif %}-->
+<!--                                {% if field.help_text %}-->
+<!--                                    <small style="color: grey;">{{field.help_text}}</small>-->
+<!--                                {% endif %}-->
 
                                 {%for error in field.errors %}
                                     <br><small style="color: red;">{{error}}</small><br>
@@ -60,9 +68,9 @@
 
 
                         <script>
-                        document.getElementById("id_email").placeholder="email";
-                        document.getElementById("id_password1").placeholder="password";
-                        document.getElementById("id_password2").placeholder="confirm";
+                        document.getElementById("id_email").placeholder="请输入您的邮箱";
+                        document.getElementById("id_password1").placeholder="密码需由数字，大小写字母组成";
+                        document.getElementById("id_password2").placeholder="请再次确认密码";
 
                         </script>
 
