@@ -6,7 +6,7 @@ from django.views import generic
 from django.contrib.auth import login as auth_login, authenticate
 from webapp.forms import RegistrationForm
 # Create your views here.
-from .models import Question, Choice, Testcontent
+from .models import Question, Choice, Testcontent, ClassQuestion, ClassQuestionChoice
 
 # 提取问题并显示在前端
 
