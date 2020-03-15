@@ -117,3 +117,19 @@ class Testcontent(models.Model):
 
     # def __str__(self):
     #     return self.content
+
+# 存储问题的模型
+class ClassQuestion(models.Model):
+    question_text = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.question_text
+
+# 存储选项的模型
+class ClassQuestionChoice(models.Model):
+    question = models.ForeignKey(ClassQuestion, on_delete = models.CASCADE)
+    choice_text = models.CharField(max_length = 200)
+    answer = models.BooleanField(default = False)
+
+    def __str__(self):
+        return self.choice_text
