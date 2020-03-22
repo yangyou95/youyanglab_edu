@@ -1,0 +1,16 @@
+{#{% load static from staticfiles %}#}
+{% load static %}
+
+
+{% if question_test_list %}
+{% for question in question_test_list %}
+<div class = "card mb-3">
+               <div class = "card-body">
+                   <h2 class = "lead"> {{ question.question_text}} </h2>
+                    <li><a href="{% url 'webapp:choice_test' question.id %}">{{ question.question_text }}</a></li>
+
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+{% endif %}
