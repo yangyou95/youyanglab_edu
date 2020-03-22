@@ -171,7 +171,7 @@ def showtestcontent(request):
 
 #test
 
-class QestionTest(generic.ListView):
+class QuestionTest(generic.ListView):
     template_name = 'webapp/questiontest.html'
     context_object_name = 'question_test_list'
 

@@ -35,7 +35,7 @@ urlpatterns = [
 
 
     #test questions
-    path('questiontest/', views.QestionTest.as_view(), name = "question_test"),
+    path('questiontest/', views.QuestionTest.as_view(), name = "question_test"),
     path('questiontest/<int:pk>/', views.ChoiceTest.as_view(), name='choice_test'),
 ]
 
