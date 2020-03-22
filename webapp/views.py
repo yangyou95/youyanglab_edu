@@ -49,8 +49,17 @@ def index(request):
 def course(request):
     return render(request, 'webapp/course.html')
 
-def detailpage(request):
-    return render(request, 'webapp/detailpage.html')
+#def detailpage(request):
+#   return render(request, 'webapp/detailpage.html')
+
+class detailpage(generic.ListView):
+    template_name = 'webapp/detailpage.html'
+    context_object_name = 'test_question_list'
+
+
+    def get_queryset(self):
+        """Return the last five published questions."""
+        return ClassQuestion.objects.all()
 
 # def registerView(request):
 #     if request.method == 'POST':
@@ -159,4 +168,22 @@ def showtestcontent(request):
     # return render(request, 'webapp/index.html', context)
 
     return render(request, 'webapp/showtestcontent.html',{'contents_list':contents_list})
+
+#test
+
+class QestionTest(generic.ListView):
+    template_name = 'webapp/questiontest.html'
+    context_object_name = 'question_test_list'
+
+    def get_queryset(self):
+        """Return the last five published questions."""
+        return ClassQuestion.objects.all()
+
+class ChoiceTest(generic.DetailView):
+    model = ClassQuestion
+    template_name = 'webapp/choicetest.html'
+
+
+
+
 

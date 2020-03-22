@@ -18,7 +18,7 @@ urlpatterns = [
     #改良后
     path('', views.index, name='index'),
     path('course/', views.course, name='course'),
-    path('detailpage/',views.detailpage, name = 'detailpage'),
+    path('detailpage/',views.detailpage.as_view(), name = 'detailpage'),
     path('questions/', views.QuestionsView.as_view(), name='questions'),
     path('questions/<int:pk>/', views.DetailView.as_view(), name='detail'),
     path('questions/<int:pk>/results/', views.ResultsView.as_view(), name='results'),
@@ -32,5 +32,10 @@ urlpatterns = [
     path('signin/',views.signin, name = "signin"),
     path('signup/',views.signup, name = 'signup'),
     path('forget/',views.forget, name='forget'),
+
+
+    #test questions
+    path('questiontest/', views.QestionTest.as_view(), name = "question_test"),
+    path('questiontest/<int:pk>/', views.ChoiceTest.as_view(), name='choice_test'),
 ]
 

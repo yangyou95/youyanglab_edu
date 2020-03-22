@@ -93,6 +93,21 @@
             <p>内容</p>
             <img src="#">
 
+            <div class="question">
+
+              {% if test_question_list %}
+                {% for question in test_question_list %}
+                  <div>{{ question.question_text }}</div>
+
+
+
+                {% endfor %}
+              {% else %}
+                <div>0</div>
+              {% endif %}
+
+            </div>
+
             <div class="choice">
 
               <button id="a">A</button><br>
