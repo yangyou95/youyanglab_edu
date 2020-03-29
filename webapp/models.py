@@ -130,6 +130,8 @@ class ClassQuestionChoice(models.Model):
     question = models.ForeignKey(ClassQuestion, on_delete = models.CASCADE)
     choice_text = models.CharField(max_length = 200)
     answer = models.BooleanField(default = False)
+    order_in_list = models.IntegerField(default=1)
+
 
     def __str__(self):
         return self.choice_text

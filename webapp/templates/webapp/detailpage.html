@@ -95,44 +95,64 @@
 
             <div class="question">
 
-              {% if test_question_list %}
-                {% for question in test_question_list %}
-                  <div>{{ question.question_text }}</div>
+                <h1>{{ classquestion.question_text }}, answer is B</h1>
 
-
-
-                {% endfor %}
-              {% else %}
-                <div>0</div>
-              {% endif %}
 
             </div>
 
             <div class="choice">
 
-              <button id="a">A</button><br>
-              <button id="b">B</button><br>
 
-              <script type="text/javascript">
+              {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-                var btnR = document.getElementById("a");
-                var btnB = document.getElementById("b");
-                var rightChoice = "选择正确时出现。";
-                var badChoice = "选择错误时出现。";
 
-                btnR.onclick = function() {
+              {% csrf_token %}
+              {% for choice in classquestion.classquestionchoice_set.all %}
+                <li>{{ choice.choice_text }}</li><br>
 
-                  document.getElementById('expl').innerHTML = rightChoice;
+                <script>
+
+                  {% if choice.answer %}
+                    var answer = {{ choice.order_in_list }};
+                  {% endif %}
+                </script>
+              {% endfor %}
+
+
+              <button id="1">A</button><br>
+              <button id="2">B</button><br>
+              <button id="3">C</button><br>
+              <button id="4">D</button><br>
+
+              <script>
+                var choiceR = document.getElementById(answer);
+                var choice1 = document.getElementById('1');
+                var choice2 = document.getElementById('2');
+                var choice3 = document.getElementById('3');
+                var choice4 = document.getElementById('4');
+
+                choice1.onclick = function() {
+                     document.getElementById("answer_text").innerHTML = "w";
                 }
-
-                btnB.onclick = function() {
-                  document.getElementById('expl').innerHTML = badChoice;
+                choice2.onclick = function() {
+                     document.getElementById("answer_text").innerHTML = "w";
                 }
-
+                choice3.onclick = function() {
+                   document.getElementById("answer_text").innerHTML = "w";
+                }
+               choice4.onclick = function() {
+                    document.getElementById("answer_text").innerHTML = "w";
+                }
+                choiceR.onclick = function() {
+                   document.getElementById("answer_text").innerHTML = "right";
+                }
 
               </script>
 
-              <div id="expl">
+
+              <br><p>answer : </p>
+              <p id="answer_text"></p>
+
 
 
               </div>

@@ -46,20 +46,30 @@ def index(request):
 
     return render(request, 'webapp/index.html')
 
-def course(request):
-    return render(request, 'webapp/course.html')
-
-#def detailpage(request):
-#   return render(request, 'webapp/detailpage.html')
-
-class detailpage(generic.ListView):
-    template_name = 'webapp/detailpage.html'
-    context_object_name = 'test_question_list'
-
+class course(generic.ListView):
+    template_name = 'webapp/course.html'
+    context_object_name = 'question_test_list'
 
     def get_queryset(self):
         """Return the last five published questions."""
         return ClassQuestion.objects.all()
+
+#def detailpage(request):
+#   return render(request, 'webapp/detailpage.html')
+
+class detailpage(generic.DetailView):
+    template_name = 'webapp/detailpage.html'
+
+
+    model = ClassQuestion
+
+
+    #def get_queryset(self):
+     #   """Return the last five published questions."""
+      #  return ClassQuestion.objects.all()
+
+
+
 
 # def registerView(request):
 #     if request.method == 'POST':

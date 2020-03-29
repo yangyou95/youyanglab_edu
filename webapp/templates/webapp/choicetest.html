@@ -4,11 +4,58 @@
 
 <h1>{{ classquestion.question_text }}</h1>
 
+
+<div>
+
+    <button class="c" id="1">A</button>
+    <button class="c" id="2">B</button>
+    <button class="c" id="3">C</button>
+    <button class="c" id="4">D</button>
+
+</div>
+
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
 
 {% csrf_token %}
 {% for choice in classquestion.classquestionchoice_set.all %}
     {{ choice.choice_text }}<br>
+
+    <p id="test"></p>test<br>
+    <script>
+
+        {% if choice.answer %}
+        var answer = {{ choice.order_in_list }};
+        {% endif %}
+
+        document.getElementById("test").innerHTML = answer;
+
+        var choiceR = document.getElementById(answer);
+        var choice1 = document.getElementById('1');
+        var choice2 = document.getElementById('2');
+        var choice3 = document.getElementById('3');
+        var choice4 = document.getElementById('4');
+
+        choice1.onclick = function() {
+            document.getElementById("answer_text").innerHTML = "w";
+        }
+        choice2.onclick = function() {
+            document.getElementById("answer_text").innerHTML = "w";
+        }
+        choice3.onclick = function() {
+            document.getElementById("answer_text").innerHTML = "w";
+        }
+        choice4.onclick = function() {
+            document.getElementById("answer_text").innerHTML = "w";
+        }
+        choiceR.onclick = function() {
+            document.getElementById("answer_text").innerHTML = "right";
+        }
+
+    </script>
 {% endfor %}
+
+<p id="answer_text"></p>
+
 <input type="submit" value="选择">
+

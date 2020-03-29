@@ -58,7 +58,9 @@
             <h3>12&nbsp<span>节课</span></h3>
           </div>
           <div>
-            <a href="{% url 'webapp:detailpage'%}"><button class="b1">开始学习 !</button></a>
+            {% for question in question_test_list %}
+            <a href="{% url 'webapp:detailpage' question.id %}"><button class="b1">开始学习 !</button></a>
+            {% endfor %}
           </div>
         </div>
 
