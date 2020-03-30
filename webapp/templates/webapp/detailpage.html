@@ -106,52 +106,44 @@
               {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
 
-              {% csrf_token %}
-              {% for choice in classquestion.classquestionchoice_set.all %}
-                <li>{{ choice.choice_text }}</li><br>
-
-                <script>
-
-                  {% if choice.answer %}
-                    var answer = {{ choice.order_in_list }};
-                  {% endif %}
-                </script>
-              {% endfor %}
 
 
-              <button id="1">A</button><br>
-              <button id="2">B</button><br>
-              <button id="3">C</button><br>
-              <button id="4">D</button><br>
+              <form>
+                {% csrf_token %}
+                {% for choice in classquestion.classquestionchoice_set.all %}
+                    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.answer }}" onclick="myfunc(this.value)">
+                    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+                {% endfor %}
+                <button onclick ='jssubmit()' type="button" > 选择 </button>
+<!--               <input type="text" id="result">-->
+                </form>
+                 <br><p>answer : </p>
+              <p id="demo"></p>
 
-              <script>
-                var choiceR = document.getElementById(answer);
-                var choice1 = document.getElementById('1');
-                var choice2 = document.getElementById('2');
-                var choice3 = document.getElementById('3');
-                var choice4 = document.getElementById('4');
+              <script type="text/javascript">
 
-                choice1.onclick = function() {
-                     document.getElementById("answer_text").innerHTML = "w";
+              var x = true;
+              function myfunc(choice) {
+
+                  x = choice;
+                  return x;
+              }
+
+              var result = document.getElementById("result").value;
+
+              function jssubmit() {        //获取form表单的dom对象
+
+                if(x == "True"){
+                    document.getElementById("demo").innerHTML = "选择正确!";
+                  }else{
+                  document.getElementById("demo").innerHTML = "选择错误, 再想一想呢.";
+
                 }
-                choice2.onclick = function() {
-                     document.getElementById("answer_text").innerHTML = "w";
-                }
-                choice3.onclick = function() {
-                   document.getElementById("answer_text").innerHTML = "w";
-                }
-               choice4.onclick = function() {
-                    document.getElementById("answer_text").innerHTML = "w";
-                }
-                choiceR.onclick = function() {
-                   document.getElementById("answer_text").innerHTML = "right";
-                }
-
-              </script>
+              }</script>
 
 
-              <br><p>answer : </p>
-              <p id="answer_text"></p>
+
+
 
 
 
