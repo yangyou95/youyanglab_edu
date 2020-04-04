@@ -109,13 +109,18 @@
 
 
               <form>
+
                 {% csrf_token %}
                 {% for choice in classquestion.classquestionchoice_set.all %}
-                    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.answer }}" onclick="myfunc(this.value)">
-                    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+                    <div>
+                      <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.answer }}" onclick="myfunc(this.value)">
+                      <label for="choice{{ forloop.counter }}" class="l1"></label>
+                      <label for="choice{{ forloop.counter }}" class="l2">{{ choice.choice_text }}</label>
+                    </div>
                 {% endfor %}
                 <button onclick ='jssubmit()' type="button" > 选择 </button>
 <!--               <input type="text" id="result">-->
+
                 </form>
                  <br><p>answer : </p>
               <p id="demo"></p>
