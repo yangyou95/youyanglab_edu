@@ -79,6 +79,14 @@ body {
     text-align:center;
 }
 
+.part3 {
+	background-image:url('./images/bkg_login.png');
+}
+
+.part3 div {
+    background-color:white;
+}
+
 .part4 {
     background-color:#CFCFEF;
     text-align:center;
