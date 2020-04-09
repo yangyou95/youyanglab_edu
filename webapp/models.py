@@ -118,8 +118,42 @@ class Testcontent(models.Model):
     # def __str__(self):
     #     return self.content
 
+
+# 课程模型
+class Course(models.Model):
+    """章节"""
+    course_name = models.CharField(max_length = 200)
+    # 之后可以加图片
+
+    def __str__(self):
+        return self.course_name
+
+# 章节模型
+class Chapter(models.Model):
+    """章节"""
+    course = models.ForeignKey(Course, on_delete = models.CASCADE)
+    chapter_name = models.CharField(max_length = 200)
+    # 之后可以加图片
+
+    def __str__(self):
+        return self.chapter_name
+
+
+
+# 课程模型
+class Lesson(models.Model):
+    """课程名字及视频"""
+    chapter = models.ForeignKey(Chapter, on_delete = models.CASCADE)
+    lesson_name = models.CharField(max_length = 200)
+    video_url = models.CharField(max_length=300)
+    created_date = models.DateTimeField('Created date')
+
+    def __str__(self):
+        return self.lesson_name
+
 # 存储问题的模型
 class ClassQuestion(models.Model):
+    lesson = models.ForeignKey(Lesson, on_delete = models.CASCADE, null=True)
     question_text = models.CharField(max_length=200)
 
     def __str__(self):
@@ -132,6 +166,7 @@ class ClassQuestionChoice(models.Model):
     answer = models.BooleanField(default = False)
     order_in_list = models.IntegerField(default=1)
 
-
     def __str__(self):
         return self.choice_text
+
+
