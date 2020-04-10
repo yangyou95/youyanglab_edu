@@ -9,6 +9,7 @@
     <title>具体内容页</title>
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static "webapp/detailpage.css" %}" type="text/css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
   </head>
   <body>
 
@@ -79,8 +80,28 @@
             <div class="intro"> <!--每个章节唯一的-->
 
               <h1>大标题</h1>
+
+              <div class="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+              </div>
+
+
               <iframe src="//player.bilibili.com/player.html?aid=74809488&bvid=BV12E411i7Wk&cid=127970222&page=2" id="video" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="600"> </iframe>
               <br><br><p>介绍该章节</p>
+
+              <script>
+                $(document).ready(function(){
+                  $("iframe").hide();
+                  $("iframe").load(function(){
+                   $(".spinner").hide();
+                   $("iframe").show();
+                  });
+                });
+              </script>
 
             </div>
 
