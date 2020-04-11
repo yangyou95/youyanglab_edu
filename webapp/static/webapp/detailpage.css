@@ -80,16 +80,20 @@
 }
 
 .ablock h1 {
-    padding-bottom:10px;
+    padding-bottom:20px;
 }
 
 .choice button {
-	border-radius:20px;
+    font-size:1.2em;
+	border-radius:10px;
 	border:2px solid #8080ff;
 	background-color:white;
 	color:black;
-	margin-top:10px;
-	width:4em;
+	padding-top:0.25em;
+	padding-bottom:0.25em;
+	margin-top:20px;
+	width:8em;
+	outline:none;
 }
 
 .choice button:hover {
@@ -109,8 +113,18 @@
 .choice div {
             position: relative;
             line-height: 30px;
+            padding-left:1em;
+            padding-top:1em;
             padding-bottom:1em;
+            width:50%;
+            border-radius:20px;
         }
+
+.choice div:hover {
+
+            box-shadow:0 0  0 1px rgb(255,255,255),
+            0.1em 0.1em 0.5em rgba(0,0,0,0.3);
+}
 
         .choice input[type="radio"] {
             width: 20px;
@@ -126,19 +140,19 @@
 
         .choice .l1 {
             position: absolute;
-            left: 5px;
-            top: 3px;
+            left: 10px;
+
             width: 25px;
             height: 25px;
             border-radius: 50%;
-            border: 1px solid #999;
+            border: 2px solid #999;
         }
 
         /*设置选中的input的样式*/
         /* + 是兄弟选择器,获取选中后的label元素*/
         .choice input:checked+label {
             background-color: #CFCFEF;
-            border: 1px solid #CFCFEF;
+            border: 2px solid #CFCFEF;
         }
 
         .choice input:checked+label::after {
@@ -208,4 +222,8 @@
     transform: scaleY(1.0);
     -webkit-transform: scaleY(1.0);
   }
+}
+
+label {
+    cursor: pointer;
 }

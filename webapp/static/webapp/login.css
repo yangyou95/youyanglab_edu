@@ -1,3 +1,7 @@
+button {
+    outline:none;
+}
+
 body {
     background-color:rgba(230,230,250,0.8);
 }
@@ -83,6 +87,10 @@ a:hover {
 }
 
 .s input {
+    border:1px solid #C0C0C0;
+}
+
+input.info {
     border:1px solid #C0C0C0;
 }
 

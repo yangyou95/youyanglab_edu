@@ -140,7 +140,8 @@
                       <label for="choice{{ forloop.counter }}" class="l2">{{ choice.choice_text }}</label>
                     </div>
                 {% endfor %}
-                <button onclick ='jssubmit()' type="button" > 选择 </button>
+                <button id="pick" onclick ='jssubmit()' type="button" > 选择 </button>
+                <a id="continue" href="{% url 'webapp:signin'%}"><button type="button"> 继续 ! </button></a>
 <!--               <input type="text" id="result">-->
 
                 </form>
@@ -148,6 +149,8 @@
               <p id="demo"></p>
 
               <script type="text/javascript">
+
+              $("#continue").hide();
 
               var x = true;
               function myfunc(choice) {
@@ -162,6 +165,8 @@
 
                 if(x == "True"){
                     document.getElementById("demo").innerHTML = "选择正确!";
+                    $("#pick").hide();
+                    $("#continue").show();
                   }else{
                   document.getElementById("demo").innerHTML = "选择错误, 再想一想呢.";
 
