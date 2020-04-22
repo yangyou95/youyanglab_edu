@@ -358,7 +358,7 @@ a[class*="btn"]:hover {
 .category .l:hover .tag, .category #active .tag {
     position: absolute;
     display: inline-block;
-    width: 5px;
+    width: 7px;
     height: 70px;
     background-color: #8080FF;
     padding-top: 1em;
