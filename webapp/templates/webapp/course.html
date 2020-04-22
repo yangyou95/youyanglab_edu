@@ -58,9 +58,9 @@
             <h3>12&nbsp<span>节课</span></h3>
           </div>
           <div>
-            {% for question in question_test_list %}
-            <a href="{% url 'webapp:detailpage' question.id %}"><button class="b1">开始学习 !</button></a>
-            {% endfor %}
+            {% with question=question_text.classquestion %}
+            <a href="{% url 'webapp:detailpage' 1 %}"><button class="b1">开始学习 !</button></a>
+            {% endwith %}
           </div>
         </div>
 
@@ -102,32 +102,17 @@
 
       <div class="row bk">
 
-        <div class="col-md-4 col-12">
-          <a href="#">
-            <div class="con">
-              <img class="img-fluid" src="{% static "webapp/images/img2.png" %}" alt="img2">
-              <p>我想着要不把章节标题做进上面的图片里，就不在文字部分加标题了 aaaaaaaaaaaaaaaaaaaaa</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-md-4 col-12">
-          <a href="#">
-            <div class="con">
-              <img class="img-fluid" src="{% static "webapp/images/img2.png" %}" alt="img2">
-              <p>什么是变量 ? 我也不知道...</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-md-4 col-12">
-          <a href="#">
-            <div class="con">
-              <img class="img-fluid" src="{% static "webapp/images/img2.png" %}" alt="img2">
-              <p>什么是变量 ? 我也不知道...</p>
-            </div>
-          </a>
-        </div>
+        {% for question in question_test_list %}
+          <div class="col-md-4 col-12">
+            <a href="{% url 'webapp:detailpage' question.id %}">
+              <div class="con">
+                <img class="img-fluid" src="{% static "webapp/images/img2.png" %}" alt="img2">
+                <p>{{ question }}</p>
+                <p>我想着要不把章节标题做进上面的图片里，就不在文字部分加标题了</p>
+              </div>
+            </a>
+          </div>
+        {% endfor %}
 
       </div>
 

@@ -9,6 +9,10 @@
     <title>具体内容页</title>
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static "webapp/detailpage.css" %}" type="text/css">
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'>
+
+
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
   </head>
   <body>
@@ -43,25 +47,38 @@
       <div class="col-md-4 no-gutters">
         <div class="leftside">
 
-          <div class = "return">
-            <a href="{% url 'webapp:course'%}">
-              <button type="button">
-              < 返回</button>
-            </a>
+          <div class = "return" >
+
+
+          <a href="{% url 'webapp:course'%}" class="btn-gradient purple mini"> < 返回 </a>
+
           </div>
 
-          <div class = "category">
-          <h1>课程名称信息</h1>
+          <div class = "bar">
+
+
+<div class="progress-bar purple" title="课程进度"> <span class="course" title="章节进度" style="width:60%;"> <span class="lesson" title="小节进度" style="width:50%"></span></span> </div>
+
+
           </div>
 
-          <div class="brief_intro">
-            <h4> 一段简要的介绍信息片段... </h4>
+          <div class="category">
+
+            <ul>
+
+              <div class="l" id="active"><div class="tag"></div><li><a href="#">introduction of python</a></li></div>
+              <div class="l"><div class="tag"></div><li><a href="">introduction of python</a></li></div>
+              <div class="l"><div class="tag"></div><li><a href="">introduction of python</a></li></div>
+              <div class="l"><div class="tag"></div><li><a href="">introduction of python</a></li></div>
+              <div class="l"><div class="tag"></div><li><a href="">introduction of python</a></li></div>
+              <div class="l"><div class="tag"></div><li><a href="">introduction of python</a></li></div>
+
+            </ul>
+
+
           </div>
 
-          <div class="con">
 
-            <p>章节：  章节内容</p>
-          </div>
 
           <!-- <ul class="nav nav-list"><li class="divider"></li></ul> -->
 
@@ -138,10 +155,13 @@
                       <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.answer }}" onclick="myfunc(this.value)">
                       <label for="choice{{ forloop.counter }}" class="l1"></label>
                       <label for="choice{{ forloop.counter }}" class="l2">{{ choice.choice_text }}</label>
+                      <label for="choice{{ forloop.counter }}" class="l3"></label>
                     </div>
                 {% endfor %}
                 <button id="pick" onclick ='jssubmit()' type="button" > 选择 </button>
-                <a id="continue" href="{% url 'webapp:signin'%}"><button type="button"> 继续 ! </button></a>
+
+                  <a id="continue" href="{% url 'webapp:detailpage' classquestion.id %}"><button type="button"> 继续 ! </button></a>
+
 <!--               <input type="text" id="result">-->
 
                 </form>

@@ -6,7 +6,7 @@
 
 @media screen and (max-width: 768px) {
 			 .leftside {
-				height: 50vh;
+				height: 100vh;
 			 }
  }
 
@@ -16,7 +16,6 @@
   position:fixed;
   left:0px;
   top:74px;
-
 }
 
 .col-md-8{
@@ -29,11 +28,8 @@
 
 }
 
-.category{
-  padding:1.2em 5em;
-}
-.brief_intro, .con {
-  padding:0.3em 5em;
+.category {
+    margin-top:6em;
 }
 
 /* .con:hover {
@@ -108,8 +104,6 @@
 }
 
 
-
-
 .choice div {
             position: relative;
             line-height: 30px;
@@ -117,14 +111,18 @@
             padding-top:1em;
             padding-bottom:1em;
             width:50%;
-            border-radius:20px;
+}
+
+.choice .l3 {
+    position: absolute; left: 0; right: 0; top: 0; bottom: 0;
+    border-radius:20px;
         }
 
-.choice div:hover {
-
+.choice input:checked~.l3 {
             box-shadow:0 0  0 1px rgb(255,255,255),
             0.1em 0.1em 0.5em rgba(0,0,0,0.3);
 }
+
 
         .choice input[type="radio"] {
             width: 20px;
@@ -135,13 +133,15 @@
         .choice .l2 {
             position: absolute;
             left: 45px;
-            font-size:1.25em;
+            font-weight:bold;
+            font-size:1em;
+            color:gray;
         }
+
 
         .choice .l1 {
             position: absolute;
             left: 10px;
-
             width: 25px;
             height: 25px;
             border-radius: 50%;
@@ -153,6 +153,10 @@
         .choice input:checked+label {
             background-color: #CFCFEF;
             border: 2px solid #CFCFEF;
+        }
+
+        .choice input:checked~label {
+            color:black;
         }
 
         .choice input:checked+label::after {
@@ -226,4 +230,136 @@
 
 label {
     cursor: pointer;
+}
+
+.return {
+    position:absolute;
+
+}
+
+/* progress bar */
+
+.progress-bar {
+ position:absolute;
+ left:200px;
+ top:40px;
+ background-color:#dcdce0;
+ border-radius:3px;
+ width:300px;
+ height:24px;
+ padding:5px;
+ /*margin:50px;*/
+ border-bottom:1px solid #ceced4;
+ box-shadow:inset 0 0 2px 0 #ceced4;
+}
+.progress-bar span.course {
+ display:inline-block;
+ /*width:140px;*/
+ height:16px;
+        border-radius:2px;
+ box-shadow:0 1px 0 rgba(255, 255, 255, 0.5) inset;
+ -moz-box-shadow:0 1px 0 rgba(255, 255, 255, 0.5) inset;
+ -webkit-box-shadow:rgba(255,255,255,0.5) 0 1px 0 inset;
+}
+
+.progress-bar span.lesson {
+ display:block;
+ height:16px;
+        border-radius:2px;
+ box-shadow:0 1px 0 rgba(255, 255, 255, 0.5) inset;
+ -moz-box-shadow:0 1px 0 rgba(255, 255, 255, 0.5) inset;
+ -webkit-box-shadow:rgba(255,255,255,0.5) 0 1px 0 inset;
+}
+
+.purple span.course{
+ background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#cfcfef),to(#bcbce9));
+ background-image:-moz-linear-gradient(-90deg,#cfcfef,#bcbce9);
+}
+
+.purple span.lesson{
+ background-image:-webkit-gradient(linear,0% 0%,0% 100%,from(#a9a9e2),to(#9696dc));
+ background-image:-moz-linear-gradient(-90deg,#a9a9e2,#9696dc);
+}
+
+/* return button */
+
+.btn-gradient.purple {
+    background: linear-gradient(to bottom, #b3b3ff 0%, #9a9aff 100%);
+}
+
+.btn-gradient.purple:hover {
+    background: linear-gradient(to bottom, #9a9aff 0%, #9a9aff 100%);
+}
+
+.btn-gradient.purple:active {
+    background: linear-gradient(to bottom, #b3b3ff 0%, #b3b3ff 100%);
+}
+
+.btn-gradient.mini {
+    padding: 4px 12px;
+    font-size: 12px;
+}
+
+a[class*="btn"] {
+    text-decoration: none;
+}
+
+a[class*="btn"]:hover {
+    color: white;
+}
+
+.btn-gradient {
+    text-decoration: none;
+    color: white;
+    padding: 10px 30px;
+    display: inline-block;
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.21);
+    border-bottom: 4px solid rgba(0,0,0,0.21);
+    border-radius: 4px;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+    margin: 5px;
+    text-align: center;
+}
+
+/* nav left */
+
+.category ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.category li {
+    display: inline-block;
+    font-size: 1.25em;
+    width: 100%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 4em;
+    text-transform: uppercase;
+}
+
+.category #active {
+    background-color: white;
+}
+
+
+.category .l:hover li {
+    background-color: white;
+    box-shadow: 0 2px 2px 2px rgba(0,0,0,0.1);
+}
+
+
+.category a {
+    text-decoration: none;
+    color: #6a6a70;
+}
+
+.category .l:hover .tag, .category #active .tag {
+    position: absolute;
+    display: inline-block;
+    width: 5px;
+    height: 70px;
+    background-color: #8080FF;
+    padding-top: 1em;
 }
