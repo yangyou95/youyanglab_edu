@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-import django_heroku
+# import django_heroku
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['youyanglab.herokuapp.com',
-                'localhost']
+             'localhost','8.208.20.65','www.youyanglab.com']
 
 
 # Application definition
@@ -147,4 +147,4 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'webapp/static/'),
 )
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
