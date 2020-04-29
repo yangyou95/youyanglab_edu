@@ -30,7 +30,7 @@
           <a class="nav-link" href="{% url 'webapp:index'%}">首页</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'webapp:course'%}">课程</a>
+          <a class="nav-link" href="#">课程</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">注册</a>
@@ -50,7 +50,7 @@
 
         <! --图片窗口-->
         <div class="col-md-4 col-12 p1">
-          <img class="img-fluid" src="{% static "webapp/images/img1.png" %}" alt="img1">
+          <img class="img-fluid" src="{% static "webapp/images/Python/python_0.jpg" %}" alt="img1">
           <div class="lt">
             <h3>12&nbsp<span>个模块</span></h3>
           </div>
@@ -59,7 +59,7 @@
           </div>
           <div>
             {% with question=question_text.classquestion %}
-            <a href="{% url 'webapp:detailpage' 1 %}"><button class="b1">开始学习 !</button></a>
+            <a href="#"><button class="b1">开始学习 !</button></a>
             {% endwith %}
           </div>
         </div>
@@ -83,17 +83,18 @@
 
     <div class="container">
 
-      <! --第一行-->
+
+      {% csrf_token %}
+      {% for chapter in course.chapter_set.all %}
 
       <div class="row c">
 
         <div class="col-md-12 col-12">
 
-          <div class="nb">1</div>
+          <div class="nb">{{chapter.id}}</div>
 
           <div class="intro">
-            <h3>Introduction</h3>
-            <p>Put your logic to the test with these warmups!</p>
+            <h3>{{chapter.chapter_name}}</h3>
           </div>
 
         </div>
@@ -101,116 +102,22 @@
       </div>
 
       <div class="row bk">
+        {% for lesson in chapter.lesson_set.all %}
+        <div class="col-md-4 col-12">
+          <a href="#">
+            <div class="con">
+              <img class="img-fluid" src="{% static "webapp/images/Python/lesson.png" %}" alt="img2">
+              <p>{{lesson.lesson_name}}</p>
+            </div>
+          </a>
+        </div>
+        {%endfor%}
 
-        {% for question in question_test_list %}
-          <div class="col-md-4 col-12">
-            <a href="{% url 'webapp:detailpage' question.id %}">
-              <div class="con">
-                <img class="img-fluid" src="{% static "webapp/images/img2.png" %}" alt="img2">
-                <p>{{ question }}</p>
-                <p>我想着要不把章节标题做进上面的图片里，就不在文字部分加标题了</p>
-              </div>
-            </a>
-          </div>
-        {% endfor %}
 
       </div>
 
-      <! --第二行-->
+      {%endfor%}
 
-      <div class="row c">
-
-        <div class="col-md-12 col-12">
-
-          <div class="nb">2</div>
-
-          <div class="intro">
-            <h3>Introduction</h3>
-            <p>Put your logic to the test with these warmups!</p>
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="row bk">
-
-        <div class="col-md-4 col-12">
-          <a href="#">
-            <div class="con">
-              <img class="img-fluid" src="{% static "webapp/images/img2.png" %}" alt="img2">
-              <p>什么是变量 ? 我也不知道...</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-md-4 col-12">
-          <a href="#">
-            <div class="con">
-              <img class="img-fluid" src="{% static "webapp/images/img2.png" %}" alt="img2">
-              <p>什么是变量 ? 我也不知道...</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-md-4 col-12">
-          <a href="#">
-            <div class="con">
-              <img class="img-fluid" src="{% static "webapp/images/img2.png" %}" alt="img2">
-              <p>什么是变量 ? 我也不知道...</p>
-            </div>
-          </a>
-        </div>
-
-      </div>
-
-      <! --第三行-->
-
-      <div class="row c">
-
-        <div class="col-md-12 col-12">
-
-          <div class="nb">3</div>
-
-          <div class="intro">
-            <h3>Introduction</h3>
-            <p>Put your logic to the test with these warmups!</p>
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="row bk">
-
-        <div class="col-md-4 col-12">
-          <a href="#">
-            <div class="con">
-              <img class="img-fluid" src="{% static "webapp/images/img2.png" %}" alt="img2">
-              <p>什么是变量 ? 我也不知道...</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-md-4 col-12">
-          <a href="#">
-            <div class="con">
-              <img class="img-fluid" src="{% static "webapp/images/img2.png" %}" alt="img2">
-              <p>什么是变量 ? 我也不知道...</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-md-4 col-12">
-          <a href="#">
-            <div class="con">
-              <img class="img-fluid" src="{% static "webapp/images/img2.png" %}" alt="img2">
-              <p>什么是变量 ? 我也不知道...</p>
-            </div>
-          </a>
-        </div>
-
-      </div>
 
   </div>
 

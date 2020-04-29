@@ -6,7 +6,7 @@ from django.views import generic
 from django.contrib.auth import login as auth_login, authenticate
 from webapp.forms import RegistrationForm
 # Create your views here.
-from .models import Question, Choice, Testcontent, ClassQuestion, ClassQuestionChoice
+from .models import *
 
 # 提取问题并显示在前端
 
@@ -46,22 +46,26 @@ def index(request):
 
     return render(request, 'webapp/index.html')
 
-class course(generic.ListView):
-    template_name = 'webapp/course.html'
-    context_object_name = 'question_test_list'
+# class course(generic.ListView):
+#     template_name = 'webapp/course.html'
+#     context_object_name = 'question_test_list'
+#
+#     def get_queryset(self):
+#         """Return the last five published questions."""
+#         return ClassQuestion.objects.all()
 
-    def get_queryset(self):
-        """Return the last five published questions."""
-        return ClassQuestion.objects.all()
+class course(generic.DetailView):
+    template_name = 'webapp/course.html'
+    model = Course
+
 
 #def detailpage(request):
 #   return render(request, 'webapp/detailpage.html')
 
 class detailpage(generic.DetailView):
     template_name = 'webapp/detailpage.html'
-
-
     model = ClassQuestion
+
 
 
     #def get_queryset(self):
