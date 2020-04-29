@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['youyanglab.herokuapp.com',
-             'localhost','8.208.20.65','www.youyanglab.com']
+             'localhost','8.208.20.65','www.youyanglab.com','127.0.0.1']
 
 
 # Application definition
