@@ -133,7 +133,7 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             account = authenticate(email=email, password=raw_password)
             auth_login(request, account)
-            return redirect('/webapp')
+            return redirect('/')
         else:
             context['registration_form'] = form
     else:
