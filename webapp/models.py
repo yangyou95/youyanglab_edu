@@ -145,11 +145,26 @@ class Lesson(models.Model):
     """课程名字及视频"""
     chapter = models.ForeignKey(Chapter, on_delete = models.CASCADE)
     lesson_name = models.CharField(max_length = 200)
-    video_url = models.CharField(max_length=300)
+    video_url = models.CharField(max_length = 300)
     created_date = models.DateTimeField('Created date')
 
     def __str__(self):
         return self.lesson_name
+
+    def get_next(self):
+        chapter_id = self.chapter.id
+        next = Lesson.objects.filter(chapter_id=chapter_id,id__gt=self.id).order_by('id').first()
+        if next:
+            return next
+        # If the current card is the last one, return the first card in the deck
+        else:
+            return Lesson.objects.all().order_by('id').first()
+
+    def get_chapter_all_lessons(self):
+        chapter_id = self.chapter.id
+        all_lessons_list = Lesson.objects.filter(chapter_id=chapter_id)
+        return all_lessons_list
+
 
 # 存储问题的模型
 class ClassQuestion(models.Model):

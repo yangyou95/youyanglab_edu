@@ -104,7 +104,7 @@
       <div class="row bk">
         {% for lesson in chapter.lesson_set.all %}
         <div class="col-md-4 col-12">
-          <a href="#">
+          <a href="{% url 'webapp:detailpage' lesson.id%}">
             <div class="con">
               <img class="img-fluid" src="{% static "webapp/images/Python/lesson.png" %}" alt="img2">
               <p>{{lesson.lesson_name}}</p>

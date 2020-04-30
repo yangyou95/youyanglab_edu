@@ -50,8 +50,7 @@
           <div class = "return" >
 
 
-          <a href="{% url 'webapp:course'%}" class="btn-gradient purple mini"> < 返回 </a>
-
+          <a href="{% url 'webapp:course' lesson.chapter.course.id%}" class="btn-gradient purple mini"> < 返回 </a>
           </div>
 
           <div class = "bar">
@@ -65,13 +64,17 @@
           <div class="category">
 
             <ul>
+              {% for item in lesson.get_chapter_all_lessons%}
+                {% if item.id == lesson.id%}
+                  <div class="l" id="active"><div class="tag"></div><li><a href="{% url 'webapp:detailpage' item.id%}">{{item.lesson_name}}</a></li></div>
+                {% else %}
+                     <div class="l"><div class="tag"></div><li><a href="{% url 'webapp:detailpage' item.id%}">{{item.lesson_name}}</a></li></div>
+                {% endif%}
 
-              <div class="l" id="active"><div class="tag"></div><li><a href="#">introduction of python</a></li></div>
-              <div class="l"><div class="tag"></div><li><a href="">introduction of python</a></li></div>
-              <div class="l"><div class="tag"></div><li><a href="">introduction of python</a></li></div>
-              <div class="l"><div class="tag"></div><li><a href="">introduction of python</a></li></div>
-              <div class="l"><div class="tag"></div><li><a href="">introduction of python</a></li></div>
-              <div class="l"><div class="tag"></div><li><a href="">introduction of python</a></li></div>
+              {% endfor %}
+
+
+
 
             </ul>
 
@@ -95,6 +98,9 @@
         <div class="ablock">
 
             <div class="intro"> <!--每个章节唯一的-->
+
+            <h1>{{lesson.lesson_name}}</h1>
+
 
               <div class="spinner">
                 <div class="rect1"></div>
@@ -123,14 +129,11 @@
 
         <div class="ablock">
 
+        {% for question in lesson.classquestion_set.all %}
           <div class="content"><!--可添加的-->
-
-
             <div class="question">
 
-                <h1>{{ classquestion.question_text }}</h1>
-
-
+                <h1>{{ question.question_text }}</h1>
             </div>
 
             <div class="choice">
@@ -142,9 +145,8 @@
 
 
               <form>
-
                 {% csrf_token %}
-                {% for choice in classquestion.classquestionchoice_set.all %}
+                {% for choice in question.classquestionchoice_set.all %}
                     <div>
                       <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.answer }}" onclick="myfunc(this.value)">
                       <label for="choice{{ forloop.counter }}" class="l1"></label>
@@ -154,7 +156,7 @@
                 {% endfor %}
                 <button id="pick" onclick ='jssubmit()' type="button" > 选择 </button>
 
-                  <a id="continue" href="{% url 'webapp:detailpage' classquestion.id %}"><button type="button"> 继续 ! </button></a>
+                  <a id="continue" href="{% url 'webapp:detailpage' lesson.get_next.id %}"><button type="button"> 继续 ! </button></a>
 
 <!--               <input type="text" id="result">-->
 
@@ -187,32 +189,17 @@
                 }
               }</script>
 
-
-
-
-
-
-
               </div>
-
-
             </div>
 
+         {% endfor %}
+
+
         </div>
 
 
 
-        <div class="ablock">
 
-          <div class="content">
-
-            <h1>小标题</h1>
-            <p>内容</p>
-            <img class="img-fluid" src="{% static "webapp/images/img10.png" %}">
-
-          </div>
-
-        </div>
 
       </div>
 

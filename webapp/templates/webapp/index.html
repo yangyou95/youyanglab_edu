@@ -83,19 +83,29 @@
     <div class="row">
 
       <! --第一行-->
-      <div class="col-12 col-md-12">
-        <p class="t1">优扬实验室</p>
-        <h4 class="display-4">我们的课程</h4>
-      </div>
-
+      {% for course in all_courses%}
       <div class="col-md-4 col-12">
         <div class="bk">
           <div class="smpic">
-            <img class="img-responsive center-block"  src="{% static "webapp/images/pic.png" %}" alt="pic">
+            <img class="img-responsive center-block" src="{% static "webapp/images/pic.png" %}" alt="pic">
           </div>
-          <h4>python基础入门</h4>
-          <p>python請問Microsoft Windows作業系統要如何安裝LibreOffice語言包？</p>
-          <a href="{% url 'webapp:course'%}"><button type="button">开始学习</button></a>
+          <h4>{{course.course_name}}</h4>
+          <p>介绍环境配置, python语言的基础语法,函数以及相应练习</p>
+          <a href="{% url 'webapp:course' course.id%}"><button type="button">开始学习</button></a>
+        </div>
+      </div>
+      {%endfor%}
+
+
+      <! --填充项-->
+      <div class="col-md-4 col-12">
+        <div class="bk">
+          <div class="smpic">
+            <img class="img-responsive center-block" src="{% static "webapp/images/pic.png" %}" alt="pic">
+          </div>
+          <h4>数据分析入门</h4>
+          <p>介绍基础的数据分析的工具, 方法以及相应的统计学原理.</p>
+          <a href="#"><button type="button">敬请期待</button></a>
         </div>
       </div>
 
@@ -104,9 +114,9 @@
           <div class="smpic">
             <img class="img-responsive center-block" src="{% static "webapp/images/pic.png" %}" alt="pic">
           </div>
-          <h4>python基础入门</h4>
-          <p>python請問Microsoft Windows作業系統要如何安裝LibreOffice語言包？</p>
-          <a href="#"><button type="button">开始学习</button></a>
+          <h4>机器学习基础</h4>
+          <p>介绍机器学习的基本概念, 基础技术, 配合练习案例.</p>
+          <a href="#"><button type="button">敬请期待</button></a>
         </div>
       </div>
 
@@ -115,21 +125,9 @@
           <div class="smpic">
             <img class="img-responsive center-block" src="{% static "webapp/images/pic.png" %}" alt="pic">
           </div>
-          <h4>python基础入门</h4>
-          <p>python請問Microsoft Windows作業系統要如何安裝LibreOffice語言包？</p>
-          <a href="#"><button type="button">开始学习</button></a>
-        </div>
-      </div>
-
-      <! --第二行-->
-      <div class="col-md-4 col-12">
-        <div class="bk">
-          <div class="smpic">
-            <img class="img-responsive center-block" src="{% static "webapp/images/pic.png" %}" alt="pic">
-          </div>
-          <h4>python基础入门</h4>
-          <p>python請問Microsoft Windows作業系統要如何安裝LibreOffice語言包？</p>
-          <a href="#"><button type="button">开始学习</button></a>
+          <h4>学术写作技巧</h4>
+          <p>介绍学术写作工具Latex, 本地部署及相关语法.</p>
+          <a href="#"><button type="button">敬请期待</button></a>
         </div>
       </div>
 
@@ -138,20 +136,21 @@
           <div class="smpic">
             <img class="img-responsive center-block" src="{% static "webapp/images/pic.png" %}" alt="pic">
           </div>
-          <h4>python基础入门</h4>
-          <p>python請問Microsoft Windows作業系統要如何安裝LibreOffice語言包？</p>
-          <a href="#"><button type="button">开始学习</button></a>
+          <h4>线性代数</h4>
+          <p>介绍矩阵理论和线性代数的基本知识及其练习.</p>
+          <a href="#"><button type="button">敬请期待</button></a>
         </div>
       </div>
+
 
       <div class="col-md-4 col-12">
         <div class="bk">
           <div class="smpic">
             <img class="img-responsive center-block" src="{% static "webapp/images/pic.png" %}" alt="pic">
           </div>
-          <h4>python基础入门</h4>
-          <p>python請問Microsoft Windows作業系統要如何安裝LibreOffice語言包？</p>
-          <a href="#"><button type="button">开始学习</button></a>
+          <h4>微积分</h4>
+          <p>介绍极限, 微分学, 积分学理论极其应用练习.</p>
+          <a href="#"><button type="button">敬请期待</button></a>
         </div>
       </div>
 

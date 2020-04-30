@@ -38,13 +38,21 @@ from .models import *
 #     return render(request, 'webapp/results.html', {'question': question})
 
 
-def index(request):
-    # latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    # context = {'latest_question_list': latest_question_list}
-    # context['variable'] = "传递参数测试"
-    # return render(request, 'webapp/index.html', context)
+# def index(request):
+#     # latest_question_list = Question.objects.order_by('-pub_date')[:5]
+#     # context = {'latest_question_list': latest_question_list}
+#     # context['variable'] = "传递参数测试"
+#     # return render(request, 'webapp/index.html', context)
+#
+#     return render(request, 'webapp/index.html')
 
-    return render(request, 'webapp/index.html')
+
+class index(generic.ListView):
+    template_name = 'webapp/index.html'
+    context_object_name = 'all_courses'
+
+    def get_queryset(self):
+        return Course.objects.all()
 
 # class course(generic.ListView):
 #     template_name = 'webapp/course.html'
@@ -64,8 +72,14 @@ class course(generic.DetailView):
 
 class detailpage(generic.DetailView):
     template_name = 'webapp/detailpage.html'
-    model = ClassQuestion
+    model = Lesson
 
+    # def get_context_data(self, **kwargs):
+    #     try:
+    #         ret = Lesson.objects.filter(id__gt=curr_id).order_by("id")[0:1].get().id
+    #     except Image.DoesNotExist:
+    #         ret = Lesson.objects.aggregate(Min("id"))['id__min']
+    #     return ret
 
 
     #def get_queryset(self):
