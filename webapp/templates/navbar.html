@@ -18,23 +18,23 @@
 
 <!-- 导航 -->
     <nav class="navbar navbar-expand-md navbar-light">
-      <a class="navbar-brand" href="#">优扬实验室</a>
+      <a class="navbar-brand" href="{% url 'webapp:index'%}">优扬实验室</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">首页</a>
+            <a class="nav-link" href="{% url 'webapp:index'%}">首页</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">课程</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">注册</a>
+            <a class="nav-link" href="{% url 'webapp:signup'%}">注册</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">登录</a>
+            <a class="nav-link" href="{% url 'webapp:signup'%}">登录</a>
           </li>
         </ul>
       </div>
