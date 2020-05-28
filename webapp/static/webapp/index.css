@@ -1,9 +1,6 @@
-.navbar-brand {
-	font-size:2.5em;
-}
 
-.nav-link {
-	font-size:1.5em;
+.part1 {
+    margin-top:150px;
 }
 
 h3.display-4 {
@@ -36,9 +33,6 @@ button:hover {
 	transition-duration: 0.4s;
 }
 
-.navbar.navbar-expand-md.navbar-light {
-	box-shadow:0 0 12px 0 rgba(0,0,0,0.24);
-}
 
 .lapin {
 	margin-bottom:2em;

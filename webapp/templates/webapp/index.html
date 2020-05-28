@@ -1,44 +1,17 @@
+{% extends 'navbar.html' %}
+
 {#{% load staticfiles %}#}
 {% load static %}
 
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Bootstrap demo</title>
-  <meta charset="utf-8">
+
+{% block content %}
+
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0;">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static "webapp/test.css" %}" type="text/css">
+  <!--<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="{% static "webapp/index.css" %}" type="text/css">
   <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
   <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-
-<! --导航栏-->
-<nav class="navbar navbar-expand-md navbar-light">
-  <a class="navbar-brand" href="#">优扬实验室</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">首页</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">课程</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">注册</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'webapp:signin'%}">登录</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<br>
 
 <div class="part1">
   <div class="container">
@@ -370,5 +343,4 @@
 
 </div>
 
-</body>
-</html>
+{% endblock %}

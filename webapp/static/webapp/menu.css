@@ -2,18 +2,6 @@ button {
     outline:none;
 }
 
-.navbar-brand {
-	font-size:2.5em;
-}
-
-.nav-link {
-	font-size:1.5em;
-}
-
-.navbar.navbar-expand-md.navbar-light {
-	box-shadow:0 0 12px 0 rgba(0,0,0,0.24);
-}
-
 .p1 {
     text-align:center;
     background-color:rgba(230,230,250,0.8);
@@ -21,6 +9,7 @@ button {
 }
 
 .part1 {
+    margin-top:74px;
     background-color:#CFCFEF;
     padding-top:5%;
     padding-bottom:5%;

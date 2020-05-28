@@ -1,48 +1,14 @@
+{% extends 'navbar.html' %}
+
 {#{% load static from staticfiles %}#}
 {% load static %}
 
 
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>具体内容页</title>
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static "webapp/detailpage.css" %}" type="text/css">
+{% block content %}
 
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'>
+<link rel="stylesheet" href="{% static "webapp/detailpage.css" %}" type="text/css">
 
-
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
-  </head>
-  <body>
-
-<!-- 导航 -->
-    <nav class="navbar navbar-expand-md navbar-light">
-      <a class="navbar-brand" href="#">优扬实验室</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#">首页</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">课程</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">注册</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">登录</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-
-    <div class="row no-gutters">
+        <div class="row no-gutters">
 
       <div class="col-md-4 no-gutters">
         <div class="leftside">
@@ -55,26 +21,23 @@
 
           <div class = "bar">
 
+              <div class="progress-text">课程进度 :</div>
 
-<div class="progress-bar purple" title="课程进度"> <span class="course" title="章节进度" style="width:60%;"> <span class="lesson" title="小节进度" style="width:50%"></span></span> </div>
-
+            <div class="progress-bar purple" title="课程进度"> <span class="course" title="章节进度" style="width:60%;"> <span class="lesson" title="小节进度" style="width:50%"></span></span> </div>
 
           </div>
 
           <div class="category">
 
             <ul>
+
               {% for item in lesson.get_chapter_all_lessons%}
                 {% if item.id == lesson.id%}
                   <div class="l" id="active"><div class="tag"></div><li><a href="{% url 'webapp:detailpage' item.id%}">{{item.lesson_name}}</a></li></div>
                 {% else %}
                      <div class="l"><div class="tag"></div><li><a href="{% url 'webapp:detailpage' item.id%}">{{item.lesson_name}}</a></li></div>
                 {% endif%}
-
               {% endfor %}
-
-
-
 
             </ul>
 
@@ -158,36 +121,58 @@
 
                   <a id="continue" href="{% url 'webapp:detailpage' lesson.get_next.id %}"><button type="button"> 继续 ! </button></a>
 
+                  <span id="demo"></span>
+
 <!--               <input type="text" id="result">-->
 
                 </form>
-                 <br><p>answer : </p>
-              <p id="demo"></p>
+
+            </div>
+
+              <!--<p id="demo"></p>-->
 
               <script type="text/javascript">
 
-              $("#continue").hide();
+                //show result
+                   $("#continue").hide();
 
-              var x = true;
-              function myfunc(choice) {
+                  var x = true;
+                  function myfunc(choice) {
 
-                  x = choice;
-                  return x;
-              }
+                      x = choice;
+                      return x;
+                  }
 
-              var result = document.getElementById("result").value;
+                  var result = document.getElementById("result").value;
 
-              function jssubmit() {        //获取form表单的dom对象
+                  function jssubmit() {        //获取form表单的dom对象
 
-                if(x == "True"){
-                    document.getElementById("demo").innerHTML = "选择正确!";
-                    $("#pick").hide();
-                    $("#continue").show();
-                  }else{
-                  document.getElementById("demo").innerHTML = "选择错误, 再想一想呢.";
+                    str = "";
+                    document.getElementById("demo").innerText = str;
 
-                }
-              }</script>
+                    if(x == "True"){
+                        str = "回答正确 !";
+                        $("#pick").hide();
+                        $("#continue").show();
+                      }else{
+                        str = "不对喔，再想一想呢";
+                      }
+
+                    index = 0;
+                    setInterval(function() {  
+                      if(index == str.length) { 
+                       //清除定时器
+                       clearInterval();
+                       //若要让效果无限循环，把index归0即可
+                       // index = 0;
+                       }  
+                        var a = document.getElementById("demo")
+                        a.innerText = str.substring(0, index++);
+                        },100)
+
+                  }
+
+              </script>
 
               </div>
             </div>
@@ -198,13 +183,8 @@
         </div>
 
 
-
-
-
       </div>
 
-    </div>
 
 
-  </body>
-</html>
+{% endblock %}
