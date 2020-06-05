@@ -19,4 +19,5 @@ from django.urls import include, path
 urlpatterns = [
     path('', include('webapp.urls')),
     path('admin/', admin.site.urls),
+    path('captcha/', include('captcha.urls')),   # 增加这一行, 验证码
 ]
