@@ -6,7 +6,7 @@
 <head>
   <title>登陆 - 优扬实验室</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0;">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static "webapp/login.css" %}" type="text/css">
   <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
@@ -36,17 +36,18 @@
 
                 </div>
 
-                <div class="form" method="post" action="#">
+                <div class="form" method="POST" action="#">
 
                     <form>
 
-                        <input class="info" type="email" placeholder="Email"><br>
-                        <input class="info" type="password" placeholder="Password"><br>
-                        <input type="submit" value="log in">
+                        <input id="mail" class="info" type="email" placeholder="Email"><br>
+                        <input id="pwd" class="info" type="password" placeholder="Password"><br>
+                        <input class="disable-button" type="submit" value="log in">
 
                     </form>
 
                 </div>
+
 
                 <div class="forget">
 

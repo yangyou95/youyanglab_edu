@@ -96,12 +96,18 @@
                                 if(a != "" && b != "" && c != "" && d != "") {
                                     $(".able-button").show();
                                     $(".disable-button").hide();
+                                } else {
+                                    $(".able-button").hide();
+                                    $(".disable-button").show();
                                 }
                             }
-                            
+
                             $(".able-button").hide();
-                            var test = document.getElementById("id_captcha_1");
-                            test.setAttribute("oninput", "fun()");
+                            document.getElementById("id_captcha_1").setAttribute("oninput", "fun()");
+                            document.getElementById("id_email").setAttribute("oninput", "fun()");
+                            document.getElementById("id_password1").setAttribute("oninput", "fun()");
+                            document.getElementById("id_password2").setAttribute("oninput", "fun()");
+
                         </script>
 
                     </form>
