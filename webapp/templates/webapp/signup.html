@@ -60,21 +60,26 @@
 <!--                                {% endif %}-->
 
                                 {%for error in field.errors %}
-                                    <br><small style="color: red;">{{error}}</small><br>
+                                    <div class="login_error"><small style="color: red;">{{error}}</small></div>
                                 {% endfor %}
 
 
 
                         {% endfor %}
 
+                        
                         <!--验证码-->
-                       {{ form.captcha }}
+                        {{ form.captcha }}
 
 
                         <script>
+
                         document.getElementById("id_email").placeholder="请输入您的邮箱";
                         document.getElementById("id_password1").placeholder="密码需由数字，大小写字母组成";
                         document.getElementById("id_password2").placeholder="请再次确认密码";
+                        document.getElementById("id_captcha_1").placeholder="请输入验证码";
+
+                        $(".login_error").fadeOut(4000);
 
                         </script>
 

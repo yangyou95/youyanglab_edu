@@ -20,7 +20,7 @@ body {
 }
 
 form {
-    padding:32px 12px 64px;
+    padding:32px 12px 20px;
 }
 
 input {
@@ -84,6 +84,27 @@ a:hover {
 #id_password2 {
     border-radius:0 0 6px 6px;
     border:1px solid #C0C0C0;
+
+}
+
+.login_error {
+    position:absolute;
+    background-color:white;
+    border-radius:6px;
+    box-shadow:2px 2px 5px gray;
+    padding:1px;
+    margin:auto;
+    left:30%;
+    right:30%;
+}
+
+.captcha {
+        display:block;
+        margin-left:40%;
+}
+
+#id_captcha_1 {
+    margin-top:5px;
 }
 
 .s input {
