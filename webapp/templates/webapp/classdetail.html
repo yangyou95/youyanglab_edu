@@ -1,0 +1,168 @@
+{% extends 'navbar.html' %}
+
+{#{% load static from staticfiles %}#}
+{% load static %}
+
+
+{% block content %}
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0;">
+  <!--<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">-->
+  <link rel="stylesheet" href="{% static "webapp/menu.css" %}" type="text/css">
+  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+
+  <div class="part1">
+
+    <div class="container">
+
+      <div class="row">
+
+        <! --图片窗口-->
+        <div class="col-md-4 col-12 p1">
+          <img class="img-fluid" src="{% static "webapp/images/Python/python_0.jpg" %}" alt="img1">
+          <div class="lt">
+            <h3>12&nbsp<span>个模块</span></h3>
+          </div>
+          <div class="rt">
+            <h3>12&nbsp<span>节课</span></h3>
+          </div>
+          <div>
+            {% with question=question_text.classquestion %}
+            <a href="#"><button class="b1">开始学习 !</button></a>
+            {% endwith %}
+          </div>
+        </div>
+
+         <! --简介-->
+        <div class="col-md-8 col-12 p2">
+          <a href="#">返回上一页</a>
+          <h1>PYTHON</h1>
+          <p>Stretch your analytic muscles with knights, knaves, logic gates, and more!</p>
+          <p>Our logic course starts with a love of puzzles and builds up to some truly mind-bending challenges. It covers liar and truth-teller riddles, logical fallacies, machine logic, and even some strategic game theory!<br>
+    By the end of this course, you’ll be able to solve problems involving AND, NOT, and XOR logic gates, and use the symbolic languages of logic to understand fun riddles.</p>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+<script>
+
+  document.getElementsByTagName("body")[0].setAttribute("style", "background-color:white;");
+
+</script>
+
+  <div class="part2 classdetail">
+
+    <div class="container">
+
+
+      <div>
+
+        <ul class="tabs">
+
+          <li class="left active" onclick="showLeft()" id="list">list</li>
+          <li class="right default" onclick="showRight()">contents</li>
+
+        </ul>
+
+        <div class="list">
+
+          <ul>
+
+            <div class="nb">1</div><li><a href="">python介绍</a></li><br>
+            <div class="nb">2</div><li><a href="">小节一</a></li><br>
+            <div class="nb">3</div><li><a href="">小节一</a></li><br>
+
+          </ul>
+
+        </div>
+
+        <div class="contents">
+
+          <ol>
+
+            <li>知识总结一</li>
+            <li>知识总结二</li>
+            <li>3</li>
+
+          </ol>
+
+        </div>
+
+      </div>
+
+      <script>
+
+        $(".contents").hide();
+
+        var l = document.getElementsByClassName("left")[0];
+        var r = document.getElementsByClassName("right")[0];
+
+        function showLeft() {
+          $(".contents").hide();
+          $(".list").show();
+          l.setAttribute("class", "left active");
+          r.setAttribute("class", "right default");
+        }
+
+        function showRight() {
+          $(".list").hide();
+          $(".contents").show();
+          l.setAttribute("class", "left default");
+          r.setAttribute("class", "right active");
+        }
+
+
+      </script>
+
+
+  </div>
+
+  <div class="part6">
+
+        <div class="container">
+
+          <div class="row textf">
+
+            <div class="col-md-4 col-12">
+
+              <p class="t3">优扬实验室.</p>
+              <h2>自古英雄出少年</h2>
+              <br><br>
+
+            </div>
+
+            <div class="col-md-4 col-12">
+
+              <a href="#"><p>关于我们</p></a>
+              <a href="#"><p>主页</p></a>
+              <a href="#"><p>账户</p></a>
+              <a href="#"><p>管理</p></a>
+              <br><br>
+
+            </div>
+
+            <div class="col-md-4 col-12">
+
+              <h3>联系我们</h3>
+              <br><a href="#"><p>000-000-0000</p></a>
+              <a href="#"><p>info@email.com</p></a>
+              <br><a href="#"><p>帅气的扬扬</p></a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+{% endblock %}

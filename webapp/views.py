@@ -211,7 +211,11 @@ class ChoiceTest(generic.DetailView):
     model = ClassQuestion
     template_name = 'webapp/choicetest.html'
 
+# 课程分类页面
+def Class(request):
+    return render(request, 'webapp/class.html')
 
-
+def ClassDetail(request):
+    return render(request, 'webapp/classdetail.html')
 
 
