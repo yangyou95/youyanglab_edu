@@ -83,7 +83,32 @@
 
                         </script>
 
-                        <input type="submit" value="sign up">
+                        <input class="disable-button" type="submit" value="sign up">
+                        <input class="able-button" type="submit" value="sign up !">
+
+                        <script>
+                            function fun() {
+                                var a = document.getElementById("id_email").value;
+                                var b = document.getElementById("id_password1").value;
+                                var c = document.getElementById("id_password2").value;
+                                var d = document.getElementById("id_captcha_1").value;
+
+                                if(a != "" && b != "" && c != "" && d != "") {
+                                    $(".able-button").show();
+                                    $(".disable-button").hide();
+                                } else {
+                                    $(".able-button").hide();
+                                    $(".disable-button").show();
+                                }
+                            }
+
+                            $(".able-button").hide();
+                            document.getElementById("id_captcha_1").setAttribute("oninput", "fun()");
+                            document.getElementById("id_email").setAttribute("oninput", "fun()");
+                            document.getElementById("id_password1").setAttribute("oninput", "fun()");
+                            document.getElementById("id_password2").setAttribute("oninput", "fun()");
+
+                        </script>
 
                     </form>
 
