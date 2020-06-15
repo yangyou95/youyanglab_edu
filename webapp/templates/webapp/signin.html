@@ -36,16 +36,18 @@
 
                 </div>
 
-                <div class="form" method="POST" action="#">
-
-                    <form>
-
-                        <input id="mail" class="info" type="email" placeholder="Email"><br>
-                        <input id="pwd" class="info" type="password" placeholder="Password"><br>
-                        <input class="disable-button" type="submit" value="log in">
+                <div class="form">
+                    <form  method="POST">
+                            {% csrf_token %}
+                            {% for field in form %}
+                                {{field}}
+                                {%for error in field.errors %}
+                                    <div class="login_error"><small style="color: red;">{{error}}</small></div>
+                                {% endfor %}
+                        {% endfor %}
+                        <input type="submit">
 
                     </form>
-
                 </div>
 
 
