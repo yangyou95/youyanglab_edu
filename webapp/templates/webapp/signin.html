@@ -45,10 +45,37 @@
                                     <div class="login_error"><small style="color: red;">{{error}}</small></div>
                                 {% endfor %}
                         {% endfor %}
-                        <input type="submit">
+                        <input type="submit" class="disable-button" value="提交">
+                        <input type="submit" class="able-button" value="提交！">
 
                     </form>
                 </div>
+
+                <script>
+
+
+                     function test() {
+                        var mail = document.getElementById("id_email").value;
+                        var pwd = document.getElementById("id_password").value;
+                        if(mail != "" && pwd != "") {
+                            $(".able-button").show();
+                            $(".disable-button").hide();
+                        }
+                    }
+
+                    var mail = document.getElementById("id_email").value;
+                    var pwd = document.getElementById("id_password").value;
+
+                    if(mail != "" && pwd != "") {
+                        $(".disable-button").hide();
+                    } else {
+                        $(".able-button").hide();
+                    }
+
+                    document.getElementById("id_email").setAttribute("oninput", "test()");
+                    document.getElementById("id_password").setAttribute("oninput", "test()");
+
+                </script>
 
 
                 <div class="forget">

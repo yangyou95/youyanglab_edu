@@ -126,3 +126,7 @@ input.info {
 body {
 	background-image:url('./images/bkg_login.png');
 }
+
+.form input {
+    border:1px solid #C0C0C0;
+}
