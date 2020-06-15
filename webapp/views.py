@@ -3,10 +3,11 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 # from django.template import loader
 from django.urls import reverse
 from django.views import generic
-from django.contrib.auth import login as auth_login, authenticate
-from webapp.forms import RegistrationForm
+from django.contrib.auth import login as auth_login, authenticate, logout
+from webapp.forms import RegistrationForm, UserLoginForm
 # Create your views here.
 from .models import *
+from django.contrib import messages
 
 # 提取问题并显示在前端
 
@@ -142,7 +143,15 @@ def signup(request):
     return render(request, 'webapp/signup.html',context)
 
 def signin(request):
-    return render(request, 'webapp/signin.html')
+    form = UserLoginForm(request.POST or None)
+    if form.is_valid():
+        email = form.cleaned_data.get('email')
+        password = form.cleaned_data.get('password')
+        user = authenticate(email=email,password=password)
+        auth_login(request, user)
+        return redirect('/')
+    context  = {'form':form,}
+    return render(request, 'webapp/signin.html',context)
 
 def forget(request):
     return render(request, 'webapp/forget.html')
