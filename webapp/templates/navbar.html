@@ -40,6 +40,30 @@
       </div>
     </nav>
 
+  {% if request.user.is_authenticated %}
+
+    <script>
+
+      var sign_up = document.getElementsByClassName("nav-link")[2];
+      var sign_in = document.getElementsByClassName("nav-link")[3];
+
+      sign_up.innerHTML = "用户中心";
+      sign_up.setAttribute("href", "#");
+
+      $(sign_in).hide();
+
+    </script>
+  {% endif %}
+
+
+<!-- 侧边栏 -->
+
+  <div class="nav-authenticated">
+
+    <div></div>
+
+  </div>
+
     {% block content %}
     {% endblock %}
 
