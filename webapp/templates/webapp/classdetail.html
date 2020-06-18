@@ -9,11 +9,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0;">
   <!--<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">-->
   <link rel="stylesheet" href="{% static "webapp/menu.css" %}" type="text/css">
-  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
-  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-
 
   <div class="part1">
 
@@ -59,6 +54,9 @@
 
 </script>
 
+
+
+
   <div class="part2 classdetail">
 
     <div class="container">
@@ -73,17 +71,30 @@
 
         </ul>
 
+
+
         <div class="list">
 
           <ul>
 
-            <div class="nb">1</div><li><a href="">python介绍</a></li><br>
-            <div class="nb">2</div><li><a href="">小节一</a></li><br>
-            <div class="nb">3</div><li><a href="">小节一</a></li><br>
-
+<!--            <div class="nb">1</div><li><a href="">python介绍</a></li><br>-->
+<!--            <div class="nb">2</div><li><a href="">小节一</a></li><br>-->
+<!--            <div class="nb">3</div><li><a href="">小节一</a></li><br>-->
+<div id="app">
+<div style="height: 300px;">
+  <el-steps direction="vertical" :active="all">
+    <el-step title="步骤 1"></el-step>
+    <el-step title="步骤 2"></el-step>
+    <el-step title="步骤 3" description="这是一段很长很长很长的描述性文字"></el-step>
+  </el-steps>
+</div>
+</div>
           </ul>
 
         </div>
+
+        <div style="height: 300px;">
+
 
         <div class="contents">
 
@@ -102,6 +113,9 @@
       <script>
 
         $(".contents").hide();
+
+        // test vue and element ui
+        new Vue().$mount('#app')
 
         var l = document.getElementsByClassName("left")[0];
         var r = document.getElementsByClassName("right")[0];
