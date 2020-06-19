@@ -145,14 +145,40 @@ button:hover {
 			 }
 
 
-
 /* element ui css*/
 
-  .el-row {
+  .el-row.title {
     margin-top: 30px;
 
   }
+
   .el-col {
     margin-top: 20px;
     margin-bottom: 20px;
+    transition:0.5s all;
   }
+
+.title1 {
+  font-size:20px;
+}
+
+.el-col.block:hover {
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.block .el-card:hover {
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,.1);
+}
+
+.el-button {
+    color: #8080FF;
+}
+
+.el-button:hover {
+    box-shadow:none;
+    color: #9999FF;
+}
+
+
+
