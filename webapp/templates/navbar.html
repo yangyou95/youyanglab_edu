@@ -3,29 +3,25 @@
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>优扬实验室</title>
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static "webapp/navbar.css" %}" type="text/css">
-
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'>
-
-
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
-
-
     <!--test vue and element ui-->
 <script src="//unpkg.com/vue/dist/vue.js"></script>
 <script src="//unpkg.com/element-ui@2.13.2/lib/index.js"></script>
 <style type="text/css">
 @import url("//unpkg.com/element-ui@2.13.2/lib/theme-chalk/index.css");
 </style>
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static "webapp/navbar.css" %}" type="text/css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
 
-
+<div id="app">
+<!--  顶栏部分-->
+  <el-header>
+     <head>
+    <meta charset="utf-8">
+    <title>优扬实验室</title>
   </head>
   <body>
-
 <!-- 导航 -->
     <nav class="navbar navbar-expand-md navbar-light">
       <a class="navbar-brand" href="{% url 'webapp:index'%}">优扬实验室</a>
@@ -50,9 +46,31 @@
       </div>
     </nav>
 
+
+  </el-header>
+<!--  顶栏部分-->
+
+
+
+  <!-- 内容部分-->
+
+  <div class="nav-authenticated">
+
+    <div></div>
+
+  </div>
+
+    {% block content %}
+    {% endblock %}
+
+  </body>
+</div>
+
+
   {% if request.user.is_authenticated %}
 
     <script>
+
 
       var sign_up = document.getElementsByClassName("nav-link")[2];
       var sign_in = document.getElementsByClassName("nav-link")[3];
@@ -66,16 +84,5 @@
   {% endif %}
 
 
-<!-- 侧边栏 -->
 
-  <div class="nav-authenticated">
-
-    <div></div>
-
-  </div>
-
-    {% block content %}
-    {% endblock %}
-
-  </body>
 </html>
