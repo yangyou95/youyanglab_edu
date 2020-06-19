@@ -145,119 +145,14 @@ button:hover {
 			 }
 
 
-.textf {
-    padding:200px 0 0 0;
-    color:white;
-}
 
-.textf a {
-    decoration:none;
-    color:white;
-}
+/* element ui css*/
 
-.row.textf {
-    margin-bottom:0;
-}
+  .el-row {
+    margin-top: 30px;
 
-/* for class.html */
-.return {
-    color:black;
-    border:1px solid rgba(0, 0, 0, 0.23);
-    border-radius:4px;
-    position:fixed;
-    top:74px;
-    padding:5px 10px;
-    font-size:1.25em;
-    margin:16px 24px;
-    z-index:100;
-}
-
-a .return:hover {
-    color:black;
-    text-decoration:none;
-}
-
-.return:hover {
-    background-color:rgba(0, 0, 0, 0.1);
-    -webkit-transition-duration: 0.4s; /* Safari */
-	transition-duration: 0.4s;
-}
-
-.class.p1 {
-    background-color:rgba(0, 0, 0, 0);
-    float:right;
-}
-
-.class.p2 {
-    text-align:left;
-}
-
-.class.p2 h1 {
-    margin-top:20%;
-}
-
-.class.part1 {
-    padding:0;
-    background-color:white;
-    background-image:url('./images/spikes.png');
-}
-
-body {
-    background-color:#F8F8F8;
-}
-
-/* for classdetail.html */
-.classdetail .left.default, .right.default {
-    background-color:white;
-    display:inline-block;
-    width:49%;
-    text-align:center;
-    padding-top:0.25em;
-    padding-bottom:0.125em;
-    font-size:1.5em;
-    border-bottom:5px solid rgb(229, 229, 229);
-}
-
-.classdetail .left:hover, .right:hover {
-    background-color:#FAFAFA;
-}
-
-.classdetail .left.active, .right.active {
-    background-color:#FAFAFA;
-    display:inline-block;
-    width:49%;
-    text-align:center;
-    padding-top:0.25em;
-    padding-bottom:0.125em;
-    font-size:1.5em;
-    border-bottom:5px solid #8080FF;
-    color:#8080FF;
-}
-
-.tabs {
-    padding:0 auto;
-
-}
-
-.list, .contents {
-    padding:2em;
-    border-radius:10px;
-    background-color:#FAFAFA;
-    border-radius:4px;
-}
-
-.list li {
-    padding:1em;
-    font-size:1.25em;
-    list-style:none;
-    display:inline-block;
-}
-
-.contents li {
-    padding:1em;
-    font-size:1.25em;
-}
-
-.classdetail li {
-    cursor:pointer;
-}
+  }
+  .el-col {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }

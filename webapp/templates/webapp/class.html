@@ -9,151 +9,137 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0;">
   <!--<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">-->
   <link rel="stylesheet" href="{% static "webapp/menu.css" %}" type="text/css">
-  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
-  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-<a href="#"><div class="return">< return</div></a>
-
-  <div class="part1 class">
 
 
-    <div class="container">
 
-      <div class="row">
+  <el-main>
 
-        <! --图片窗口-->
-        <div class="col-md-4 col-12 p1 class">
-          <img class="img-responsive" src="{% static "webapp/images/aWeb.png" %}" alt="img1">
-        </div>
 
-         <! --简介-->
-        <div class="col-md-8 col-12 p2 class">
-          <h1>多种课程可供选择</h1>
-        </div>
+<el-row :gutter="20">
+<el-col :xs="{span:18, offset:3}" :sm="{span:14, offset:5}" :md="{span:12, offset:6}" :lg="{span:12, offset:6}" >
 
-      </div>
+  <el-row>
+     <h2> 全部课程 </h2>
+  </el-row>
 
-    </div>
+<!--  每个部分 -->
+   <el-row>
+    <el-col :span="1"><i class="el-icon-finished"></i></el-col>
+     <el-col :span="16" :xs="{span:21, offset:2}"> <h4> 编程语言基础 </h4></el-col>
 
+  </el-row>
+
+   <el-col :xs="24" :sm="18" :md="12" :lg="8">
+      <el-card class="box-card">
+  <div slot="header" class="clearfix">
+    <span>卡片名称</span>
+    <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
   </div>
-
-  <div class="part2">
-
-    <div class="container">
-
-
-
-
-      <div class="row bk">
-
-
-        <div class="col-md-4 col-12">
-          <a href="#">
-            <div class="con">
-              <img class="img-fluid" src="{% static "webapp/images/Python/lesson.png" %}" alt="img2">
-              <p>上面是个python的图标，这段话是课程介绍</p>
-            </div>
-          </a>
-        </div>
-
-
-
-
-
-        <div class="col-md-4 col-12">
-          <a href="#">
-            <div class="con">
-              <img class="img-fluid" src="{% static "webapp/images/Python/lesson.png" %}" alt="img2">
-              <p>zaeazeazeazeaze</p>
-            </div>
-          </a>
-        </div>
-
-
-
-
-        <div class="col-md-4 col-12">
-          <a href="#">
-            <div class="con">
-              <img class="img-fluid" src="{% static "webapp/images/Python/lesson.png" %}" alt="img2">
-              <p>zaeazeazeazeaze</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-md-4 col-12">
-          <a href="#">
-            <div class="con">
-              <img class="img-fluid" src="{% static "webapp/images/Python/lesson.png" %}" alt="img2">
-              <p>zaeazeazeazeaze</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-md-4 col-12">
-          <a href="#">
-            <div class="con">
-              <img class="img-fluid" src="{% static "webapp/images/Python/lesson.png" %}" alt="img2">
-              <p>zaeazeazeazeaze</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="col-md-4 col-12">
-          <a href="#">
-            <div class="con">
-              <img class="img-fluid" src="{% static "webapp/images/Python/lesson.png" %}" alt="img2">
-              <p>zaeazeazeazeaze</p>
-            </div>
-          </a>
-        </div>
-
-
-      </div>
-
-
-
-
+  <div v-for="o in 4" :key="o" class="text item">
+    {{'列表内容 '}}
   </div>
+</el-card>
+   </el-col>
 
-  <div class="part6">
 
-        <div class="container">
+ <el-col :xs="24" :sm="18" :md="12" :lg="8">
+      <el-card class="box-card">
+  <div slot="header" class="clearfix">
+    <span>卡片名称</span>
+    <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+  </div>
+  <div v-for="o in 4" :key="o" class="text item">
+    {{'列表内容 '}}
+  </div>
+</el-card>
+   </el-col>
 
-          <div class="row textf">
+     <el-col :xs="24" :sm="18" :md="12" :lg="8">
+      <el-card class="box-card">
+  <div slot="header" class="clearfix">
+    <span>卡片名称</span>
+    <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+  </div>
+  <div v-for="o in 4" :key="o" class="text item">
+    {{'列表内容 '}}
+  </div>
+</el-card>
+   </el-col>
 
-            <div class="col-md-4 col-12">
+  <!--  每个部分 -->
+   <el-row>
+    <el-col :span="1"><i class="el-icon-finished"></i></el-col>
+     <el-col :span="16" :xs="{span:21, offset:2}"> <h4> 数据结构与算法 </h4></el-col>
 
-              <p class="t3">优扬实验室.</p>
-              <h2>自古英雄出少年</h2>
-              <br><br>
+  </el-row>
 
-            </div>
+   <el-col :xs="24" :sm="18" :md="12" :lg="8">
+      <el-card class="box-card">
+  <div slot="header" class="clearfix">
+    <span>卡片名称</span>
+    <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+  </div>
+  <div v-for="o in 4" :key="o" class="text item">
+    {{'列表内容 '}}
+  </div>
+</el-card>
+   </el-col>
 
-            <div class="col-md-4 col-12">
 
-              <a href="#"><p>关于我们</p></a>
-              <a href="#"><p>主页</p></a>
-              <a href="#"><p>账户</p></a>
-              <a href="#"><p>管理</p></a>
-              <br><br>
+ <el-col :xs="24" :sm="18" :md="12" :lg="8">
+      <el-card class="box-card">
+  <div slot="header" class="clearfix">
+    <span>卡片名称</span>
+    <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+  </div>
+  <div v-for="o in 4" :key="o" class="text item">
+    {{'列表内容 '}}
+  </div>
+</el-card>
+   </el-col>
 
-            </div>
+     <el-col :xs="24" :sm="18" :md="12" :lg="8">
+      <el-card class="box-card">
+  <div slot="header" class="clearfix">
+    <span>卡片名称</span>
+    <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+  </div>
+  <div v-for="o in 4" :key="o" class="text item">
+    {{'列表内容 '}}
+  </div>
+</el-card>
+   </el-col>
 
-            <div class="col-md-4 col-12">
 
-              <h3>联系我们</h3>
-              <br><a href="#"><p>000-000-0000</p></a>
-              <a href="#"><p>info@email.com</p></a>
-              <br><a href="#"><p>帅气的扬扬</p></a>
 
-            </div>
 
-          </div>
 
-        </div>
+</el-col>
+</el-row>
+</el-main>
 
-      </div>
 
+
+
+
+
+
+
+
+<script>
+var Main = {
+methods: {
+goBack() {
+  console.log('go back');
+}
+}
+}
+var Ctor = Vue.extend(Main)
+new Ctor().$mount('#app')
+</script>
+
+<style>
+
+
+</style>
 {% endblock %}
