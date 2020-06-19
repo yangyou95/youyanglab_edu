@@ -227,4 +227,8 @@ def Class(request):
 def ClassDetail(request):
     return render(request, 'webapp/classdetail.html')
 
+# 服务页面
+def Service(request):
+    return render(request, 'webapp/service.html')
+
 

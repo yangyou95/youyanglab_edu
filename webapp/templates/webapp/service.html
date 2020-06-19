@@ -1,0 +1,142 @@
+{% extends 'navbar.html' %}
+
+{#{% load static from staticfiles %}#}
+{% load static %}
+
+
+{% block content %}
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0;">
+  <!--<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">-->
+  <link rel="stylesheet" href="{% static "webapp/menu.css" %}" type="text/css">
+
+
+
+  <el-main>
+
+
+<el-row :gutter="20">
+<el-col :xs="{span:18, offset:3}" :sm="{span:14, offset:5}" :md="{span:12, offset:6}" :lg="{span:8, offset:8}" >
+
+  <el-row>
+     <h2> 我们的服务 (针对在英的中国留学生) </h2>
+  </el-row>
+
+<!--  每个部分 -->
+   <el-row>
+    <el-col :span="1"><i class="el-icon-reading"></i></el-col>
+     <el-col :span="16" :xs="{span:21, offset:2}"> <h4> 学术及作业辅导 </h4></el-col>
+
+  </el-row>
+
+   <el-col :xs="24" :sm="18" :md="12" :lg="12">
+      <el-card class="box-card">
+  <div slot="header" class="clearfix">
+    <span><h5>作业辅导</h5></span>
+  </div>
+ <p>高校的相关作业，可以进行定制化帮助，辅导知识难点。</p>
+</el-card>
+   </el-col>
+
+
+ <el-col :xs="24" :sm="18" :md="12" :lg="12">
+      <el-card class="box-card">
+
+  <div slot="header" class="clearfix">
+    <span><h5>定制化补课</h5></span>
+  </div>
+   <p>针对学习某个学科困难的学生，进行定制化补课，系统讲解。</p>
+
+</el-card>
+   </el-col>
+
+
+
+  <!--  每个部分 -->
+   <el-row>
+    <el-col :span="1"><i class="el-icon-data-line"></i></el-col>
+     <el-col :span="16" :xs="{span:21, offset:2}"> <h4> 简历文书修改及咨询 </h4></el-col>
+
+  </el-row>
+
+   <el-col :xs="24" :sm="18" :md="12" :lg="12">
+      <el-card class="box-card">
+  <div slot="header" class="clearfix">
+    <span><h5>简历文书修改</h5></span>
+  </div>
+  <p>针对求学或求职的简历及文书修改，深度挖掘与优化核心竞争力。</p>
+</el-card>
+   </el-col>
+
+
+
+     <el-col :xs="24" :sm="18" :md="12" :lg="12">
+      <el-card class="box-card">
+  <div slot="header" class="clearfix">
+    <span><h5>求学咨询</h5></span>
+  </div>
+   <p>针对想申请硕士或博士的学生，提供申请，学术方向等问题咨询。</p>
+</el-card>
+   </el-col>
+<!--分割线 联系我们-->
+
+    <el-row :gutter="20">
+        <el-col :span="24">
+             <el-divider content-position="center">联系我们</el-divider>
+
+        </el-col>
+
+
+        <!-- 课程说明-->
+    <el-card class="box-card" shadow="hover">
+
+  <div class="demo-image__placeholder">
+
+      <div class="row">
+              <! --图片窗口-->
+        <div class="col-md-4 col-12 p1">
+          <img class="img-fluid" src="{% static "webapp/images/Python/python_0.jpg" %}" alt="img1">
+
+        </div>
+
+              <div class="col-md-8 col-12 p2">
+          <h4>优扬实验室公众号</h4>
+          <p>扫码与我们的工作人员联系，获取更多课程相关信息。</p>
+
+
+        </div>
+      </div>
+
+</div>
+
+</el-card>
+    </el-row>
+
+
+
+</el-col>
+
+
+
+</el-row>
+
+</el-main>
+
+
+
+
+
+
+
+
+
+<script>
+
+new Vue().$mount('#app')
+</script>
+
+<style>
+
+
+</style>
+{% endblock %}
