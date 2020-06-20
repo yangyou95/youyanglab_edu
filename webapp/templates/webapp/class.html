@@ -31,12 +31,15 @@
 
     <el-row :gutter="20">
        <el-col :xs="24" :sm="18" :md="12" :lg="8" class="block">
-          <el-card class="box-card">
-              <div slot="header" class="clearfix">
-                <span>卡片名称</span>
-                <el-button style="float: right; padding: 3px 0" type="text">开始学习</el-button>
-              </div>
+          <el-card :body-style="{ padding : '0px'}" class="box-card">
               <img class="img-fluid" src="{% static "webapp/images/Python/lesson.png" %}" alt="img2">
+              <div style="padding: 14px;">
+                  <div class="bottom clearfix">
+                    <span>卡片名称</span>
+                    <el-button style="float: right; padding: 3px 0" type="text">开始学习</el-button>
+                  </div>
+              </div>
+
           </el-card>
        </el-col>
 
