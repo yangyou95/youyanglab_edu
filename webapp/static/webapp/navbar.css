@@ -18,3 +18,7 @@
 .navbar.navbar-expand-md.navbar-light {
 	box-shadow:0 0 12px 0 rgba(0,0,0,0.24);
 }
+.btn-group{
+	margin-right: 100px;
+	/* 想把用户中心那往左移一部分	*/
+}
