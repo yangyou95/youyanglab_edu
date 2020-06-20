@@ -154,16 +154,19 @@
 
 
     <div style="height: 100px;">
-  <el-steps direction="vertical" :active="1">
-    <el-step title="步骤 1"></el-step>
-    <el-step title="步骤 2"></el-step>
-    <el-step title="步骤 3" description="这是一段很长很长很长的描述性文字"></el-step>
-  </el-steps>
-</div>
+      <el-steps direction="vertical" :active="1">
+        <el-step title="步骤 1"></el-step>
+        <el-step title="步骤 2"></el-step>
+        <el-step title="步骤 3" description="这是一段很长很长很长的描述性文字"></el-step>
+      </el-steps>
+    </div>
 
+
+</el-row>
 
 
 <script>
+
 var Main = {
     data() {
       return {
@@ -173,7 +176,16 @@ var Main = {
   }
 var Ctor = Vue.extend(Main)
 new Ctor().$mount('#app')
+
+        var para = document.createElement("a");
+        var node = document.createTextNode("hyperlink");
+        para.setAttribute("href", "#");
+        para.appendChild(node);
+
+        var element = document.getElementsByClassName("el-step__title")[1];
+        element.appendChild(para);
+
+
 </script>
-</el-row>
 
 {% endblock %}
