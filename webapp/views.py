@@ -143,15 +143,24 @@ def signup(request):
     return render(request, 'webapp/signup.html',context)
 
 def signin(request):
+    next = request.GET.get('next')
     form = UserLoginForm(request.POST or None)
     if form.is_valid():
         email = form.cleaned_data.get('email')
         password = form.cleaned_data.get('password')
         user = authenticate(email=email,password=password)
         auth_login(request, user)
+
+        if next:
+            return redirect(next)
         return redirect('/')
     context  = {'form':form,}
     return render(request, 'webapp/signin.html',context)
+
+def logout_view(request):
+    logout(request)
+    return redirect('/')
+
 
 def forget(request):
     return render(request, 'webapp/forget.html')

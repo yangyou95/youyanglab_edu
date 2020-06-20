@@ -12,7 +12,9 @@
 <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="{% static "webapp/navbar.css" %}" type="text/css">
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'>
-<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 <div id="app">
 <!--  顶栏部分-->
@@ -36,12 +38,35 @@
           <li class="nav-item">
             <a class="nav-link" href="#">课程</a>
           </li>
-          <li class="nav-item">
+
+
+          {% if user.is_authenticated %}
+
+          <div class="btn-group">
+            <li class="nav-item">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >用户中心</a>
+            <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">我的课程</a>
+            <a class="dropdown-item" href="#">我的资料</a>
+            <a class="dropdown-item" href="#">balabla</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'webapp:logout'%}">退出登录</a>
+            </div>
+            </li>
+          </div>
+
+
+          {% else %}
+
+             <li class="nav-item">
             <a class="nav-link" href="{% url 'webapp:signup'%}">注册</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'webapp:signup'%}">登录</a>
+            <a class="nav-link" href="{% url 'webapp:signin'%}">登录</a>
           </li>
+
+          {% endif %}
+
         </ul>
       </div>
     </nav>
@@ -67,22 +92,7 @@
 </div>
 
 
-  {% if request.user.is_authenticated %}
 
-    <script>
-
-
-      var sign_up = document.getElementsByClassName("nav-link")[2];
-      var sign_in = document.getElementsByClassName("nav-link")[3];
-
-      sign_up.innerHTML = "用户中心";
-      sign_up.setAttribute("href", "{% url 'webapp:user_url' %}");
-
-      $(sign_in).hide();
-
-    </script>
-
-  {% endif %}
 
 
 
