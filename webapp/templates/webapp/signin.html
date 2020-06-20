@@ -45,6 +45,7 @@
                         <div class="alert alert-danger" role="alert">
                             用户名或密码错误
                         </div>
+
                             {% endif%}
                         <!--      登录表单                  -->
                             {% for field in form %}
@@ -61,8 +62,8 @@
 
                 <script>
 
-
                      function test() {
+                        $(".alert-danger").hide();
                         var mail = document.getElementById("id_email").value;
                         var pwd = document.getElementById("id_password").value;
                         if(mail != "" && pwd != "") {

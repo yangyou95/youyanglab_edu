@@ -130,3 +130,10 @@ body {
 .form input {
     border:1px solid #C0C0C0;
 }
+
+/* 提示信息 */
+
+.alert-danger {
+    width: 60%;
+    margin: 0 auto 12px auto;
+}
