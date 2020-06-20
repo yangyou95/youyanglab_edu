@@ -21,6 +21,8 @@ class UserLoginForm(forms.Form):
 
         if email and password:
             user = authenticate(email=email, password=password)
-            if not user or not user.check_password(password):
-                raise forms.ValidationError('用户名或密码输入错误')
+            if not user:
+                raise forms.ValidationError('用户名或密码错误')
+            if user is not None and not user.check_password(password):
+                raise forms.ValidationError('用户名或密码错误')
         return super(UserLoginForm, self).clean(*args, **kwargs)

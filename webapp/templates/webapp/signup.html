@@ -32,8 +32,8 @@
 
                 <div class="t">
 
-                    <h2><a href="{% url 'webapp:signin'%}">Log in</a></h2> |
-                    <h2>Sign up</h2>
+                    <h2><a href="{% url 'webapp:signin'%}">登录</a></h2> |
+                    <h2>注册</h2>
 
                 </div>
 
@@ -41,35 +41,20 @@
 
                     <form class="s" method="POST">
 
-                        {% csrf_token %}
+                        <div>
+                                {% csrf_token %}
                         {% for field in registration_form %}
-<!--                            {% if field.label == "Email" %}-->
-<!--                              <br> 注册邮箱: {{field}} <br>-->
-<!--                            {% endif%}-->
-<!--                            {% if field.label == "Password"%}-->
-<!--                              <br> 输入密码: {{field}} <br>-->
-<!--                            {% endif%}-->
-<!--                            {% if field.label == "Password confirmation" %}-->
-<!--                              <br> 确认密码: {{field}} <br>-->
-<!--                            {% endif%}-->
 
                                 {{field}}
-
-<!--                                {% if field.help_text %}-->
-<!--                                    <small style="color: grey;">{{field.help_text}}</small>-->
-<!--                                {% endif %}-->
-
                                 {%for error in field.errors %}
                                     <div class="login_error"><small style="color: red;">{{error}}</small></div>
                                 {% endfor %}
-
-
-
                         {% endfor %}
+                        </div>
+
+
 
                         
-                        <!--验证码-->
-                        {{ form.captcha }}
 
 
                         <script>

@@ -32,6 +32,7 @@ urlpatterns = [
     path('signin/',views.signin, name = "signin"),
     path('signup/',views.signup, name = 'signup'),
     path('forget/',views.forget, name='forget'),
+    path('logout/',views.logout_view, name='logout'),
 
 
     #test questions
