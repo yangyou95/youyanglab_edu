@@ -30,38 +30,47 @@
     </el-row>
 
     <el-row :gutter="20">
-       <el-col :xs="24" :sm="18" :md="12" :lg="8" class="block">
-          <el-card class="box-card">
-              <div slot="header" class="clearfix">
-                                <img class="img-fluid" src="{% static "webapp/images/Python/lesson.png" %}" alt="img2">
-              </div>
-                              <span>卡片名称</span>
-
-              <el-button style="float: right; padding: 3px 0" type="text">开始学习</el-button>
-          </el-card>
-       </el-col>
-
 
        <el-col :xs="24" :sm="18" :md="12" :lg="8" class="block">
-          <el-card class="box-card">
-              <div slot="header" class="clearfix">
-                <span>卡片名称</span>
-                <el-button style="float: right; padding: 3px 0" type="text">开始学习</el-button>
-              </div>
+          <el-card :body-style="{ padding : '0px'}" class="box-card">
               <img class="img-fluid" src="{% static "webapp/images/Python/lesson.png" %}" alt="img2">
+              <div style="padding: 14px;">
+                  <div style="font-size: 20px;padding-bottom: 16px;">卡片名称</div>
+                  <div class="bottom clearfix">
+                    <div style="color: rgba(0, 0, 0, 0.5);padding: 6px 2px;display: inline-block"> 小节数</div>
+                    <el-button style="float: right; padding: 10px 12px" type="text" class="start">开始学习<i class="el-icon-right" style="padding-left: 6px;"></i></el-button>
+                  </div>
+              </div>
           </el-card>
        </el-col>
 
 
        <el-col :xs="24" :sm="18" :md="12" :lg="8" class="block">
-          <el-card class="box-card">
-              <div slot="header" class="clearfix">
-                <span>卡片名称</span>
-                <el-button style="float: right; padding: 3px 0" type="text">开始学习</el-button>
-              </div>
+          <el-card :body-style="{ padding : '0px'}" class="box-card">
               <img class="img-fluid" src="{% static "webapp/images/Python/lesson.png" %}" alt="img2">
+              <div style="padding: 14px;">
+                  <div style="font-size: 20px;padding-bottom: 16px;">卡片名称</div>
+                  <div class="bottom clearfix">
+                    <div style="color: rgba(0, 0, 0, 0.5);padding: 6px 2px;display: inline-block"> 小节数</div>
+                    <el-button style="float: right; padding: 10px 12px" type="text" class="start">开始学习<i class="el-icon-right" style="padding-left: 6px;"></i></el-button>
+                  </div>
+              </div>
           </el-card>
        </el-col>
+
+       <el-col :xs="24" :sm="18" :md="12" :lg="8" class="block">
+          <el-card :body-style="{ padding : '0px'}" class="box-card">
+              <img class="img-fluid" src="{% static "webapp/images/Python/lesson.png" %}" alt="img2">
+              <div style="padding: 14px;">
+                  <div style="font-size: 20px;padding-bottom: 16px;">卡片名称</div>
+                  <div class="bottom clearfix">
+                    <div style="color: rgba(0, 0, 0, 0.5);padding: 6px 2px;display: inline-block"> 小节数</div>
+                    <el-button style="float: right; padding: 10px 12px" type="text" class="start">开始学习<i class="el-icon-right" style="padding-left: 6px;"></i></el-button>
+                  </div>
+              </div>
+          </el-card>
+       </el-col>
+
     </el-row>
 
   <!--  每个部分 -->

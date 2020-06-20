@@ -171,13 +171,22 @@ button:hover {
     box-shadow: 0 4px 16px 0 rgba(0,0,0,.1);
 }
 
-.el-button {
-    color: #8080FF;
+.start.el-button {
+    color: black;
+    border-radius: 4px;
+    font-weight: bold;
 }
 
-.el-button:hover {
+.start.el-button:hover {
     box-shadow:none;
-    color: #9999FF;
+    color: #7373E5;
+    background-color:rgba(0,0,0,.1);
+}
+
+.start .el-icon-right {
+    color: #8080FF;
+    font-weight: bold;
+    font-size: 15px;
 }
 
 
