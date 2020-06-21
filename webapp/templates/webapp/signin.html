@@ -40,13 +40,7 @@
                 <div class="form">
                     <form  method="POST">
                             {% csrf_token %}
-                        <!--       若登录失败，显示提取的错误信息                -->
-                            {%if form.errors%}
-                        <div class="alert alert-danger" role="alert">
-                            用户名或密码错误
-                        </div>
 
-                            {% endif%}
                         <!--      登录表单                  -->
                             {% for field in form %}
                                 {{field}}
@@ -61,10 +55,6 @@
                 </div>
 
                 <script>
-
-
-                     $(".alert-danger").delay(3000).hide(0);
-
 
                      function test() {
                         var mail = document.getElementById("id_email").value;
@@ -98,6 +88,20 @@
                     <p><a href="{% url 'webapp:forget'%}">忘记密码 ?</a> or <a href="{% url 'webapp:index'%}">取消</a></p>
 
                 </div>
+
+                <!--       若登录失败，显示提取的错误信息                -->
+                {%if form.errors%}
+                        <div class="alert alert-danger" role="alert">
+                            用户名或密码错误
+                        </div>
+
+                {% endif%}
+
+                <script>
+
+                    $(".alert-danger").delay(1000).fadeOut(1000);
+
+                </script>
 
             </div>
 
