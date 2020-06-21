@@ -86,12 +86,13 @@ a:hover {
     margin:0;
     border-radius:6px 6px 0 0;
     border:1px solid #C0C0C0;
+    transition:0.5s all;
 }
 
 #id_password2 {
     border-radius:0 0 6px 6px;
     border:1px solid #C0C0C0;
-
+    transition:0.5s all;
 }
 
 .login_error {
@@ -129,6 +130,11 @@ body {
 
 .form input {
     border:1px solid #C0C0C0;
+    transition:0.5s all;
+}
+
+.form input[type="submit"] {
+    border:0;
 }
 
 /* 提示信息 */
@@ -136,4 +142,17 @@ body {
 .alert-danger {
     width: 60%;
     margin: 0 auto 12px auto;
+}
+
+/* input 框效果 */
+.form input:hover {
+    border-color: #747474;
+}
+
+#id_password1:hover {
+    border-color: #747474;
+}
+
+#id_password2:hover {
+    border-color: #747474;
 }
