@@ -60,11 +60,11 @@
                         var mail = document.getElementById("id_email").value;
                         var pwd = document.getElementById("id_password").value;
                         if(mail != "" && pwd != "") {
-                            $(".able-button").show();
+                            $(".able-button").fadeIn(500);
                             $(".disable-button").hide();
                         } else {
                             $(".able-button").hide();
-                            $(".disable-button").show();
+                            $(".disable-button").fadeIn(500);
                         }
                     }
 
