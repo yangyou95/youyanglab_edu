@@ -189,5 +189,9 @@ button:hover {
     font-size: 15px;
 }
 
+.el-card .img-fluid {
+    height: 148px;
+    width: 100%;
+}
 
 
