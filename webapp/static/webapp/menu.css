@@ -177,10 +177,18 @@ button:hover {
     font-weight: bold;
 }
 
+/* buttons in class.html */
 .start.el-button:hover {
     box-shadow:none;
     color: #7373E5;
     background-color:rgba(0,0,0,.1);
+}
+
+/* buttons in classdetail.html */
+.start.el-button.classdetail:hover {
+    box-shadow:none;
+    color: #7373E5;
+    background-color:white;
 }
 
 .start .el-icon-right {
@@ -194,27 +202,18 @@ button:hover {
     width: 100%;
 }
 
-/* for button return */
-.return {
-    color:black;
-    border:1px solid rgba(0, 0, 0, 0.23);
-    border-radius:4px;
-    position:fixed;
-    top:100px;
-    padding:5px 10px;
-    font-size:1.25em;
-    margin:16px 24px;
-    z-index:100;
+.gradient-card .el-card__header {
+    background-image: linear-gradient(to bottom right, #FFFFFF, #E5E5FF);
+    padding:0px;
+    height:132px;
 }
 
-a .return:hover {
-    color:black;
-    text-decoration:none;
+.gradient-card h6 {
+    padding-top:24px;
+    padding-left:17px;
 }
 
-.return:hover {
-    background-color:rgba(0, 0, 0, 0.1);
-    -webkit-transition-duration: 0.4s; /* Safari */
-	transition-duration: 0.4s;
+.gradient-card h5 {
+    padding:6px 16px;
 }
 
