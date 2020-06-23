@@ -9,10 +9,9 @@ button {
 }
 
 .part1 {
-    margin-top:74px;
     background-color:#CFCFEF;
-    padding-top:5%;
-    padding-bottom:5%;
+    padding-top:10px;
+    padding-bottom:20px;
 }
 
 .lt {
@@ -217,3 +216,20 @@ button:hover {
     padding:6px 16px;
 }
 
+/* test */
+.el-divider__text {
+    background-color: #cfcfef;
+}
+
+/* for title-collapse */
+.title-collapse h1 {
+    padding:25px 0 20px 0;
+}
+
+.picture {
+    margin-top:93px;
+}
+
+.title-collapse .el-icon-arrow-right {
+    color: #8080FF;
+}
