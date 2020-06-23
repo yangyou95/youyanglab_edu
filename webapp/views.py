@@ -1,52 +1,19 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect, Http404
-# from django.template import loader
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes, force_text
+from django.template.loader import get_template
 from django.urls import reverse
 from django.views import generic
 from django.contrib.auth import login as auth_login, authenticate, logout
 from webapp.forms import RegistrationForm, UserLoginForm
 # Create your views here.
 from .models import *
+from .tokens import user_tokenizer
+from django.views import View
 from django.contrib import messages
-
-# 提取问题并显示在前端
-
-#改良前
-# def index(request):
-#     latest_question_list = Question.objects.order_by('-pub_date')[:5]
-#     context = {'latest_question_list': latest_question_list}
-#     context['variable'] = "传递参数测试"
-#     return render(request, 'webapp/index.html', context)
-
-#     # # 定义的模板
-#     # template = loader.get_template('webapp/index.html')
-#     # context = {
-#     #     'latest_question_list':latest_question_list,
-#     # }
-#     # return HttpResponse(template.render(context, request))
-
-# def detail(request, question_id):
-#     try:
-#         question = Question.objects.get(pk=question_id)
-#     except Question.DoesNotExist:
-#         raise Http404("Question does not exist")
-#     return render(request, 'webapp/detail.html', {'question': question})
-
-# def results(request, question_id):
-#     # response = "You're looking at the results of question %s."
-#     # return HttpResponse(response % question_id)
-#     question = get_object_or_404(Question, pk=question_id)
-#     return render(request, 'webapp/results.html', {'question': question})
-
-
-# def index(request):
-#     # latest_question_list = Question.objects.order_by('-pub_date')[:5]
-#     # context = {'latest_question_list': latest_question_list}
-#     # context['variable'] = "传递参数测试"
-#     # return render(request, 'webapp/index.html', context)
-#
-#     return render(request, 'webapp/index.html')
-
+from django.core.mail import EmailMessage, send_mail
+from django.conf import settings
 
 class index(generic.ListView):
     template_name = 'webapp/index.html'
@@ -55,13 +22,6 @@ class index(generic.ListView):
     def get_queryset(self):
         return Course.objects.all()
 
-# class course(generic.ListView):
-#     template_name = 'webapp/course.html'
-#     context_object_name = 'question_test_list'
-#
-#     def get_queryset(self):
-#         """Return the last five published questions."""
-#         return ClassQuestion.objects.all()
 
 class course(generic.DetailView):
     template_name = 'webapp/course.html'
@@ -75,30 +35,6 @@ class detailpage(generic.DetailView):
     template_name = 'webapp/detailpage.html'
     model = Lesson
 
-    # def get_context_data(self, **kwargs):
-    #     try:
-    #         ret = Lesson.objects.filter(id__gt=curr_id).order_by("id")[0:1].get().id
-    #     except Image.DoesNotExist:
-    #         ret = Lesson.objects.aggregate(Min("id"))['id__min']
-    #     return ret
-
-
-    #def get_queryset(self):
-     #   """Return the last five published questions."""
-      #  return ClassQuestion.objects.all()
-
-
-
-
-# def registerView(request):
-#     if request.method == 'POST':
-#         form = UserCreationForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('login_url')
-#     else:
-#         form = UserCreationForm()
-#     return render(request, 'webapp/register.html',{'form':form})
 
 def registration_view(request):
     context = {}
@@ -141,6 +77,52 @@ def signup(request):
         form = RegistrationForm()
         context['registration_form'] = form
     return render(request, 'webapp/signup.html',context)
+
+# 注册类
+class RegisterView(View):
+    def get(self, request):
+        return render(request, 'webapp/signup.html', {'registration_form': RegistrationForm()})
+
+    def post(self, request):
+        context = {}
+        if request.POST:
+            form = RegistrationForm(request.POST)
+            if form.is_valid():
+                user = form.save(commit=False)
+                user.active = False
+                user.save()
+                token = user_tokenizer.make_token(user)
+                user_id = urlsafe_base64_encode(force_bytes(user.id))
+                url = 'http://127.0.0.1:8000' + reverse('webapp:confirm_email', kwargs={'user_id': user_id, 'token': token})
+                message = get_template('webapp/register_email.html').render({'confirm_url': url})
+                mail = EmailMessage('优扬实验室账户邮箱认证', message, to=[user.email], from_email=settings.EMAIL_HOST_USER,headers={'Message-ID': 'foo'})
+                mail.content_subtype = 'html'
+                mail.send()
+                # send_mail('优扬实验室账户邮箱认证', message, settings.EMAIL_HOST_USER,[user.email])
+                return render(request, 'webapp/signin.html', {
+                    'form': UserLoginForm(),
+                    'message': f'一封邮箱认证邮件已发送到 {user.email}. 请确认完成注册后登录'
+                })
+            else:
+                context['registration_form'] = form
+        else:
+            form = RegistrationForm()
+            context['registration_form'] = form
+        return render(request, 'webapp/signup.html', context)
+
+class ConfirmRegistrationView(View):
+    def get(self, request, user_id, token):
+        user_id = force_text(urlsafe_base64_decode(user_id))
+        user = User.objects.get(pk=user_id)
+        context = {
+            'form':UserLoginForm(),
+            'message':'邮箱确认错误，请点击忘记密码重新生成确认邮件'
+        }
+        if user and user_tokenizer.check_token(user, token):
+            user.active = True
+            user.save()
+            context['message'] = '您已完成邮箱认证，请登录'
+        return render(request, 'webapp/signin.html', context)
 
 def signin(request):
     next = request.GET.get('next')

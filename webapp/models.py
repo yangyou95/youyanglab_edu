@@ -43,7 +43,7 @@ class UserManager(BaseUserManager):
 # # My own users
 class User(AbstractBaseUser):
     email = models.EmailField(max_length=255, unique=True)
-    active = models.BooleanField(default = True)
+    active = models.BooleanField(default = False)
     staff = models.BooleanField(default = False)
     admin = models.BooleanField(default = False)
     # timestamp = models.DateTimeField(auto_now_add=True)

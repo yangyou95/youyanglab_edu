@@ -150,3 +150,15 @@ STATICFILES_DIRS = (
 )
 
 # django_heroku.settings(locals())
+
+# EMAIL HOST SETTINGS
+EMAIL_USE_SSL = True
+# EMAIL_USE_TLS = True
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mxhichina.com'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_ACCOUNT')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_ACCOUNT_PASSWORD')
+DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_ACCOUNT')
+EMAIL_FROM = '优扬实验室'
+EMAIL_PORT = 465
+PASSWORD_RESET_TIMEOUT_DAYS = 2
