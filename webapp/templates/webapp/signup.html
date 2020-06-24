@@ -30,6 +30,13 @@
             <! --右文-->
             <div class="col-md-6 col-12">
 
+                    <!--   样式和位置可能不对 -->
+                {% if message %}
+                    {{message}}
+<!--                {% else %}-->
+<!--                    <p>啥都没有啊</p>-->
+                {% endif%}
+
                 <div class="t">
 
                     <h2><a href="{% url 'webapp:signin'%}">登录</a></h2> |
