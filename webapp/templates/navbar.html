@@ -22,18 +22,17 @@
   <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
   <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <title>优扬实验室</title>
 
+    <body>
 <div id="app">
 <!--  顶栏部分-->
   <el-header>
-     <head>
-    <meta charset="utf-8">
-    <title>优扬实验室</title>
-  </head>
-  <body>
+
 <!-- 导航 -->
     <nav class="navbar navbar-expand-md navbar-light">
-      <a class="navbar-brand" href="{% url 'webapp:index'%}">优扬实验室</a>
+      <a class="navbar-brand" href="{% url 'webapp:index'%}" id="big-title">优扬实验室</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -45,9 +44,6 @@
           <li class="nav-item">
             <a class="nav-link" href="#">课程</a>
           </li>
-
-
-
 
           {% if user.is_authenticated %}
 
@@ -85,55 +81,53 @@
       </div>
     </nav>
 
-
-  </el-header>
-<!--  顶栏部分-->
-
-
+</el-header>
 
   <!-- 内容部分-->
-
-  <div class="nav-authenticated">
-
-    <div></div>
-
-  </div>
 
     {% block content %}
     {% endblock %}
 
-  </body>
-
+</div><!-- class="app"-->
 
 <!-- 底部页尾 -->
-  <div class="part6">
+
+<footer>
 
   <div class="container">
 
-    <div class="row textf">
+    <div class="row">
 
-      <div class="col-md-4 col-12">
+      <div class="left col-4">
 
-        <p class="t3">优扬实验室</p>
-        <h2>自古英雄出少年</h2><br><br>
+        <p class="title">优杨实验室</p>
+        <p>自古英雄出少年</p>
+
       </div>
-      <div class="col-md-4 col-12">
-        <a href="#"><p>关于我们</p></a>
-        <a href="#"><p>主页</p></a>
-        <a href="#"><p>账户</p></a>
-        <a href="#"><p>管理</p></a>
-        <br><br>
+
+      <div class="center col-4">
+
+        <p class="title">关于我们</p>
+        <p><a href="#">主页</a></p>
+        <p><a href="">账户</a></p>
+        <p><a href="">管理</a></p>
+
       </div>
-      <div class="col-md-4 col-12">
-        <h3>联系我们</h3>
-        <br><a href="#"><p>000-000-0000</p></a>
-        <a href="#"><p>info@email.com</p></a>
-        <br><a href="#"><p></p></a>
+
+      <div class="right col-4">
+
+        <p class="title">联系我们</p>
+        <p><a href="">phone number</a></p>
+        <p><a href="">email address</a></p>
+
       </div>
+
     </div>
-  </div>
-</div>
 
-</div>
+  </div>
+
+</footer>
+
+</body>
 
 </html>

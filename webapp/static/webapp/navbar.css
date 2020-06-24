@@ -1,10 +1,11 @@
+/* navbar */
 .navbar {
     position:fixed;
 	top:0;
 	left:0;
 	z-index:1;
 	width:100%;
-	background-color:white;
+	background-color: white;
 }
 
 .navbar-brand {
@@ -19,6 +20,7 @@
 	box-shadow:0 0 12px 0 rgba(0,0,0,0.24);
 }
 
+/* dropdown menu */
 #final {
     padding-right: 5px;
 }
@@ -29,5 +31,38 @@
 
 .el-dropdown-menu a:hover {
     color: #8080FF;
+    text-decoration: none;
+}
+
+/* footer */
+footer .left, footer .center, footer .right {
+    display: inline-block;
+}
+
+footer .row {
+    margin: 0;
+}
+
+footer p {
+    text-align: center;
+}
+
+footer {
+    background-color: rgb(241, 241, 255);
+    padding-top: 35px;
+    padding-bottom: 20px;
+}
+
+footer .title {
+    font-weight: bold;
+}
+
+footer a {
+    transition: 0.5s all;
+    color: #708090;
+}
+
+footer a:hover {
+    color: black;
     text-decoration: none;
 }
