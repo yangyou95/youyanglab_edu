@@ -138,7 +138,7 @@
             return "密码太过于常见";
         } else if(str.search(eight) != -1) {
             return "密码至少要8个字符";
-        } else if(str.search(match)) {
+        } else if(str.search(match) != -1) {
             return '两次密码不同';
         }
 
