@@ -7,6 +7,14 @@
   <title>登陆 - 优扬实验室</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+
+    <!-- import el ui -->
+    <script src="//unpkg.com/vue/dist/vue.js"></script>
+    <script src="//unpkg.com/element-ui@2.13.2/lib/index.js"></script>
+    <style type="text/css">
+      @import url("//unpkg.com/element-ui@2.13.2/lib/theme-chalk/index.css");
+    </style>
+
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static "webapp/login.css" %}" type="text/css">
   <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
@@ -15,7 +23,6 @@
 </head>
 
 <body>
-
 
     <div class="container">
 
@@ -29,6 +36,20 @@
 
             <! --右文-->
             <div class="col-md-6 col-12">
+
+                <!--   样式和位置可能不对 -->
+                {% if message %}
+
+                    <script>
+
+                        Vue.prototype.$message('{{message}}');
+
+                    </script>
+
+                {% else %}
+
+<!--                    <p>啥都没有啊</p>-->
+                {% endif%}
 
                 <div class="t">
 
@@ -49,7 +70,7 @@
                                 {% endfor %}
                         {% endfor %}
                         <input type="submit" class="disable-button" value="立即登录">
-                        <input type="submit" class="able-button" value="立即登录">
+                        <input type="submit" class="able-button" value="立即登录！">
 
                     </form>
                 </div>

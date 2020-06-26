@@ -30,6 +30,18 @@
             <! --右文-->
             <div class="col-md-6 col-12">
 
+                    <!--   样式和位置可能不对 -->
+                {% if message %}
+
+                    <script>
+
+                        Vue.prototype.$message('{{message}}');
+
+                    </script>
+
+<!--                    <p>啥都没有啊</p>-->
+                {% endif%}
+
                 <div class="t">
 
                     <h2><a href="{% url 'webapp:signin'%}">登录</a></h2> |
@@ -47,14 +59,10 @@
 
                                 {{field}}
                                 {%for error in field.errors %}
-                                    <div class="login_error"><small style="color: red;">{{error}}</small></div>
+                                    <div class="login_error" style="display:none;"><small style="color: red;">{{error}}</small></div>
                                 {% endfor %}
                         {% endfor %}
                         </div>
-
-
-
-                        
 
 
                         <script>
@@ -64,7 +72,7 @@
                         document.getElementById("id_password2").placeholder="请再次确认密码";
 <!--                        document.getElementById("id_captcha_1").placeholder="请输入验证码";-->
 
-                        $(".login_error").fadeOut(4000);
+                        //$(".login_error").fadeOut(4000);
 
                         </script>
 
@@ -105,6 +113,13 @@
                     <p><a href="{% url 'webapp:index'%}">取消</a></p>
 
                 </div>
+
+                {% if registration_form.errors %}
+
+                    <div class="alert alert-danger" role="alert" id="alert-danger"></div>
+
+                {% endif %}
+
             </div>
 
         </div>
@@ -112,3 +127,38 @@
     </div>
 
 </body>
+
+<script>
+
+    function type_of_error(str) {
+        var used = /exist/i;
+        var too_common = /common/i;
+        var eight_char = /8/;
+        var match = /match/i;
+
+        if(str.search(used) != -1) {
+            return "邮箱已被注册";
+        } else if(str.search(too_common) != -1) {
+            return "密码太过于常见";
+        } else if(str.search(eight_char) != -1) {
+            return "密码至少要8个字符";
+        } else if(str.search(match) != -1) {
+            return '两次密码不同';
+        }
+
+    }
+
+    var errors = document.getElementsByClassName("login_error");
+    var text;
+
+    for(i=0;i<errors.length;i++) {
+        text = type_of_error(errors[i].innerHTML);
+        if(i != errors.length - 1) {
+            text += '<br>';
+        }
+        document.getElementById("alert-danger").innerHTML += text;
+    }
+
+    $('#alert-danger').delay(1000).fadeOut(1000);
+
+</script>
