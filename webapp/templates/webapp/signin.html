@@ -66,7 +66,7 @@
                             {% for field in form %}
                                 {{field}}
                                 {%for error in field.errors %}
-                                    <div class="login_error"><small style="color: red;">{{error}}</small></div>
+                                    <div class="login_error" style="display:none"><small style="color: red;">{{error}}</small></div>
                                 {% endfor %}
                         {% endfor %}
                         <input type="submit" class="disable-button" value="立即登录">
