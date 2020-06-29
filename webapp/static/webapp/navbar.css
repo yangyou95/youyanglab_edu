@@ -66,3 +66,42 @@ footer a:hover {
     color: black;
     text-decoration: none;
 }
+
+/* test login window */
+
+.login-test .login-window {
+    border: 1px solid #EBEEF5;
+    background-color: white;
+    position: fixed;
+    top: 20%;
+    left: 35%;
+    width: 30%;
+    height: 55%;
+    border-radius: 4px;
+    z-index: 2;
+}
+
+.login-test .el-icon-circle-close {
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.login-test .el-icon-circle-close:hover {
+    cursor: pointer;
+}
+
+.login-test .form {
+    margin: 20% 10%;
+    text-align: center;
+    overflow: auto;
+}
+
+.login-test .overlay {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: black;
+    opacity: 0.3;
+}
