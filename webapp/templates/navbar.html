@@ -33,6 +33,27 @@
 <!-- 导航 -->
     <nav class="navbar navbar-expand-md navbar-light">
       <a class="navbar-brand" href="{% url 'webapp:index'%}" id="big-title">优扬实验室</a>
+
+<!--       测试传参登录参数  -->
+                            <div class="form">
+                    <form  method="POST">
+                            {% csrf_token %}
+
+                        <!--      登录表单                  -->
+                            {% for field in form %}
+                                {{field}}
+                                {%for error in field.errors %}
+                                    <div class="login_error" style="display:none"><small style="color: red;">{{error}}</small></div>
+                                {% endfor %}
+                        {% endfor %}
+                        <input type="submit" class="disable-button" value="立即登录">
+                        <input type="submit" class="able-button" value="立即登录！">
+
+                    </form>
+                </div>
+
+<!--      测试船残登录-->
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>

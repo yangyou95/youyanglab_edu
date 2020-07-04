@@ -13,6 +13,7 @@ from .tokens import user_tokenizer
 from django.views import View
 from django.contrib import messages
 from django.core.mail import EmailMessage, send_mail
+import json
 from django.conf import settings
 
 class index(generic.ListView):
@@ -124,6 +125,19 @@ class ConfirmRegistrationView(View):
             context['message'] = '您已完成邮箱认证，请登录'
         return render(request, 'webapp/signin.html', context)
 
+
+#
+def test(request):
+    form = UserLoginForm(request.POST or None)
+    if form.is_valid():
+        email = form.cleaned_data.get('email')
+        password = form.cleaned_data.get('password')
+        user = authenticate(email=email, password=password)
+        auth_login(request, user)
+
+    return form
+
+
 def signin(request):
     next = request.GET.get('next')
     form = UserLoginForm(request.POST or None)
@@ -220,6 +234,8 @@ def ClassDetail(request):
 
 # 服务页面
 def Service(request):
-    return render(request, 'webapp/service.html')
+    context = {"form":test(request)}
+
+    return render(request, 'webapp/service.html',context)
 
 
