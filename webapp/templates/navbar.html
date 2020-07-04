@@ -83,12 +83,51 @@
 
 </el-header>
 
+  <!-- 登录窗口测试 -->
+<div class="login-test">
+
+  <div class="overlay"></div>
+
+  <button id="test">伪登录按钮</button>
+
+  <div class="login-window">
+
+    <div class="close"><i class="el-icon-circle-close" style="font-size: 30px"></i></div>
+
+    <div class="form">
+      <form>登录表单</form>
+    </div>
+
+  </div>
+
+  <script>
+
+      function showWindow() {
+        $('.login-window').slideDown(200);
+        $('.overlay').show();
+      }
+
+      function closeWindow() {
+        $('.login-window').slideUp(200);
+        $('.overlay').hide();
+      }
+
+      $('.login-window').hide();
+      $('.overlay').hide();
+
+      $('#test').attr('onclick', 'showWindow()');
+      $('.login-test .el-icon-circle-close').attr('onclick', 'closeWindow()');
+
+  </script>
+
+</div>
+
   <!-- 内容部分-->
 
     {% block content %}
     {% endblock %}
 
-</div><!-- class="app"-->
+</div><!-- class="app" -->
 
 <!-- 底部页尾 -->
 
