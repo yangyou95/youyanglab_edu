@@ -20,6 +20,10 @@
 	box-shadow:0 0 12px 0 rgba(0,0,0,0.24);
 }
 
+#login:hover {
+    cursor:pointer;
+}
+
 /* dropdown menu */
 #final {
     padding-right: 5px;
@@ -74,11 +78,12 @@ footer a:hover {
     background-color: white;
     position: fixed;
     top: 20%;
-    left: 35%;
-    width: 30%;
+    /* left: 35%;
+    width: 30%; */
     height: 55%;
     border-radius: 4px;
     z-index: 2;
+    padding-bottom:48px;
 }
 
 .login-test .el-icon-circle-close {
@@ -91,7 +96,7 @@ footer a:hover {
 }
 
 .login-test .form {
-    margin: 20% 10%;
+    margin: 0% 0%;
     text-align: center;
     overflow: auto;
 }
@@ -104,4 +109,133 @@ footer a:hover {
     z-index: 1;
     background-color: black;
     opacity: 0.3;
+}
+
+/* login window content */
+.t h2{
+    display:inline;
+}
+
+.t {
+    font-size:2em;
+    text-align:center;
+    margin-top:48px;
+}
+
+.forget {
+    text-align:center;
+    padding-bottom:12px;
+}
+
+form {
+    padding:32px 12px 12px;
+}
+
+input {
+    margin:0 0 12px;
+    padding:0.5em 0.5em;
+    border-radius:5px;
+    width:60%;
+    outline: none;
+}
+
+input[type="submit"] {
+    border-radius:10px;
+    color:white;
+    font-weight:bolder;
+    margin-top:5px;
+    border:none;
+}
+
+.disable-button {
+    background-color:#cfcfef;
+}
+
+.able-button {
+    background-color:#8080FF;
+}
+
+.able-button:hover {
+    box-shadow:0 3px 6px 3px rgba(0,0,0,0.24);
+    -webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+}
+
+a {
+    color:#999999;
+}
+
+a:hover {
+    color:#cfcfef;
+}
+
+#id_password1 {
+    margin:0;
+    border-radius:6px 6px 0 0;
+    border:1px solid #C0C0C0;
+    transition:0.5s all;
+}
+
+#id_password2 {
+    border-radius:0 0 6px 6px;
+    border:1px solid #C0C0C0;
+    transition:0.5s all;
+}
+
+.login_error {
+    position:absolute;
+    background-color:white;
+    border-radius:6px;
+    box-shadow:2px 2px 5px gray;
+    padding:1px;
+    margin:auto;
+    left:30%;
+    right:30%;
+}
+
+.captcha {
+        display:block;
+        margin-left:40%;
+}
+
+#id_captcha_1 {
+    margin-top:5px;
+}
+
+.s input {
+    border:1px solid #C0C0C0;
+}
+
+input.info {
+    border:1px solid #C0C0C0;
+}
+
+.form input {
+    border:1px solid #C0C0C0;
+    transition:0.5s all;
+}
+
+.form input[type="submit"] {
+    border:0;
+}
+
+/* 提示信息 */
+
+.alert-danger {
+    width: 60%;
+    margin: 0 auto 12px auto;
+    text-align:center;
+}
+
+/* input 框效果 */
+.form input:hover {
+    border-color: #747474;
+}
+
+#id_password1:hover {
+    border-color: #747474;
+}
+
+#id_password2:hover {
+    border-color: #747474;
 }

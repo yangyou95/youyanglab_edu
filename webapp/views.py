@@ -227,10 +227,12 @@ class ChoiceTest(generic.DetailView):
 
 # 课程分类页面
 def Class(request):
-    return render(request, 'webapp/class.html')
+    context = {"form": test(request)}
+    return render(request, 'webapp/class.html',context)
 
 def ClassDetail(request):
-    return render(request, 'webapp/classdetail.html')
+    context = {"form": test(request)}
+    return render(request, 'webapp/classdetail.html',context)
 
 # 服务页面
 def Service(request):
