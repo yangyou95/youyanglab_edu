@@ -16,12 +16,12 @@ from django.core.mail import EmailMessage, send_mail
 import json
 from django.conf import settings
 
-class index(generic.ListView):
-    template_name = 'webapp/index.html'
-    context_object_name = 'all_courses'
-
-    def get_queryset(self):
-        return Course.objects.all()
+# class index(generic.ListView):
+#     template_name = 'webapp/index.html'
+#     context_object_name = 'all_courses'
+#
+#     def get_queryset(self):
+#         return Course.objects.all()
 
 
 class course(generic.DetailView):
@@ -239,5 +239,11 @@ def Service(request):
     context = {"form":test(request)}
 
     return render(request, 'webapp/service.html',context)
+
+# 首页
+def index(request):
+    context = {}
+
+    return render(request, 'webapp/index.html',context)
 
 
