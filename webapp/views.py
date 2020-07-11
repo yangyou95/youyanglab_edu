@@ -242,7 +242,7 @@ def Service(request):
 
 # 首页
 def index(request):
-    context = {}
+    context = {"form": test(request)}
 
     return render(request, 'webapp/index.html',context)
 
