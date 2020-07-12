@@ -43,9 +43,9 @@ class UserManager(BaseUserManager):
 # # My own users
 class User(AbstractBaseUser):
     email = models.EmailField(max_length=255, unique=True)
-    active = models.BooleanField(default = False)
-    staff = models.BooleanField(default = False)
-    admin = models.BooleanField(default = False)
+    is_active = models.BooleanField(default = False)
+    is_staff = models.BooleanField(default = False)
+    is_admin = models.BooleanField(default = False)
     # timestamp = models.DateTimeField(auto_now_add=True)
 
     USERNAME_FIELD ='email'
@@ -63,17 +63,17 @@ class User(AbstractBaseUser):
         return True
 
 
-    @property
-    def is_staff(self):
-        return self.staff
-
-    @property
-    def is_active(self):
-        return self.active
-
-    @property
-    def is_admin(self):
-        return self.admin
+    # @property
+    # def is_staff(self):
+    #     return self.is_staff
+    #
+    # @property
+    # def is_active(self):
+    #     return self.is_active
+    #
+    # @property
+    # def is_admin(self):
+    #     return self.is_admin
 
 # 建立一个个人资料模型，和用户User一一对应
 # class Profile(models.Model):

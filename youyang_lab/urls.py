@@ -15,9 +15,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     path('', include('webapp.urls')),
     path('admin/', admin.site.urls),
     path('captcha/', include('captcha.urls')),   # 增加这一行, 验证码
+
+    # 忘记重置密码 分为四步
+    # 1. 发送邮件页面 rest_password template_name="webapp/forget.html"
+    # 2. 发送邮件成功页面，让用户去确认
+    # 3. 密码重置页面
+    # 4. 密码成功更改页面
+    path('reset_password/',
+         auth_views.PasswordResetView.as_view(),
+         name="reset_password"),
+    path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(), name="password_reset_done"),
+    path('reset/<uidb64>/<token>/',
+         auth_views.PasswordResetConfirmView.as_view(),
+         name='password_reset_confirm'),
+    path('rest_password_complete/', auth_views.PasswordResetCompleteView.as_view(), name="password_reset_complete"),
 ]

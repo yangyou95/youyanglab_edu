@@ -90,7 +90,7 @@ class RegisterView(View):
             form = RegistrationForm(request.POST)
             if form.is_valid():
                 user = form.save(commit=False)
-                user.active = False
+                user.is_active = False
                 user.save()
                 token = user_tokenizer.make_token(user)
                 user_id = urlsafe_base64_encode(force_bytes(user.id))
@@ -120,7 +120,7 @@ class ConfirmRegistrationView(View):
             'message':'邮箱确认错误，请点击忘记密码重新生成确认邮件'
         }
         if user and user_tokenizer.check_token(user, token):
-            user.active = True
+            user.is_active = True
             user.save()
             context['message'] = '您已完成邮箱认证，请登录'
         return render(request, 'webapp/signin.html', context)
@@ -242,7 +242,8 @@ def Service(request):
 
 # 首页
 def index(request):
-    context = {"form": test(request)}
+    all_course = Course.objects.all()
+    context = {"form": test(request),"all_courses":all_course}
 
     return render(request, 'webapp/index.html',context)
 

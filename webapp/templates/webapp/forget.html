@@ -26,16 +26,16 @@
 
                 <div class="t">
 
-                    <h2>请输入您的邮箱</h2>
+                    <h2>请输入您的注册邮箱</h2>
 
                 </div>
 
                 <div class="form" method="post" action="#">
 
                     <form>
-
-                 		
-                        <input type="email" placeholder="Email"><br>
+                        {% csrf_token %}
+                        {{form.email}}
+<!--                        <input type="email" placeholder="Email"><br>-->
                         <input type="submit" value="找回密码">
 
                     </form>

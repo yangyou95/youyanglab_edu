@@ -1,5 +1,6 @@
-from django.urls import path
+from django.urls import path, reverse_lazy, include
 from .import views
+from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import LoginView
 
 # 在每个应用里，规定命名空间app_name，防止其他应用里也有同名的视图
@@ -48,5 +49,8 @@ urlpatterns = [
 
     # 服务页面
     path('service/', views.Service, name = 'service'),
+    #
+    # #忘记重置密码 分为四步 写在了youyang_lab的urls.py里
+
 ]
 
