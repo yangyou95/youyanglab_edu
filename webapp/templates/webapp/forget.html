@@ -30,13 +30,14 @@
 
                 </div>
 
-                <div class="form" method="post" action="#">
+                <div class="form">
 
-                    <form>
+                    <form method="post">
                         {% csrf_token %}
+                        {{ form.email.errors }}
                         {{form.email}}
 <!--                        <input type="email" placeholder="Email"><br>-->
-                        <input type="submit" value="找回密码">
+                        <input type="submit" value="重置密码">
 
                     </form>
 

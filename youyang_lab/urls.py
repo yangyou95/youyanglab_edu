@@ -29,7 +29,7 @@ urlpatterns = [
     # 3. 密码重置页面
     # 4. 密码成功更改页面
     path('reset_password/',
-         auth_views.PasswordResetView.as_view(),
+         auth_views.PasswordResetView.as_view(template_name='webapp/forget.html'),
          name="reset_password"),
     path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(), name="password_reset_done"),
     path('reset/<uidb64>/<token>/',

@@ -102,11 +102,10 @@
 
           <div class="t">
 
-              <h2>登录</h2> |
-              <h2><a href="">注册</a></h2>
+              <h2>登录</h2>
+<!--              <h2><a href="">注册</a></h2>-->
 
           </div>
-
 
             <div class="form">
               <form  method="POST">
@@ -124,6 +123,8 @@
               </form>
 
                 <script>
+                 document.getElementById("id_email").placeholder="请输入您的注册邮箱";
+                 document.getElementById("id_password").placeholder="请输入您的账户密码";
 
                              function test() {
                                 var mail = document.getElementById("id_email").value;
@@ -150,10 +151,10 @@
                             document.getElementById("id_password").setAttribute("oninput", "test()");
 
                         </script>
-
             </div>
-
-              <div class="forget"><a href="#">找回密码</a></div>
+              <div class="forget">
+                <p><a href="{% url 'reset_password'%}">忘记密码 </a> or <a href="{% url 'webapp:signup'%}">立即注册</a></p>
+              </div>
 
         <!-- 声明窗口是否显示变量 -->
               <script>
@@ -176,81 +177,6 @@
 
           </div>
 
-
-        <!-- signup part -->
-        <div class="window2">
-
-          <div class="t">
-
-              <h2><a href="">登录</a></h2> |
-              <h2>注册</h2>
-
-          </div>
-
-          <div class="form">
-
-            <form class="s" method="POST">
-
-              <div>
-                {% csrf_token %}
-                {% for field in registration_form %}
-
-                {{field}}
-                {%for error in field.errors %}
-                <div class="login_error" style="display:none;"><small style="color: red;">{{error}}</small></div>
-                {% endfor %}
-                {% endfor %}
-              </div>
-
-
-              <script>
-
-                document.getElementById("id_email").placeholder="请输入您的邮箱";
-                document.getElementById("id_password1").placeholder="密码需由数字，大小写字母组成";
-                document.getElementById("id_password2").placeholder="请再次确认密码";
-    <!--        document.getElementById("id_captcha_1").placeholder="请输入验证码";-->
-
-                //$(".login_error").fadeOut(4000);
-
-               </script>
-
-              <input class="disable-button" type="submit" value="sign up">
-              <input class="able-button" type="submit" value="sign up !">
-
-              <script>
-
-                                function fun() {
-                                    var a = document.getElementById("id_email").value;
-                                    var b = document.getElementById("id_password1").value;
-                                    var c = document.getElementById("id_password2").value;
-    <!--                                var d = document.getElementById("id_captcha_1").value;-->
-
-                                    if(a != "" && b != "" && c != "" && d != "") {
-                                        $(".able-button").fadeIn(500);
-                                        $(".disable-button").hide();
-                                    } else {
-                                        $(".able-button").hide();
-                                        $(".disable-button").fadeIn(500);
-                                    }
-                                }
-
-                                $(".able-button").hide();
-    <!--                            document.getElementById("id_captcha_1").setAttribute("oninput", "fun()");-->
-                                document.getElementById("id_email").setAttribute("oninput", "fun()");
-                                document.getElementById("id_password1").setAttribute("oninput", "fun()");
-                                document.getElementById("id_password2").setAttribute("oninput", "fun()");
-
-                            </script>
-
-                        </form>
-
-                    </div>
-
-        </div>
-
-
-
-
         </div>
 
       </el-col>
@@ -260,25 +186,20 @@
 
 
   <script>
-
       function showWindow() {
         $('.login-window').slideDown(200);
         $('.overlay').show();
       }
-
       function closeWindow() {
         $('.login-window').slideUp(200);
         $('.overlay').hide();
       }
-
       if(!loginError) {
         $('.login-window').hide();
         $('.overlay').hide();
       }
-
       $('#login').attr('onclick', 'showWindow()');
       $('.login-test .el-icon-circle-close').attr('onclick', 'closeWindow()');
-
       $('.window2').hide();
 
   </script>

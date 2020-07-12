@@ -34,7 +34,7 @@ urlpatterns = [
     path('signin/',views.signin, name = "signin"),
     # path('signup/',views.signup, name = 'signup'),
     path('signup/', views.RegisterView.as_view(), name='signup'),
-    path('forget/',views.forget, name='forget'),
+    # path('forget/',views.forget, name='forget'),
     path('logout/',views.logout_view, name='logout'),
     path('confirm-email/<str:user_id>/<str:token>/', views.ConfirmRegistrationView.as_view(), name='confirm_email'),
 

@@ -126,15 +126,14 @@ class ConfirmRegistrationView(View):
         return render(request, 'webapp/signin.html', context)
 
 
-#
-def test(request):
+# 登录核心程序
+def signincore(request):
     form = UserLoginForm(request.POST or None)
     if form.is_valid():
         email = form.cleaned_data.get('email')
         password = form.cleaned_data.get('password')
         user = authenticate(email=email, password=password)
         auth_login(request, user)
-
     return form
 
 
@@ -227,23 +226,23 @@ class ChoiceTest(generic.DetailView):
 
 # 课程分类页面
 def Class(request):
-    context = {"form": test(request)}
+    context = {"form": signincore(request)}
     return render(request, 'webapp/class.html',context)
 
 def ClassDetail(request):
-    context = {"form": test(request)}
+    context = {"form": signincore(request)}
     return render(request, 'webapp/classdetail.html',context)
 
 # 服务页面
 def Service(request):
-    context = {"form":test(request)}
+    context = {"form":signincore(request)}
 
     return render(request, 'webapp/service.html',context)
 
 # 首页
 def index(request):
     all_course = Course.objects.all()
-    context = {"form": test(request),"all_courses":all_course}
+    context = {"form": signincore(request),"all_courses":all_course}
 
     return render(request, 'webapp/index.html',context)
 
