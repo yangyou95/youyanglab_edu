@@ -106,10 +106,11 @@ class RegisterView(View):
                 })
             else:
                 context['registration_form'] = form
+                return render(request, 'webapp/signup.html', context)
         else:
             form = RegistrationForm()
             context['registration_form'] = form
-        return render(request, 'webapp/signup.html', context)
+        return render(request, 'webapp/signin.html', context)
 
 class ConfirmRegistrationView(View):
     def get(self, request, user_id, token):
@@ -117,13 +118,13 @@ class ConfirmRegistrationView(View):
         user = User.objects.get(pk=user_id)
         context = {
             'form':UserLoginForm(),
-            'message':'邮箱确认错误，请点击忘记密码重新生成确认邮件'
+            'message':False,
         }
         if user and user_tokenizer.check_token(user, token):
             user.is_active = True
             user.save()
-            context['message'] = '您已完成邮箱认证，请登录'
-        return render(request, 'webapp/signin.html', context)
+            context['message'] = True
+        return render(request, 'webapp/confirmReg.html', context)
 
 
 # 登录核心程序
