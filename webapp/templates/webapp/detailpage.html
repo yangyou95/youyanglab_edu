@@ -10,50 +10,37 @@
 
         <div class="row no-gutters">
 
-      <div class="col-md-4 no-gutters">
+      <div class="col-md-2 no-gutters sidebar">
+
         <div class="leftside">
 
-            <div id="app">
-            <el-page-header @back="goBack" content="详情页面">
-            </el-page-header>
+            <h1>title</h1>
+
+                <div class="progressbar">
+                    <div>progress</div>
+                    <el-progress :percentage="percentage" :color="customColor" :text-inside="false" ></el-progress>
+                </div>
+
+            <div class="divider">
+                <el-divider></el-divider>
             </div>
 
-          <div class = "return" >
-
-
-          <a href="{% url 'webapp:course' lesson.chapter.course.id%}" class="btn-gradient purple mini"> < 返回 </a>
+          <div class="steps" style="height: 300px;">
+            <el-steps direction="vertical" :active="1">
+                <el-step title=""></el-step>
+                <el-step title=""></el-step>
+                <el-step title=""></el-step>
+                <el-step title=""></el-step>
+                <el-step title=""></el-step>
+                <el-step title=""></el-step>
+            </el-steps>
           </div>
 
-          <div class = "bar">
-
-              <div class="progress-text">课程进度 :</div>
-
-            <div class="progress-bar purple" title="课程进度"> <span class="course" title="章节进度" style="width:60%;"> <span class="lesson" title="小节进度" style="width:50%"></span></span> </div>
-
-          </div>
-
-          <div class="category">
-
-            <ul>
-
-              {% for item in lesson.get_chapter_all_lessons%}
-                {% if item.id == lesson.id%}
-                  <div class="l" id="active"><div class="tag"></div><li><a href="{% url 'webapp:detailpage' item.id%}">{{item.lesson_name}}</a></li></div>
-                {% else %}
-                     <div class="l"><div class="tag"></div><li><a href="{% url 'webapp:detailpage' item.id%}">{{item.lesson_name}}</a></li></div>
-                {% endif%}
-              {% endfor %}
-
-            </ul>
-
-
-          </div>
-
-
-
-          <!-- <ul class="nav nav-list"><li class="divider"></li></ul> -->
-
-
+            <el-button-group>
+                <el-button icon="el-icon-arrow-left"></el-button>
+                <el-button icon="el-icon-s-grid">返回目录</el-button>
+                <el-button icon="el-icon-arrow-right"></el-button>
+            </el-button-group>
 
 
         </div>
@@ -61,7 +48,7 @@
 
       </div>
 
-      <div class="col-md-8 no-gutters">
+      <div class="col-md-10 no-gutters pagecontent">
 
         <div class="ablock">
 
@@ -188,5 +175,42 @@
       </div>
 
 
+
+<script>
+
+var Main = {
+    data() {
+      return {
+        src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
+        percentage: 30,
+        customColor: '#8080ff',
+      }
+    }
+  }
+var Ctor = Vue.extend(Main)
+new Ctor().$mount('#app')
+
+
+        function textChange() {
+            this.style.fontSize = '2em';
+        }
+
+        var steps = document.getElementsByClassName('el-step__title');
+        var para;
+        var node;
+
+        var i;
+        var element;
+        for(i=0;i<steps.length;i++) {
+            para = document.createElement("a");
+            node = document.createTextNode("hyperlink");
+            para.setAttribute("href", "#");
+            para.setAttribute('onmouseover', 'textChange()');
+            para.appendChild(node);
+            element = document.getElementsByClassName("el-step__title")[i];
+            element.appendChild(para);
+        }
+
+</script>
 
 {% endblock %}

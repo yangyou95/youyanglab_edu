@@ -3,7 +3,7 @@
     position:fixed;
 	top:0;
 	left:0;
-	z-index:1;
+	z-index:2;
 	width:100%;
 	background-color: white;
 }
@@ -112,26 +112,26 @@ footer a:hover {
 }
 
 /* login window content */
-.t h2{
+.login-test .t h2{
     display:inline;
 }
 
-.t {
+.login-test .t {
     font-size:2em;
     text-align:center;
     margin-top:48px;
 }
 
-.forget {
+.login-test .forget {
     text-align:center;
     padding-bottom:12px;
 }
 
-form {
+.login-test form {
     padding:32px 12px 12px;
 }
 
-input {
+.login-test input {
     margin:0 0 12px;
     padding:0.5em 0.5em;
     border-radius:5px;
@@ -139,7 +139,7 @@ input {
     outline: none;
 }
 
-input[type="submit"] {
+.login-test input[type="submit"] {
     border-radius:10px;
     color:white;
     font-weight:bolder;
@@ -147,42 +147,42 @@ input[type="submit"] {
     border:none;
 }
 
-.disable-button {
+.login-test .disable-button {
     background-color:#cfcfef;
 }
 
-.able-button {
+.login-test .able-button {
     background-color:#8080FF;
 }
 
-.able-button:hover {
+.login-test .able-button:hover {
     box-shadow:0 3px 6px 3px rgba(0,0,0,0.24);
     -webkit-transition-duration: 0.4s; /* Safari */
 	transition-duration: 0.4s;
 }
 
-a {
+.login-test a {
     color:#999999;
 }
 
-a:hover {
+.login-test a:hover {
     color:#cfcfef;
 }
 
-#id_password1 {
+.login-test #id_password1 {
     margin:0;
     border-radius:6px 6px 0 0;
     border:1px solid #C0C0C0;
     transition:0.5s all;
 }
 
-#id_password2 {
+.login-test #id_password2 {
     border-radius:0 0 6px 6px;
     border:1px solid #C0C0C0;
     transition:0.5s all;
 }
 
-.login_error {
+.login-test .login_error {
     position:absolute;
     background-color:white;
     border-radius:6px;
@@ -193,49 +193,49 @@ a:hover {
     right:30%;
 }
 
-.captcha {
+.login-test .captcha {
         display:block;
         margin-left:40%;
 }
 
-#id_captcha_1 {
+.login-test #id_captcha_1 {
     margin-top:5px;
 }
 
-.s input {
+.login-test .s input {
     border:1px solid #C0C0C0;
 }
 
-input.info {
+.login-test input.info {
     border:1px solid #C0C0C0;
 }
 
-.form input {
+.login-test .form input {
     border:1px solid #C0C0C0;
     transition:0.5s all;
 }
 
-.form input[type="submit"] {
+.login-test .form input[type="submit"] {
     border:0;
 }
 
 /* 提示信息 */
 
-.alert-danger {
+.login-test .alert-danger {
     width: 60%;
     margin: 0 auto 12px auto;
     text-align:center;
 }
 
 /* input 框效果 */
-.form input:hover {
+.login-test .form input:hover {
     border-color: #747474;
 }
 
-#id_password1:hover {
+.login-test #id_password1:hover {
     border-color: #747474;
 }
 
-#id_password2:hover {
+.login-test #id_password2:hover {
     border-color: #747474;
 }
