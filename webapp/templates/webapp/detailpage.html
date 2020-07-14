@@ -25,25 +25,32 @@
                 <el-divider></el-divider>
             </div>
 
-          <div class="steps" style="height: 300px;">
-            <el-steps direction="vertical" :active="1">
-                <el-step title=""></el-step>
-                <el-step title=""></el-step>
-                <el-step title=""></el-step>
-                <el-step title=""></el-step>
-                <el-step title=""></el-step>
-                <el-step title=""></el-step>
+            <script>
+                var stepsLength = 0;
+            </script>
+
+          <div class="steps" style="height:;">
+            <el-steps direction="vertical" :active="{{ lesson.id }} - 1">
+                {% for item in lesson.get_chapter_all_lessons%}
+                    <el-step title=""></el-step>
+                    <script>stepsLength++;</script>
+                {% endfor %}
             </el-steps>
           </div>
 
             <el-button-group>
                 <el-button icon="el-icon-arrow-left"></el-button>
-                <el-button icon="el-icon-s-grid">返回目录</el-button>
+                <el-button icon="el-icon-s-grid" id="menu">返回目录</el-button>
                 <el-button icon="el-icon-arrow-right"></el-button>
             </el-button-group>
 
 
         </div>
+
+          <script>
+            stepsLength *= 50;
+            document.getElementsByClassName("steps")[0].style.height = stepsLength + 'px';
+          </script>
 
 
       </div>
@@ -190,26 +197,45 @@ var Main = {
 var Ctor = Vue.extend(Main)
 new Ctor().$mount('#app')
 
+/* for steps */
 
-        function textChange() {
-            this.style.fontSize = '2em';
-        }
-
+        var i = 0;
         var steps = document.getElementsByClassName('el-step__title');
         var para;
         var node;
-
-        var i;
         var element;
-        for(i=0;i<steps.length;i++) {
+
+
+        {% for item in lesson.get_chapter_all_lessons %}
             para = document.createElement("a");
-            node = document.createTextNode("hyperlink");
-            para.setAttribute("href", "#");
-            para.setAttribute('onmouseover', 'textChange()');
+            node = document.createTextNode('{{item.lesson_name}}');
+            para.setAttribute("href", "{% url 'webapp:detailpage' item.id%}");
             para.appendChild(node);
             element = document.getElementsByClassName("el-step__title")[i];
             element.appendChild(para);
-        }
+            i++;
+        {% endfor %}
+
+
+/* for el-buttons */
+    function backToMenu() {
+        window.location.href = "google.com";
+    }
+
+    function last() {
+        window.location.href  = "qwe";
+    }
+
+    function next() {
+        window.location.href = "asd";
+    }
+
+    var menu = document.getElementsByClassName("el-button")[1];
+    var nextPage = document.getElementsByClassName("el-button")[2];
+    var lastPage = document.getElementsByClassName("el-button")[0];
+    menu.setAttribute("onclick", "backToMenu()");
+    nextPage.setAttribute("onclick", "next()");
+    lastPage.setAttribute("onclick", "last()");
 
 </script>
 
