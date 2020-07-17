@@ -8,7 +8,7 @@
 
 <link rel="stylesheet" href="{% static "webapp/detailpage.css" %}" type="text/css">
 
-        <div class="row no-gutters">
+    <div class="row no-gutters">
 
       <div class="col-md-2 no-gutters sidebar">
 
@@ -87,24 +87,19 @@
             </div>
 
         </div>
+      </div>
 
         <div class="ablock">
 
-        {% for question in lesson.classquestion_set.all %}
+        {% if lesson.classquestion_set.all%}
+            {% for question in lesson.classquestion_set.all %}
           <div class="content"><!--可添加的-->
             <div class="question">
-
                 <h1>{{ question.question_text }}</h1>
             </div>
-
             <div class="choice">
-
-
               {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-
-
-              <form>
-                {% csrf_token %}
+                <form>
                 {% for choice in question.classquestionchoice_set.all %}
                     <div>
                       <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.answer }}" onclick="myfunc(this.value)">
@@ -112,23 +107,25 @@
                       <label for="choice{{ forloop.counter }}" class="l2">{{ choice.choice_text }}</label>
                       <label for="choice{{ forloop.counter }}" class="l3"></label>
                     </div>
-                {% endfor %}
                 <button id="pick" onclick ='jssubmit()' type="button" > 选择 </button>
-
                   <a id="continue" href="{% url 'webapp:detailpage' lesson.get_next.id %}"><button type="button"> 继续 ! </button></a>
-
                   <span id="demo"></span>
-
-<!--               <input type="text" id="result">-->
-
                 </form>
-
             </div>
+                {% endfor %}
+               {% endfor %}
+            {% else %}
+            木有选择题啊
+            {% endif %}
+            </div>
+        </div>
+    </div>
 
-              <!--<p id="demo"></p>-->
+
+
+
 
               <script type="text/javascript">
-
                 //show result
                    $("#continue").hide();
 
@@ -167,20 +164,7 @@
                         },100)
 
                   }
-
               </script>
-
-              </div>
-            </div>
-
-         {% endfor %}
-
-
-        </div>
-
-
-      </div>
-
 
 
 <script>

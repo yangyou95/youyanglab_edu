@@ -25,9 +25,10 @@ urlpatterns = [
 
     # 忘记重置密码 分为四步
     # 1. 发送邮件页面 rest_password template_name="webapp/forget.html"
-    # 2. 发送邮件成功页面，让用户去确认
-    # 3. 密码重置页面
-    # 4. 密码成功更改页面
+    # 2. 发送邮件成功页面，让用户去确认 PassWordRestDone
+    # 3. 邮件内容页面（邮件点击链接页面）
+    # 4. 密码重置页面 PassWordResetConfirm
+    # 5. 密码成功更改页面
     path('reset_password/',
          auth_views.PasswordResetView.as_view(template_name='webapp/forget.html'),
          name="reset_password"),
