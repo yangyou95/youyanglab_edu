@@ -161,6 +161,9 @@ def logout_view(request):
 def forget(request):
     return render(request, 'webapp/forget.html')
 
+def password_sent(request):
+    return render(request, 'webapp/passwordsent.html')
+
 #改良后
 # class IndexView(generic.ListView):
 #     template_name = 'webapp/index.html'
