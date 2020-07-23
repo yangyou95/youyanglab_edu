@@ -51,7 +51,7 @@
             </div>
         </el-aside>
         <el-container class="content">
-            <el-header style="font-size:40px;background-color: rgb(241, 241, 255);padding-top:24px;height:80px;">
+            <el-header style="font-size:40px;background-image: linear-gradient(to top, #E5E5FF, #fff);padding-top:24px;height:80px;">
                 <div>title</div>
             </el-header>
             <div class="video">
@@ -69,10 +69,8 @@
                         <input type="radio" value="b" id="2" name="answer" v-model="choice">
                         <label for="2"><i class="el-icon-circle-check"></i> b</label><br>
                     </div>
-                    <el-button plain @click="fedBack">朴素按钮</el-button>
-                    <span>{% verbatim %}{{ choice }}{% endverbatim %}</span>
-                    <el-button v-if="trueFedBack">right</el-button>
-                    <el-button v-if="falseFedBack">wrong</el-button>
+                    <el-button plain v-if="!pass" @click="fedBack">朴素按钮</el-button>
+                    <el-button plain v-if="pass">下一题</el-button>
                 </el-card>
             </div>
             <div class="end-space"><br><br></div>
@@ -90,8 +88,7 @@
             screenHeight: document.documentElement.clientHeight - 74 ,
             choice: '',
             answer: 'a',
-            trueFedBack: false,
-            falseFedBack: false,
+            pass:false,
         },
         methods: {
             back(){
@@ -99,12 +96,27 @@
             },
             fedBack(){
                 if(this.choice == this.answer){
-                    this.trueFedBack = true
-                    this.falseFedBack = false
+                    this.rightMessage();
+                    this.pass = true;
                 } else {
-                    this.trueFedBack = false
-                    this.falseFedBack = true
+                    this.wrongMessage();
                 }
+            },
+            rightMessage(){
+                this.$notify({
+                    title:'a title',
+                    message:'u r right',
+                    position:'bottom-left',
+                    offset:100,
+                });
+            },
+            wrongMessage(){
+                this.$notify({
+                    title:'t',
+                    message:'wrong',
+                    position:'bottom-left',
+                    offset:100,
+                });
             },
         },
     })
