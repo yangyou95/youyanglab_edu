@@ -5,10 +5,108 @@
 
 
 {% block content %}
+<link rel="stylesheet" href="{% static "webapp/dtpage.css" %}" type="text/css">
 
 <script src="//unpkg.com/vue/dist/vue.js"></script>
 <script src="//unpkg.com/element-ui@2.13.2/lib/index.js"></script>
 
 
+<div style="margin-top:14px;">
+    <el-container :style="'height:' + screenHeight + 'px;'">
+        <el-aside width="300px" style="background-color: rgb(250, 250, 250);padding:24px;overflow:scroll;">
+            <div class="aside-header">
+                <h1>python</h1>
+                <el-progress :percentage="percentage" :color="purple"></el-progress>
+                <div class="btn-group">
+                    <a href="#"><div class="button"><i class="el-icon-caret-left"></i></div></a>
+                    <a href="#"><div class="button middle"><i class="el-icon-s-grid"></i></div></a>
+                    <a href="#"><div class="button"><i class="el-icon-caret-right"></i></div></a>
+                </div>
+                <el-divider></el-divider>
+            </div>
+            <div class="menu">
+                <a href="#">
+                    <div class="menu-item">
+                    <div class="icon">1</div>
+                    <div class="line"></div>
+                    <div class="text">aaaa</div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="menu-item">
+                    <div class="icon">1</div>
+                    <div class="line"></div>
+                    <div class="text">aaaa</div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="menu-item">
+                    <div class="icon">1</div>
+                    <div class="line"></div>
+                    <div class="text">aaaa</div>
+                    </div>
+                </a>
 
+
+            </div>
+        </el-aside>
+        <el-container class="content">
+            <el-header style="font-size:40px;background-color: rgb(241, 241, 255);padding-top:24px;height:80px;">
+                <div>title</div>
+            </el-header>
+            <div class="video">
+                <iframe src="//player.bilibili.com/player.html?aid=74809488&bvid=BV12E411i7Wk&cid=127970222&page=2" id="video" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="100%"> </iframe>
+            </div>
+            <div class="question">
+                <el-divider></el-divider>
+                <el-card class="box-card">
+                    <div slot="header">
+                        <h2>this is a question</h2>
+                    </div>
+                    <div class="answers">
+                        <input type="radio" value="a" id="1" name="answer" v-model="choice">
+                        <label for="1"><i class="el-icon-circle-check"></i> a</label><br>
+                        <input type="radio" value="b" id="2" name="answer" v-model="choice">
+                        <label for="2"><i class="el-icon-circle-check"></i> b</label><br>
+                    </div>
+                    <el-button plain @click="fedBack">朴素按钮</el-button>
+                    <span>{% verbatim %}{{ choice }}{% endverbatim %}</span>
+                    <el-button v-if="trueFedBack">right</el-button>
+                    <el-button v-if="falseFedBack">wrong</el-button>
+                </el-card>
+            </div>
+            <div class="end-space"><br><br></div>
+        </el-container>
+    </el-container>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            string: "{{ lesson.id }}",
+            purple: '#8080ff',
+            percentage: '30',
+            screenHeight: document.documentElement.clientHeight - 74 ,
+            choice: '',
+            answer: 'a',
+            trueFedBack: false,
+            falseFedBack: false,
+        },
+        methods: {
+            back(){
+                window.location.href="/";
+            },
+            fedBack(){
+                if(this.choice == this.answer){
+                    this.trueFedBack = true
+                    this.falseFedBack = false
+                } else {
+                    this.trueFedBack = false
+                    this.falseFedBack = true
+                }
+            },
+        },
+    })
+</script>
 {% endblock %}
