@@ -139,6 +139,8 @@ aside .menu-item:hover .icon {
     background-color:rgb(250, 250, 250);
     box-shadow:inset 0 0 5px 2px rgb(229, 229, 229);
     font-weight:bolder;
+    padding-top:6px;
+    padding-bottom:6px;
 }
 
 .el-container.content .question .box-card .answers input:checked + label i {
@@ -146,6 +148,7 @@ aside .menu-item:hover .icon {
 }
 
 .el-container.content .question .box-card .el-button:hover {
+    transition:0.4s;
     color:#8080ff;
     border-color:#8080ff;
 }
