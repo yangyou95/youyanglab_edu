@@ -10,6 +10,9 @@
 <script src="//unpkg.com/vue/dist/vue.js"></script>
 <script src="//unpkg.com/element-ui@2.13.2/lib/index.js"></script>
 
+<script src="https://unpkg.com/marked@0.3.6"></script>
+<script src="https://unpkg.com/lodash@4.16.0"></script>
+
 
 <div style="margin-top:14px;">
     <el-container :style="'height:' + screenHeight + 'px;'">
@@ -47,7 +50,6 @@
                     </div>
                 </a>
 
-
             </div>
         </el-aside>
         <el-container class="content">
@@ -57,6 +59,10 @@
             <div class="video">
                 <iframe src="//player.bilibili.com/player.html?aid=74809488&bvid=BV12E411i7Wk&cid=127970222&page=2" id="video" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="100%"> </iframe>
             </div>
+            <div class="text">
+                <el-divider></el-divider>
+                <div class="mkd" v-html="compiledMarkdown"></div>
+            </div>
             <div class="question">
                 <el-divider></el-divider>
                 <el-card class="box-card">
@@ -64,13 +70,17 @@
                         <h2>this is a question</h2>
                     </div>
                     <div class="answers">
-                        <input type="radio" value="a" id="1" name="answer" v-model="choice">
+
+                        <input v-if="!pass" type="radio" value="a" id="1" name="answer" v-model="choice">
+                        <input v-else type="radio" value="a" id="1" name="answer" v-model="choice" disabled="disabled">
                         <label for="1"><i class="el-icon-circle-check"></i> a</label><br>
-                        <input type="radio" value="b" id="2" name="answer" v-model="choice">
+                        <input v-if="!pass" type="radio" value="b" id="2" name="answer" v-model="choice">
+                        <input v-else type="radio" value="b" id="2" name="answer" v-model="choice" disabled="disabled">
                         <label for="2"><i class="el-icon-circle-check"></i> b</label><br>
+
                     </div>
                     <el-button plain v-if="!pass" @click="fedBack">朴素按钮</el-button>
-                    <el-button plain v-if="pass">下一题</el-button>
+                    <el-button plain v-if="pass"><a href="#">下一题</a></el-button>
                 </el-card>
             </div>
             <div class="end-space"><br><br></div>
@@ -89,6 +99,12 @@
             choice: '',
             answer: 'a',
             pass:false,
+            mkd: '# mkdddd\n**这是加粗的文字**\n\n*这是倾斜的文字*\n***这是斜体加粗的文字***\n~~这是加删除线的文字~~\n- sth',
+        },
+        computed: {
+            compiledMarkdown: function() {
+                return marked(this.mkd, { sanitize: true });
+            }
         },
         methods: {
             back(){

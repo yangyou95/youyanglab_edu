@@ -1,6 +1,3 @@
-* {
-    font-family: '微软雅黑';
-}
 
 .aside-header .btn-group {
     background-color:white;
@@ -155,4 +152,22 @@ aside .menu-item:hover .icon {
 
 .el-container.content .question .box-card .el-button:focus {
     color:#8080ff;
+}
+
+.el-container.content .question .box-card .el-button a {
+    color:#606266;
+    text-decoration:none;
+}
+
+.el-container.content .question .box-card .el-button a:hover {
+    color:#8080ff;
+}
+
+.el-container.content .text {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    color: #333;
+}
+
+.el-container.content .text .mkd {
+    padding:0 55px;
 }
