@@ -37,6 +37,7 @@ class ClassQuestionAdmin(admin.ModelAdmin):
 class Lessons(admin.ModelAdmin):
     fieldsets = [('所属章节',{'fields':['chapter']}),
                  ('课程小节名称',{'fields':['lesson_name']}),
+                 ('课程小节Markdown文件',{'fields':['file']}),
                  ('课程小节视频链接',{'fields':['video_url']}),
                  ('创建时间', {'fields': ['created_date']}),]
 

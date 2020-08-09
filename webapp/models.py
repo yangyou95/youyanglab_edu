@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
+import os
 
 class UserManager(BaseUserManager):
     def create_user(self, email, password=None, is_active = True, is_staff = False, is_admin = False):
@@ -145,6 +146,7 @@ class Lesson(models.Model):
     """课程名字及视频"""
     chapter = models.ForeignKey(Chapter, on_delete = models.CASCADE)
     lesson_name = models.CharField(max_length = 200)
+    file = models.FileField(upload_to='webapp/media', null=True)
     video_url = models.CharField(max_length = 300)
     created_date = models.DateTimeField('Created date')
 
@@ -164,6 +166,15 @@ class Lesson(models.Model):
         chapter_id = self.chapter.id
         all_lessons_list = Lesson.objects.filter(chapter_id=chapter_id)
         return all_lessons_list
+
+    def read_file(self):
+        file_path = self.file.name
+        # 判断路径文件存在
+        if not os.path.isfile(file_path):
+            raise TypeError(file_path + " does not exist")
+        all_the_text = open(file_path).read()
+        all_the_text = repr(all_the_text)
+        return all_the_text.strip("'")
 
 
 # 存储问题的模型

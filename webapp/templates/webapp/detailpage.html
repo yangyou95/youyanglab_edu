@@ -54,7 +54,7 @@
         </el-aside>
         <el-container class="content">
             <el-header style="font-size:40px;background-image: linear-gradient(to top, #E5E5FF, #fff);padding-top:24px;height:80px;">
-                <div>title</div>
+                <div>{{lesson.lesson_name}}</div>
             </el-header>
             <div class="video">
                 <iframe src="//player.bilibili.com/player.html?aid=74809488&bvid=BV12E411i7Wk&cid=127970222&page=2" id="video" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="100%"> </iframe>
@@ -99,7 +99,7 @@
             choice: '',
             answer: 'a',
             pass:false,
-            mkd: '# mkdddd\n**这是加粗的文字**\n\n*这是倾斜的文字*\n***这是斜体加粗的文字***\n~~这是加删除线的文字~~\n- sth',
+            mkd: '{{lesson.read_file}}',
         },
         computed: {
             compiledMarkdown: function() {
