@@ -250,4 +250,5 @@ def index(request):
 
     return render(request, 'webapp/index.html',context)
 
-
+def newIndex(request):
+    return render(request, 'webapp/newIndex.html')

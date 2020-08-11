@@ -171,3 +171,32 @@ aside .menu-item:hover .icon {
 .el-container.content .text .mkd {
     padding:0 55px;
 }
+
+/* markdown table */
+.el-container.content .text .mkd table {
+    width: 100%;
+    border: 1px solid #d9d9d9;
+    background: #fff;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.el-container.content .text .mkd table tr th {
+    padding: 4px 8px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+    border: 1px solid #d9d9d9;
+    cursor: pointer;
+    background-color: #f8f8f9;
+}
+
+.el-container.content .text .mkd table tr td {
+    padding: 4px 8px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+    border: 1px solid #d9d9d9;
+    cursor: pointer;
+}

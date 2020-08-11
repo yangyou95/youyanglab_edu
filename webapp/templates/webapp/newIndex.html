@@ -1,0 +1,154 @@
+{% extends 'navbar.html' %}
+
+{#{% load static from staticfiles %}#}
+{% load static %}
+
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0;">
+<link rel="stylesheet" href="{% static "webapp/newIndex.css" %}" type="text/css">
+
+
+<el-row style="margin-top:74px;" class="title">
+    <el-col :xs="{ span: 24}" :sm="{ span: 10}" :md="{ span: 8, offset: 2}" :lg="{ span: 8, offset: 5}">
+        <img src="{% static "webapp/images/handdraw_image.png" %}">
+    </el-col>
+    <el-col :xs="{span:16, offset:4}" :sm="{span:10, offset:2}" :md="{span:8}" :lg="{span:8, offset:0}" class="text">
+        <p class="text1">优扬实验室</p>
+        <h4 class="text2">通过实践学习</h4>
+        <p class="text3">实践出真知，交互式的学习方法更生动而记忆深刻.</p>
+    </el-col>
+</el-row>
+
+<el-row class="content">
+    <el-col :xs="{span:18, offset:3}" :sm="{span:14, offset:5}" :md="{span:12, offset:6}" :lg="{span:12, offset:6}">
+        <el-row :gutter="60">
+            <el-col :xs="24" :sm="18" :md="12" :lg="8">
+                <el-card :body-style="{ padding : '0px'}" class="card">
+                    <img src="{% static "webapp/images/pic.png" %}">
+                    <div style="padding:14px;">
+                        <div class="title">title</div>
+                        <div>describe</div>
+                        <div class="bottom clearfix">
+                            <el-button class="button">button</el-button>
+                        </div>
+                    </div>
+                </el-card>
+            </el-col>
+
+            <el-col :xs="24" :sm="18" :md="12" :lg="8">
+                <el-card :body-style="{ padding : '0px'}" class="card">
+                    <img src="{% static "webapp/images/pic.png" %}">
+                    <div style="padding:14px;">
+                        <div class="title">title</div>
+                        <div>describe</div>
+                        <div class="bottom clearfix">
+                            <el-button class="button">button</el-button>
+                        </div>
+                    </div>
+                </el-card>
+            </el-col>
+
+            <el-col :xs="24" :sm="18" :md="12" :lg="8">
+                <el-card :body-style="{ padding : '0px'}" class="card">
+                    <img src="{% static "webapp/images/pic.png" %}">
+                    <div style="padding:14px;">
+                        <div class="title">title</div>
+                        <div>describe</div>
+                        <div class="bottom clearfix">
+                            <el-button class="button">button</el-button>
+                        </div>
+                    </div>
+                </el-card>
+            </el-col>
+        </el-row>
+    </el-col>
+</el-row>
+
+<el-row class="content">
+    <el-col :xs="{span:18, offset:3}" :sm="{span:14, offset:5}" :md="{span:12, offset:6}" :lg="{span:12, offset:6}">
+        <el-row :gutter="60">
+            <el-col :xs="24" :sm="18" :md="12" :lg="8">
+                <el-card :body-style="{ padding : '0px'}" class="card">
+                    <img src="{% static "webapp/images/pic.png" %}">
+                    <div style="padding:14px;">
+                        <div class="title">title</div>
+                        <div>describe</div>
+                        <div class="bottom clearfix">
+                            <el-button class="button">button</el-button>
+                        </div>
+                    </div>
+                </el-card>
+            </el-col>
+
+            <el-col :xs="24" :sm="18" :md="12" :lg="8">
+                <el-card :body-style="{ padding : '0px'}" class="card">
+                    <img src="{% static "webapp/images/pic.png" %}">
+                    <div style="padding:14px;">
+                        <div class="title">title</div>
+                        <div>describe</div>
+                        <div class="bottom clearfix">
+                            <el-button class="button">button</el-button>
+                        </div>
+                    </div>
+                </el-card>
+            </el-col>
+
+            <el-col :xs="24" :sm="18" :md="12" :lg="8">
+                <el-card :body-style="{ padding : '0px'}" class="card">
+                    <img src="{% static "webapp/images/pic.png" %}">
+                    <div style="padding:14px;">
+                        <div class="title">title</div>
+                        <div>describe</div>
+                        <div class="bottom clearfix">
+                            <el-button class="button">button</el-button>
+                        </div>
+                    </div>
+                </el-card>
+            </el-col>
+        </el-row>
+    </el-col>
+</el-row>
+
+
+<el-row>
+    <el-col>
+        <div class="news">
+            <p class="news1">news</p>
+            <p class="news2">sth</p>
+            <form action="#" method="get">
+              <input type="email" name="mail" placeholder="请输入的邮箱">
+              <input type="submit" value="点击订阅">
+            </form>
+        </div>
+    </el-col>
+</el-row>
+
+<div class="cover" :class="{'cover-moved': coverActive}">
+    <div class="slogan">
+        slogan
+    </div>
+    <div class="button" @click="remove()">
+        <div class="left">
+
+        </div>
+        <div class="right">
+            start
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            coverActive:false,
+        },
+        methods: {
+            remove: function() {
+                this.coverActive = true;
+            },
+        },
+    })
+</script>
+{% endblock %}
