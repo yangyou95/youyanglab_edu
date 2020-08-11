@@ -146,6 +146,11 @@
 
 
 <script>
+    function bodyScroll(event){
+        event.preventDefault();
+    }
+    document.body.addEventListener('touchmove',bodyScroll,false);
+    $('body').css({'position':'fixed',"width":"100%"});
     var vm = new Vue({
         el: '#app',
         data: {
@@ -154,6 +159,8 @@
         methods: {
             remove: function() {
                 this.coverActive = true;
+                document.body.removeEventListener('touchmove',bodyScroll,false);
+                $("body").css({"position":"initial"});
             },
         },
     })
