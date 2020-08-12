@@ -90,6 +90,14 @@
 </div>
 
 <script>
+
+    function escape2Html(str) {
+        var arrEntities={'lt':'<','gt':'>','nbsp':' ','amp':'&','quot':'"'};
+        return str.replace(/&(lt|gt|nbsp|amp|quot);/ig,function(all,t){
+            return arrEntities[t];
+        });
+    }
+
     var vm = new Vue({
         el: '#app',
         data: {
@@ -100,7 +108,7 @@
             choice: '',
             answer: 'a',
             pass:false,
-            mkd: '{{lesson.read_file}}',
+            mkd: escape2Html('{{lesson.read_file}}'),
         },
         computed: {
             compiledMarkdown: function() {

@@ -203,3 +203,15 @@ aside .menu-item:hover .icon {
     border: 1px solid #d9d9d9;
     cursor: pointer;
 }
+
+.mkd pre {
+    padding: 20px 10px!important;
+    display: block;
+    color: #abb2bf;
+    font-family: Menlo,Consolas,Courier New,Courier,FreeMono,monospace;
+    background: #292c34;
+    border-radius: 4px;
+    overflow-y: hidden!important;
+    overflow-x: auto!important;
+    margin: 10px 0!important;
+}
