@@ -15,7 +15,9 @@
     <el-col :xs="{span:16, offset:4}" :sm="{span:10, offset:2}" :md="{span:8}" :lg="{span:8, offset:0}" class="text">
         <p class="text1">优扬实验室</p>
         <h4 class="text2">通过实践学习</h4>
-        <p class="text3">实践出真知，交互式的学习方法更生动而记忆深刻.</p>
+        <p class="text3">实践出真知，交互式的学习方法更生动而记忆深刻。</p>
+        <a href="class"><el-button type="button" class="more">查看全部课程</el-button></a>
+
     </el-col>
 </el-row>
 
@@ -24,14 +26,33 @@
 <el-row class="content">
     <el-col :xs="{span:18, offset:3}" :sm="{span:14, offset:5}" :md="{span:12, offset:6}" :lg="{span:12, offset:6}">
         <el-row :gutter="60">
+
+    {% for course in all_courses%}
+          <el-col :xs="24" :sm="12" :md="12" :lg="8">
+                <el-card :body-style="{ padding : '0px'}" class="card">
+                    <img src="{% static "webapp/images/pic.png" %}">
+                    <div style="padding:14px;">
+                        <div class="title">{{course.course_name}}</div>
+                        <div>介绍ROS环境配置, 节点编写，主题发布与订阅以及相应练习。</div>
+                        <div class="bottom clearfix">
+                            <a href="{% url 'webapp:course' course.id%}"><el-button class="button">开始学习</el-button></a>
+                        </div>
+                    </div>
+                </el-card>
+            </el-col>
+      {%endfor%}
+
+
+
+
             <el-col :xs="24" :sm="12" :md="12" :lg="8">
                 <el-card :body-style="{ padding : '0px'}" class="card">
                     <img src="{% static "webapp/images/pic.png" %}">
                     <div style="padding:14px;">
-                        <div class="title">title</div>
-                        <div>describe</div>
+                        <div class="title">C++入门</div>
+                        <div>面向初学者打造的，帮助他们理解与C++ 编程语言相关的基础。</div>
                         <div class="bottom clearfix">
-                            <el-button class="button">button</el-button>
+                            <el-button class="button">敬请期待</el-button>
                         </div>
                     </div>
                 </el-card>
@@ -41,27 +62,16 @@
                 <el-card :body-style="{ padding : '0px'}" class="card">
                     <img src="{% static "webapp/images/pic.png" %}">
                     <div style="padding:14px;">
-                        <div class="title">title</div>
-                        <div>describe</div>
+                        <div class="title">机器学习基础</div>
+                        <div>介绍机器学习的基本概念，基础技术，配合练习案例。</div>
                         <div class="bottom clearfix">
-                            <el-button class="button">button</el-button>
+                            <el-button class="button">敬请期待</el-button>
                         </div>
                     </div>
                 </el-card>
             </el-col>
 
-            <el-col :xs="24" :sm="12" :md="12" :lg="8">
-                <el-card :body-style="{ padding : '0px'}" class="card">
-                    <img src="{% static "webapp/images/pic.png" %}">
-                    <div style="padding:14px;">
-                        <div class="title">title</div>
-                        <div>describe</div>
-                        <div class="bottom clearfix">
-                            <el-button class="button">button</el-button>
-                        </div>
-                    </div>
-                </el-card>
-            </el-col>
+
         </el-row>
     </el-col>
 </el-row>
@@ -69,14 +79,16 @@
 <el-row class="content">
     <el-col :xs="{span:18, offset:3}" :sm="{span:14, offset:5}" :md="{span:12, offset:6}" :lg="{span:12, offset:6}">
         <el-row :gutter="60">
+
+
             <el-col :xs="24" :sm="18" :md="12" :lg="8">
                 <el-card :body-style="{ padding : '0px'}" class="card">
                     <img src="{% static "webapp/images/pic.png" %}">
                     <div style="padding:14px;">
-                        <div class="title">title</div>
-                        <div>describe</div>
+                        <div class="title">学术写作技巧</div>
+                        <div>介绍学术写作工具Latex， 本地部署及相关语法。</div>
                         <div class="bottom clearfix">
-                            <el-button class="button">button</el-button>
+                            <el-button class="button">敬请期待</el-button>
                         </div>
                     </div>
                 </el-card>
@@ -86,10 +98,10 @@
                 <el-card :body-style="{ padding : '0px'}" class="card">
                     <img src="{% static "webapp/images/pic.png" %}">
                     <div style="padding:14px;">
-                        <div class="title">title</div>
-                        <div>describe</div>
+                        <div class="title">随机过程</div>
+                        <div>配合实际案例，讲解随机过程的基本理论和方法。</div>
                         <div class="bottom clearfix">
-                            <el-button class="button">button</el-button>
+                            <el-button class="button">敬请期待</el-button>
                         </div>
                     </div>
                 </el-card>
@@ -99,15 +111,18 @@
                 <el-card :body-style="{ padding : '0px'}" class="card">
                     <img src="{% static "webapp/images/pic.png" %}">
                     <div style="padding:14px;">
-                        <div class="title">title</div>
-                        <div>describe</div>
+                        <div class="title">Python基础入门</div>
+                        <div>面向初学者打造的，讲解Python编程语言相关的基础。</div>
                         <div class="bottom clearfix">
-                            <el-button class="button">button</el-button>
+                            <el-button class="button">敬请期待</el-button>
                         </div>
                     </div>
                 </el-card>
             </el-col>
+
         </el-row>
+
+
     </el-col>
 </el-row>
 </div>
@@ -116,8 +131,8 @@
 <el-row>
     <el-col>
         <div class="news">
-            <p class="news1">news</p>
-            <p class="news2">sth</p>
+            <p class="news1">最新消息</p>
+            <p class="news2">想知道我们的&nbsp;<strong>最新消息?</strong></p>
             <form action="#" method="get">
               <input type="email" name="mail" placeholder="请输入的邮箱">
               <input type="submit" value="点击订阅">

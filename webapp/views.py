@@ -253,4 +253,6 @@ def index(request):
     return render(request, 'webapp/index.html',context)
 
 def newIndex(request):
-    return render(request, 'webapp/newIndex.html')
+    all_course = Course.objects.all()
+    context = {"form": signincore(request),"all_courses":all_course}
+    return render(request, 'webapp/newIndex.html', context)
