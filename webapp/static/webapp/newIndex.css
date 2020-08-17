@@ -188,3 +188,9 @@
     width:80%;
     left:10%;
 }
+
+.bg-cover {
+    position:absolute;
+    margin:0 10%;
+
+}

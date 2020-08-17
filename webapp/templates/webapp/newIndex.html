@@ -127,6 +127,9 @@
 </el-row>
 
 <div class="cover" :class="{'cover-moved': coverActive}">
+    <!--<img src="{% static 'webapp/images/girl.png' %}" class="bg-cover-1" >
+    <img src="{% static 'webapp/images/Bg_Shape_1.png' %}" class="bg-cover-2">-->
+    <img src="{% static 'webapp/images/bkg_login.png' %}" class="bg-cover">
     <el-row>
         <el-col :lg="{offset:9, span:6}">
                 <div class="slogan">
@@ -155,6 +158,7 @@
         el: '#app',
         data: {
             coverActive:false,
+            screenHeight: document.documentElement.clientHeight - 74 - 481,
         },
         methods: {
             remove: function() {
