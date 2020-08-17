@@ -14,7 +14,7 @@
 
     <el-col :xs="{span:16, offset:4}" :sm="{span:7, offset:5}" :md="{span:6, offset:6}" :lg="{span:6, offset:6}" class="title-collapse">
 
-        <h1><i class="el-icon-collection-tag"></i>&nbsp;Python</h1>
+        <h1><i class="el-icon-collection-tag"></i>&nbsp;{{course.course_name}}</h1>
 
         <el-collapse class="title" accordion>
           <el-collapse-item>
@@ -56,6 +56,80 @@
 
 <el-row :gutter="20">
 <el-col :xs="{span:18, offset:3}" :sm="{span:14, offset:5}" :md="{span:12, offset:6}" :lg="{span:12, offset:6}" >
+
+
+  {% for chapter in course.chapter_set.all %}
+
+   <el-row>
+    <el-col :span="1"><i class="el-icon-finished"></i></el-col>
+     <el-col :span="16" :xs="{span:21, offset:2}"> <h4> {{chapter.id}}. {{chapter.chapter_name}} </h4></el-col>
+  </el-row>
+
+   <el-row :gutter="20">
+
+        {% for lesson in chapter.lesson_set.all %}
+               <el-col :xs="24" :sm="18" :md="12" :lg="8" class="block">
+          <el-card :body-style="{ padding : '0px'}" class="box-card gradient-card">
+              <div slot="header" class="clearfix">
+                  <h6>课程{{lesson.id}}</h6>
+                  <h5>{{lesson.lesson_name}}</h5>
+              </div>
+              <div>
+                  <div style="display:inline-block; padding: 12px 16px">
+                      <i class="el-icon-success" style="color:#7373E5"></i>
+                      <span>&nbsp;已完成</span>
+                  </div>
+                  <a href="{% url 'webapp:detailpage' lesson.id%}">
+                  <el-button style="float: right; padding: 16px 16px" type="text" class="start classdetail">
+                      开始学习
+                      <i class="el-icon-caret-right" style="color:#7373E5"></i>
+                  </el-button>
+                  </a>
+              </div>
+          </el-card>
+       </el-col>
+        {%endfor%}
+      {%endfor%}
+
+
+       <el-col :xs="24" :sm="18" :md="12" :lg="8" class="block">
+          <el-card :body-style="{ padding : '0px'}" class="box-card gradient-card">
+              <div slot="header" class="clearfix">
+                  <h6>课程2</h6>
+                  <h5>在Linux平台的环境配置</h5>
+              </div>
+              <div>
+                  <div style="display:inline-block; padding: 12px 16px">
+                      <i class="el-icon-success" style="color:#7373E5"></i>
+                      <span>&nbsp;已完成</span>
+                  </div>
+                  <el-button style="float: right; padding: 16px 16px" type="text" class="start classdetail">
+                      开始学习
+                      <i class="el-icon-caret-right" style="color:#7373E5"></i>
+                  </el-button>
+              </div>
+          </el-card>
+       </el-col>
+
+       <el-col :xs="24" :sm="18" :md="12" :lg="8" class="block">
+          <el-card :body-style="{ padding : '0px'}" class="box-card gradient-card">
+              <div slot="header" class="clearfix">
+                  <h6>课程3</h6>
+                  <h5>ROS结构</h5>
+              </div>
+              <div>
+                  <div style="display:inline-block; padding: 12px 16px">
+                      <i class="el-icon-warning-outline"></i>
+                      <span>&nbsp;未完成</span>
+                  </div>
+                  <el-button style="float: right; padding: 16px 16px" type="text" class="start classdetail">
+                      开始学习
+                      <i class="el-icon-caret-right" style="color:#7373E5"></i>
+                  </el-button>
+              </div>
+          </el-card>
+       </el-col>
+    </el-row>
 
   <!--  每个部分 -->
    <el-row>

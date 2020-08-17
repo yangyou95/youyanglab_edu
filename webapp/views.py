@@ -230,11 +230,13 @@ class ChoiceTest(generic.DetailView):
 
 # 课程分类页面
 def Class(request):
-    context = {"form": signincore(request)}
+    all_course = Course.objects.all()
+    context = {"form": signincore(request), "all_courses":all_course}
     return render(request, 'webapp/class.html',context)
 
-def ClassDetail(request):
-    context = {"form": signincore(request)}
+def ClassDetail(request, class_id):
+    class_detail = get_object_or_404(Course, pk=class_id)
+    context = {"form": signincore(request), "course":class_detail}
     return render(request, 'webapp/classdetail.html',context)
 
 # 服务页面

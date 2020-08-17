@@ -46,7 +46,7 @@ urlpatterns = [
 
     # 课程分类页面
     path('class/', views.Class, name = 'class'),
-    path('classdetail/', views.ClassDetail, name = 'classdetail'),
+    path('classdetail/<int:class_id>', views.ClassDetail, name = 'classdetail'),
 
     # 服务页面
     path('service/', views.Service, name = 'service'),

@@ -23,7 +23,7 @@
       </div>
   <! --右图-->
       <div class="col-md-8 col-12">
-        <img  class="img-responsive lapin" src="{% static "webapp/images/girl.png" %}" alt="lapin">
+        <img class="img-responsive lapin" src="{% static "webapp/images/girl.png" %}" alt="lapin">
       </div>
     </div>
   </div>
@@ -41,7 +41,7 @@
         <p class="t1">优扬实验室</p>
         <h4 class="display-4">通过实践学习</h4>
         <p class="tx">实践出真知，交互式的学习方法更生动而记忆深刻.</p>
-        <a href="#"><button type="button" class="more">了解更多</button></a>
+        <a href="class"><button type="button" class="more">查看全部课程</button></a>
       </div>
 
     </div>
@@ -61,7 +61,7 @@
             <img class="img-responsive center-block" src="{% static "webapp/images/pic.png" %}" alt="pic">
           </div>
           <h4>{{course.course_name}}</h4>
-          <p>介绍环境配置, python语言的基础语法,函数以及相应练习</p>
+          <p>介绍环境配置, 节点编写，主题发布与订阅以及相应练习</p>
           <a href="{% url 'webapp:course' course.id%}"><button type="button">开始学习</button></a>
         </div>
       </div>

@@ -18,7 +18,7 @@
     <el-container :style="'height:' + screenHeight + 'px;'">
         <el-aside width="300px" style="background-color: rgb(250, 250, 250);padding:24px;overflow:scroll;">
             <div class="aside-header">
-                <h1>python</h1>
+                <h1>{{lesson.lesson_name}}</h1>
                 <p>introduction</p>
                 <el-progress :percentage="percentage" :color="purple"></el-progress>
                 <div class="btn-group">
@@ -33,21 +33,21 @@
                     <div class="menu-item">
                     <div class="icon">1</div>
                     <div class="line"></div>
-                    <div class="text">aaaa</div>
+                    <div class="text">ROS是什么</div>
                     </div>
                 </a>
                 <a href="#">
                     <div class="menu-item">
                     <div class="icon">1</div>
                     <div class="line"></div>
-                    <div class="text">aaaa</div>
+                    <div class="text">ROS环境配置</div>
                     </div>
                 </a>
                 <a href="#">
                     <div class="menu-item">
                     <div class="icon">1</div>
                     <div class="line"></div>
-                    <div class="text">aaaa</div>
+                    <div class="text">ROS结构</div>
                     </div>
                 </a>
 
@@ -55,7 +55,7 @@
         </el-aside>
         <el-container class="content">
             <el-header style="font-size:40px;background-image: linear-gradient(to top, #E5E5FF, #fff);padding-top:24px;height:80px;">
-                <div>{{lesson.lesson_name}}</div>
+<!--                <div>{{lesson.lesson_name}}</div>-->
             </el-header>
             <div class="video">
                 <iframe src="//player.bilibili.com/player.html?aid=74809488&bvid=BV12E411i7Wk&cid=127970222&page=2" id="video" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="100%"> </iframe>
@@ -68,16 +68,16 @@
                 <el-divider></el-divider>
                 <el-card class="box-card">
                     <div slot="header">
-                        <h2>this is a question</h2>
+                        <h2>测试问题</h2>
                     </div>
                     <div class="answers">
 
                         <input v-if="!pass" type="radio" value="a" id="1" name="answer" v-model="choice">
                         <input v-else type="radio" value="a" id="1" name="answer" v-model="choice" disabled="disabled">
-                        <label for="1"><i class="el-icon-circle-check"></i> a</label><br>
+                        <label for="1"><i class="el-icon-circle-check"></i> 选项A</label><br>
                         <input v-if="!pass" type="radio" value="b" id="2" name="answer" v-model="choice">
                         <input v-else type="radio" value="b" id="2" name="answer" v-model="choice" disabled="disabled">
-                        <label for="2"><i class="el-icon-circle-check"></i> b</label><br>
+                        <label for="2"><i class="el-icon-circle-check"></i> 选项B</label><br>
 
                     </div>
                     <el-button plain v-if="!pass" @click="fedBack">朴素按钮</el-button>

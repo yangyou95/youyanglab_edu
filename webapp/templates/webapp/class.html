@@ -77,39 +77,49 @@
     <el-row :gutter="20">
        <el-row class="title1">
         <el-col :span="1"><i class="el-icon-document-copy"></i></el-col>
-         <el-col :span="16" :xs="{span:21, offset:2}"> <h4> 数据结构与算法 </h4></el-col>
+         <el-col :span="16" :xs="{span:21, offset:2}"> <h4> 机器人学及决策规划 </h4></el-col>
       </el-row>
 
+      {% for course in all_courses %}
+        <el-col :xs="24" :sm="18" :md="12" :lg="8" class="block">
+          <el-card :body-style="{ padding : '0px'}" class="box-card">
+              <img class="img-fluid" src="{% static "webapp/images/ROS/ROS2.jpeg" %}" alt="img2">
+              <div style="padding: 14px;">
+                  <div style="font-size: 20px;padding-bottom: 16px;">{{course.course_name}}</div>
+                  <div class="bottom clearfix">
+                    <div style="color: rgba(0, 0, 0, 0.5);padding: 6px 2px;display: inline-block"> 12小节</div>
+                      <a href="{% url 'webapp:classdetail' course.id%}"><el-button style="float: right; padding: 10px 12px" type="text" class="start">开始学习<i class="el-icon-right" style="padding-left: 6px;"></i></el-button></a>
+                  </div>
+              </div>
+          </el-card>
+       </el-col>
+      {% endfor %}
+
+
 
        <el-col :xs="24" :sm="18" :md="12" :lg="8" class="block">
-          <el-card class="box-card">
-              <div slot="header" class="clearfix">
-                <span>卡片名称</span>
-                <el-button style="float: right; padding: 3px 0" type="text">开始学习</el-button>
+          <el-card :body-style="{ padding : '0px'}" class="box-card">
+              <img class="img-fluid" src="{% static "webapp/images/ROS/ROS2.jpeg" %}" alt="img2">
+              <div style="padding: 14px;">
+                  <div style="font-size: 20px;padding-bottom: 16px;">C++基础</div>
+                  <div class="bottom clearfix">
+                    <div style="color: rgba(0, 0, 0, 0.5);padding: 6px 2px;display: inline-block"> 22小节</div>
+                    <el-button style="float: right; padding: 10px 12px" type="text" class="start">开始学习<i class="el-icon-right" style="padding-left: 6px;"></i></el-button>
+                  </div>
               </div>
-              <img class="img-fluid" src="{% static "webapp/images/Python/lesson.png" %}" alt="img2">
           </el-card>
        </el-col>
 
-
        <el-col :xs="24" :sm="18" :md="12" :lg="8" class="block">
-          <el-card class="box-card">
-              <div slot="header" class="clearfix">
-                <span>卡片名称</span>
-                <el-button style="float: right; padding: 3px 0" type="text">开始学习</el-button>
+          <el-card :body-style="{ padding : '0px'}" class="box-card">
+              <img class="img-fluid" src="{% static "webapp/images/Python/AI.jpg" %}" alt="img2">
+              <div style="padding: 14px;">
+                  <div style="font-size: 20px;padding-bottom: 16px;">机器学习</div>
+                  <div class="bottom clearfix">
+                    <div style="color: rgba(0, 0, 0, 0.5);padding: 6px 2px;display: inline-block"> 15小节数</div>
+                    <el-button style="float: right; padding: 10px 12px" type="text" class="start">开始学习<i class="el-icon-right" style="padding-left: 6px;"></i></el-button>
+                  </div>
               </div>
-              <img class="img-fluid" src="{% static "webapp/images/Python/lesson.png" %}" alt="img2">
-          </el-card>
-       </el-col>
-
-
-       <el-col :xs="24" :sm="18" :md="12" :lg="8" class="block">
-          <el-card class="box-card">
-              <div slot="header" class="clearfix">
-                <span>卡片名称</span>
-                <el-button style="float: right; padding: 3px 0" type="text">开始学习</el-button>
-              </div>
-              <img class="img-fluid" src="{% static "webapp/images/Python/lesson.png" %}" alt="img2">
           </el-card>
        </el-col>
     </el-row>
