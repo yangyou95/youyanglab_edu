@@ -1,120 +1,94 @@
 {% extends 'navbar.html' %}
 
+{#{% load static from staticfiles %}#}
 {% load static %}
 
-
 {% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0;">
+<link rel="stylesheet" href="{% static 'webapp/usr.css' %}" type="text/css">
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0;">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.5.2/animate.min.css">
-  <link rel="stylesheet" href="{% static "webapp/usr.css" %}" type="text/css">
-  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
-  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<div class="bar"><p>User space</p></div>
 
-<div class="content">
+<div class="content" :style="'height: ' + screenHeight + 'px;'">
+    <el-row :gutter="40">
+        <el-col :lg="{span: 4, offset: 6}" class="user">
+            <el-card shadow="hover">
+                <el-avatar :size="50" :src="circleUrl"></el-avatar>
+                <div>
+                    <div class="name">name</div>
+                    <div class="mail">123456@mail.com</div>
+                    <div class="age">age</div>
+                </div>
+                <el-divider></el-divider>
+                <a><div>personal infos</div></a>
+                <a><div>course</div></a>
+                <el-divider></el-divider>
+                <div class="icon">
+                    <a><img src="{% static 'webapp/images/icon/github.svg' %}"></a>
+                </div>
+            </el-card>
+        </el-col>
 
-  <h1 class="animated bounce infinite">个人中心</h1>
-
-  <div class="part1">
-
-    <div class="container">
-
-      <div class="ins">
-
-        <h5>个人信息</h5>
-
-        <form method="post" action="#">
-
-          <input class="col-md-3 col-10" type="text" value="数据库中的用户名">
-
-          <input class="col-md-3 col-10" type="email" value="AZDAZDAZDAZD@gmail.com">
-
-          <input class="col-md-3 col-10" type="date">
-
-          <input type="submit" value="更改">
-
-        </form>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="part2">
-
-    <div class="container">
-
-      <div class="cours">
-
-        <h5>课程进度</h5>
-
-        <a href="#"><img class="logo" src="{% static "webapp/images/py.png" %}" alt="python"></a>
-
-          <div class="progress progress-striped active">
-            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-              <span class="sr-only">课程1</span>
+        <el-col :lg="{span: 8}" class="courses">
+            <div>
+                <div class="card">
+                    <el-row>
+                        <el-col :span="8">
+                             <img src="{% static 'webapp/images/ROS/ROS2.jpeg' %}" alt="img2">
+                        </el-col>
+                        <el-col :span="16">
+                            <div class="describe">
+                                <div class="title">qwewqe</div>
+                                <div class="prog">progress: 1/2</div>
+                            </div>
+                        </el-col>
+                    </el-row>
+                </div>
+                <el-divider></el-divider>
+                <div class="card">
+                    <el-row>
+                        <el-col :span="8">
+                             <img src="{% static 'webapp/images/ROS/ROS2.jpeg' %}" alt="img2">
+                        </el-col>
+                        <el-col :span="16">
+                            <div class="describe">qweqwe</div>
+                        </el-col>
+                    </el-row>
+                </div>
+                <el-divider></el-divider>
+                <div class="card">
+                    <el-row>
+                        <el-col :span="8">
+                             <img src="{% static 'webapp/images/ROS/ROS2.jpeg' %}" alt="img2">
+                        </el-col>
+                        <el-col :span="16">
+                            <div class="describe">qweqwe</div>
+                        </el-col>
+                    </el-row>
+                </div>
+                <el-divider></el-divider>
+                <div class="card">
+                    <el-row>
+                        <el-col :span="8">
+                             <img src="{% static 'webapp/images/ROS/ROS2.jpeg' %}" alt="img2">
+                        </el-col>
+                        <el-col :span="16">
+                            <div class="describe">qweqwe</div>
+                        </el-col>
+                    </el-row>
+                </div>
             </div>
-          </div>
-
-        <a href="#"><img class="logo" src="{% static "webapp/images/java.jpg" %}"alt="java"></a>
-
-            <div class="progress progress-striped active">
-      <div class="progress-bar progress-bar-success" role="progressbar"
-           aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-           style="width: 40%;">
-          <span class="sr-only">40% 完成</span>
-      </div>
-  </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-    <div class="part6">
-
-      <div class="container">
-
-        <div class="row textf">
-
-          <div class="col-md-4 col-12">
-
-            <p class="t3">优扬实验室.</p>
-            <h2>自古英雄出少年</h2>
-            <br><br>
-
-          </div>
-
-          <div class="col-md-4 col-12">
-
-            <a href="#"><p>关于我们</p></a>
-            <a href="#"><p>主页</p></a>
-            <a href="#"><p>账户</p></a>
-            <a href="#"><p>管理</p></a>
-            <br><br>
-
-          </div>
-
-          <div class="col-md-4 col-12">
-
-            <h3>联系我们</h3>
-            <br><a href="#"><p>000-000-0000</p></a>
-            <a href="#"><p>info@email.com</p></a>
-            <br><a href="#"><p>  </p></a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
+        </el-col>
+    </el-row>
 </div>
 
+<script>
+  var vm = new Vue({
+    el: '#app',
+    data: {
+        screenHeight: document.documentElement.clientHeight - 74 - 215 - 70,
+        circleUrl: "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
+    },
+  })
+</script>
 {% endblock %}

@@ -1,103 +1,55 @@
-button {
-    outline:none;
+body {
+    overflow-x: hidden;
 }
 
-.navbar-brand {
-	font-size:2.5em;
+.bar {
+    height: 80px;
+    background-image: linear-gradient(to top, rgb(229, 229, 255), rgb(255, 255, 255));
+    text-align: center;
 }
 
-.nav-link {
-	font-size:1.5em;
+.bar p {
+    font-size: 2em;
+    padding-top: 25px;
+    color: #708090;
 }
 
-.navbar.navbar-expand-md.navbar-light {
-	box-shadow:0 0 12px 0 rgba(0,0,0,0.24);
+.content {
+    padding-top: 50px;
 }
 
-.part6 {
-    background-image:url('./images/cloud.png');
-    background-repeat:no-repeat;
-    background-position:center bottom;
-    margin-top:5%;
+.user {
+    margin-top: 10px;
 }
 
- @media screen and (max-width: 450px) {
-        .part6 {
-            background-image:url('./images/cloud.png');
-            background-repeat:no-repeat;
-            background-position:center bottom;
-            background-size:5000px 8000px;
-        }
-        }
-
-.textf {
-    padding:200px 0 0 0;
-    color:#fff;
+.user .icon img {
+    height: 30px;
+    width: 30px;
 }
 
-.textf a {
-    decoration:none;
-    color:#fff;
+.courses {
+    height: 400px;
+    overflow-y: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-.row.textf {
-    margin-bottom:0;
-}
-
-.content{
-    padding-top:32px;
-    background-color:#f7f7f7;
-}
-
-.ins, .cours {
-    background-color:#fff;
-    border:2px solid #d4d4d4;
-    border-radius:1px;
-    padding:16px;
-    margin-bottom:24px;
-}
-
-input {
-    border-color:#d4d4d4;
-    border-radius:24px;
-    font-size:1.1em;
-    margin:1%;
-}
-
-input[type="submit"] {
-    border-radius:10px;
-    background-color:#d4d4d4;
-    padding:2px 20px 2px 20px;
+.courses .card {
+    padding: 20px;
+    border-radius:4px;
     border:none;
+    transition: .3s;
 }
 
-input[type="submit"]:hover {
-    -webkit-transition-duration: 0.4s; /* Safari */
-	transition-duration: 0.4s;
-	box-shadow:0 0 6px 0 rgba(0,0,0,0.24);
+.courses .card:hover {
+    box-shadow:0 0px 6px 3px rgba(0,0,0,0.125);
 }
 
-div.progress {
-    width:90%;
-    height:30px;
-    margin-left:1em;
-    margin-top:1em;
-    margin-bottom:0.5em;
+.courses .card img {
+    height: 100px;
+    width: 170px;
 }
 
-div.progress-bar.progress-bar-success {
-    background-color:#cfcfef;
-}
-
-.logo {
-    height:60px;
-    width:140px;
-}
-
-h1 {
-    text-align:center;
-    padding-bottom:24px;
-    color:#7070ff;
-    font-weight:bold;
-    font-style:italic;
+.courses .describe .title {
+    font-size: 1.25em;
 }
