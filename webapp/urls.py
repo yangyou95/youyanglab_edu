@@ -53,5 +53,8 @@ urlpatterns = [
     #
     # #忘记重置密码 分为四步 写在了youyang_lab的urls.py里
 
+    # 前端代码输入页面， 待持续开发
+    path('code/',views.code, name='code'),
+
 ]
 
