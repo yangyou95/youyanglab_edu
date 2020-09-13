@@ -54,13 +54,24 @@
 
               <el-dropdown>
                 <span class="el-dropdown-link" style="font-size: 1.1em;">
-                  <a class="nav-link">用户中心<i class="el-icon-arrow-down el-icon--right"></i></a>
+                  <a class="nav-link avatar"><el-avatar :size="35" icon="el-icon-user-solid"></el-avatar></a>
                 </span>
-                <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item><a href="#">我的课程</a></el-dropdown-item>
-                  <el-dropdown-item><a href="#">我的资料</a></el-dropdown-item>
-                  <el-dropdown-item><a href="#">blabla</a></el-dropdown-item>
-                  <el-dropdown-item divided><a href="{% url 'webapp:logout'%}">退出登陆</a></el-dropdown-item>
+                <el-dropdown-menu slot="dropdown" class="menu">
+                  <el-dropdown-item>
+                    <el-avatar :size="50">user</el-avatar>
+                    <div class="profile">
+                      <a href="{% url 'webapp:user_url'%}">
+                        <span class="name">Name</span><br>
+                        view profile
+                      </a>
+                    </div>
+                  </el-dropdown-item>
+                  <el-dropdown-item divided>
+                    <a href="{% url 'webapp:logout'%}">
+                      <img class="icon" src="{% static 'webapp/images/icon/logout.svg' %}">
+                      <span class="logout">退出登陆</span>
+                    </a>
+                  </el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
 

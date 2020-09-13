@@ -38,6 +38,33 @@
     text-decoration: none;
 }
 
+.icon {
+    width: 15px;
+    height: 15px;
+}
+
+.menu {
+    width: 200px;
+}
+
+.profile {
+    display: inline-block;
+    padding-left: 10px;
+}
+
+.menu .name {
+    font-size: 1.25em;
+    font-weight: bolder;
+}
+
+.logout {
+    padding-left: 10px;
+}
+
+.nav-link.avatar {
+    margin-left: 10px;
+}
+
 /* footer */
 
 footer .left, footer .center, footer .right {

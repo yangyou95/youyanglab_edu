@@ -27,11 +27,10 @@ body {
     width: 30px;
 }
 
-.courses {
-    height: 400px;
+.courses-cards {
     overflow-y: auto;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    height: 400px;
+    padding: 10px;
 }
 
 .courses .card {
@@ -52,4 +51,15 @@ body {
 
 .courses .describe .title {
     font-size: 1.25em;
+}
+
+.myinfos, .mycourses {
+    font-size: 1.75em;
+    font-weight: bolder;
+    padding-top: 40px;
+    padding-bottom: 10px;
+}
+
+.mycourses {
+    padding-top: 50px;
 }
